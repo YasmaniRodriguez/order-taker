@@ -2,31 +2,31 @@ class shop {
     constructor(alias, description, share) {
         this.alias = alias;
         this.description = description;
-        this.share = "https://" + this.alias + ".ordertaker.com.ar";
+        this.share = share;
     }
 
-    get getAlias() {
+    get Alias() {
         return this.alias
     }
 
-    set setAlias(newAlias) {
+    set Alias(newAlias) {
         this.alias = newAlias;
     }
 
-    get getDescription() {
+    get Description() {
         return this.description
     }
 
-    set setDescription(newDescription) {
+    set Description(newDescription) {
         this.description = newDescription;
     }
 
-    get getShare() {
+    get Share() {
         return this.share
     }
 
-    set setShare() {
-        this.share = "https://" + alias + ".ordertaker.com.ar";
+    set Share() {
+        this.share = "https://" + this.alias + ".ordertaker.com.ar";
     }
 
 }

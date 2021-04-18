@@ -9,59 +9,59 @@ class product {
         this.reserved = reserved;
     }
     
-    get getName() {
+    get Name() {
         return this.name;
     }
 
-    set setName(newName) {
+    set Name(newName) {
         this.name = newName;
     }
 
-    get getDescription() {
+    get Description() {
         return this.description;
     }
 
-    set setDescription(newDescription) {
+    set Description(newDescription) {
         this.description = newDescription;
     }
 
-    get getCategory() {
+    get Category() {
         return this.category;
     }
 
-    set setCategory(newCategory) {
+    set Category(newCategory) {
         this.category = newCategory;
     }
 
-    get getImage() {
+    get Image() {
         return this.image;
     }
 
-    set setImage(newImage) {
+    set Image(newImage) {
         this.image = newImage;
     }
 
-    get getPrice() {
+    get Price() {
         return this.price;
     }
 
-    set setPrice(newPrice) {
+    set Price(newPrice) {
         this.price = newPrice;
     }
 
-    get getStock() {
+    get Stock() {
         return this.stock;
     }
 
-    set setStock(newStock) {
+    set Stock(newStock) {
         this.stock = newStock;
     }
 
-    get getReserved() {
+    get Reserved() {
         return this.reserved;
     }
 
-    set setReserved(newReserved) {
+    set Reserved(newReserved) {
         this.reserved = newReserved;
     }
 

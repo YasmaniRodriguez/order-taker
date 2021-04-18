@@ -1,12 +1,16 @@
-class orderrow {
-    constructor(product, quantity, price, discount) {
-        
-    }
-}
-
 class order {
-    constructor(ordernr, owner, status, datetime, [orderrow]) {
-
+    constructor(number, customer, orderrow) {
+        this.number = number;
+        this.customer = customer;
+        this.orderrow = orderrow;
     }
 }
 
+class orderrow {
+    constructor(product, quantity) {
+        this.product = product;
+        this.quantity = quantity;
+    }
+}
+
+export { order, orderrow };

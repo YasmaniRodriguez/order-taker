@@ -6,35 +6,35 @@ class category {
         this.parent = parent;
     }
 
-    get getName() {
+    get Name() {
         return this.name
     }
 
-    set setName(newName) {
+    set Name(newName) {
         this.name = newName;
     }
 
-    get getDescription() {
+    get Description() {
         return this.description
     }
 
-    set setDescription(newDescription) {
+    set Description(newDescription) {
         this.description = newDescription;
     }
 
-    get getImage() {
+    get Image() {
         return this.image;
     }
 
-    set setImage(newImage) {
+    set Image(newImage) {
         this.image = newImage;
     }
 
-    get getParent() {
+    get Parent() {
         return this.parent
     }
 
-    set setParent(newParent) {
+    set Parent(newParent) {
         this.parent = newParent;
     }
 }
