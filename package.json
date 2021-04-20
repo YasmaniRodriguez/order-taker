@@ -15,5 +15,6 @@
   "bugs": {
     "url": "https://github.com/YasmaniRodriguez/order-taker/issues"
   },
-  "homepage": "https://github.com/YasmaniRodriguez/order-taker#readme"
+  "homepage": "https://github.com/YasmaniRodriguez/order-taker#readme",
+  "dependencies": {}
 }

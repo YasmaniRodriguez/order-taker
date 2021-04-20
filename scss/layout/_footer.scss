@@ -1,0 +1,39 @@
+.page-footer {
+    height: 10vh;
+    background-color: darkturquoise;
+    display: flex;
+    justify-content: center;
+
+    .shopping-cart-container {
+        background-color: white;
+        height: 95px;
+        width: 95px;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        top: -40px;
+    }
+
+    .cart-button {
+        position: absolute;
+        width: 75px;
+        height: 75px;
+        border-radius: 50%;
+        box-shadow: 0px 0px 30px -6px black;
+        animation: pulsate-fwd 5s ease-in-out infinite both;
+        cursor: pointer;
+    }
+
+    .shopping-list {
+        display: none;
+        position:fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        padding: 30vh 20px;
+        background-color: rgba(0, 0, 0, 0.5);
+    }
+}

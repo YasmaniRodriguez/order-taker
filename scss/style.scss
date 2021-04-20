@@ -1,0 +1,13 @@
+@import 'generic/normalize';
+@import 'generic/extends';
+@import 'generic/mixins';
+@import 'generic/variables';
+@import 'generic/fonts';
+@import 'generic/animations';
+
+@import 'layout/header';
+@import 'layout/content';
+@import 'layout/footer';
+
+@import 'media/mobile';
+@import 'media/tablet';

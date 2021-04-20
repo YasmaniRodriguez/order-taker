@@ -1,0 +1,25 @@
+.page-header {
+    height: 10vh;
+    background-color: darkturquoise;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+    .toggle {
+        height: 50px;
+        width: 10vw;
+        background-color: white;
+    }
+
+    .search {
+        height: 50px;
+        width: 60vw;
+        background-color: white;
+    }
+
+    .account {
+        height: 50px;
+        width: 10vw;
+        background-color: white;
+    }
+}
