@@ -8,6 +8,8 @@
     <meta name="description" content="A Sales Order Taker Web App">
     <!-- page title -->
     <title>Order Taker</title>
+    <!--fontawesome icons-->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
     <!-- google fonts -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300&family=Montserrat:wght@900&family=Ranchers&display=swap&family=Ceviche+One&display=swap&family=Allura&display=swap&family=Ruthie&display=swap&family=Lovers+Quarrel&display=swap" rel="stylesheet">
@@ -23,16 +25,23 @@
 
     <div class="page-content">
 
-        <div class="breadcrumb-container"></div>
+        <div class="breadcrumb-container">
 
-        <div class="content product-category" id="pctg">
-            <div class="category" id="ctg01"></div>
-            <div class="category" id="ctg02"></div>
-            <div class="category" id="ctg03"></div>
-            <div class="category" id="ctg04"></div>
         </div>
 
-        <div class="content product-catalog" id="pctl">
+        <input type="radio" id="ctg01" name="ctg">
+        <input type="radio" id="ctg02" name="ctg">
+        <input type="radio" id="ctg03" name="ctg">
+        <input type="radio" id="ctg04" name="ctg">
+
+        <div class="content product-category">
+            <div class="category ctg01"></div>
+            <div class="category ctg02"></div>
+            <div class="category ctg03"></div>
+            <div class="category ctg04"></div>
+        </div>
+
+        <div class="content product-catalog">
             <div class="product ctg01" id="pdt01"></div>
             <div class="product ctg01" id="pdt02"></div>
             <div class="product ctg01" id="pdt03"></div>
@@ -60,12 +69,34 @@
     <footer class="page-footer">
 
         <div class="shopping-cart-container">
-            <!-- <a href="#list" id="cart"></a> -->
-            <div class="cart-button"></div>
-            <div class="shopping-list" id="list">
-                <div class="list-header"></div>
-                <div class="list-content"></div>
-                <div class="list-footer"></div>
+            
+            <div class="cart-button" onclick="document.getElementById('overlay').style.display='flex'">
+                <i class="fas fa-shopping-cart fa-2x"></i>
+            </div>
+
+            <div class="shopping-list" id="overlay">
+                <div class="pop-up" id="list">
+                    <div class="list-header">
+                        <a href="#" id="btn-close-pop-up" class="btn-close-pop-up" onclick="document.getElementById('overlay').style.display='none'"><i class="fas fa-times fa-2x"></i></a>
+                        <h3>casa de pizzas y empanadas</h3>
+                        <h4>orden de pedido</h4>
+                    </div>
+                    <div class="list-content">
+                        <div class="orderrow"></div>
+                        <div class="orderrow"></div>
+                        <div class="orderrow"></div>
+                        <div class="orderrow"></div>
+                        <div class="orderrow"></div>
+                        <div class="orderrow"></div>
+                        <div class="orderrow"></div>
+                        <div class="orderrow"></div>
+                        <div class="orderrow"></div>
+                        <div class="orderrow"></div>
+                    </div>
+                    <div class="list-footer">
+                        <div class="btn-submit">Enviar</div>
+                    </div>
+                </div>
             </div>
         </div>
 

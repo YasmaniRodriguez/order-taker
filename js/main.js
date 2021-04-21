@@ -16,37 +16,31 @@
 //     complete = prompt("Completado?");
 // }
 
-
 // orders.push(new order(ordernr, customer, orderrows));
 
 // console.log(orders);
 
-var categorySection = document.getElementById('pctg');
+////////////////////////////////////////////////////////////
 
-var productSection = document.getElementById('pctl');
+var category = document.getElementsByClassName('category');
+var cl = 1;
 
-var ctg01 = document.getElementById('ctg01');
-var ctg02 = document.getElementById('ctg02');
-var ctg03 = document.getElementById('ctg03');
-var ctg04 = document.getElementById('ctg04');
-
-function getProductCatalog() {
-    categorySection.style.display="none";
-    productSection.style.display="flex";
+var ctgId = (category[0].classList[cl]);
+category[0].onclick = function() {
+    document.getElementById(ctgId).checked = true;
 }
 
-ctg01.onclick = function() {
-    getProductCatalog();
+var ctgId = (category[1].classList[cl]);
+category[1].onclick = function() {
+    document.getElementById(ctgId).checked = true;
 }
 
-ctg02.onclick = function() {
-    getProductCatalog();
+var ctgId = (category[2].classList[cl]);
+category[2].onclick = function() {
+    document.getElementById(ctgId).checked = true;
 }
 
-ctg03.onclick = function() {
-    getProductCatalog();
-}
-
-ctg04.onclick = function() {
-    getProductCatalog();
+var ctgId = (category[3].classList[cl]);
+category[3].onclick = function() {
+    document.getElementById(ctgId).checked = true;
 }

@@ -1,6 +1,10 @@
 .page-content {
     min-height: 80vh;
 
+    input {
+        display: none;
+    }
+
     .breadcrumb-container {
         height: 10vh;
         background-color: blueviolet;
@@ -47,7 +51,7 @@
         flex-wrap: wrap;
 
         .product {
-            display: flex;
+            display: none;
             justify-content: center;
             align-items: center;
             width: 200px;
@@ -57,4 +61,36 @@
             cursor: pointer;
         }
     }
+}
+
+#ctg01:checked ~ .product-catalog {
+    display: flex;
+}
+
+#ctg01:checked ~ * .ctg01 {
+    display: flex;
+}
+
+#ctg02:checked ~ .product-catalog {
+    display: flex;
+}
+
+#ctg02:checked ~ * .ctg02 {
+    display: flex;
+}
+
+#ctg03:checked ~ .product-catalog {
+    display: flex;
+}
+
+#ctg03:checked ~ * .ctg03 {
+    display: flex;
+}
+
+#ctg04:checked ~ .product-catalog {
+    display: flex;
+}
+
+#ctg04:checked ~ * .ctg04 {
+    display: flex;
 }
