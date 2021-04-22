@@ -79,3 +79,5 @@ class product {
         this.reserved -= ReservedQty;
     }
 }
+
+export { product };

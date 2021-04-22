@@ -38,3 +38,5 @@ class category {
         this.parent = newParent;
     }
 }
+
+export { category };
