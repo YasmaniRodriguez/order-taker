@@ -1,4 +1,4 @@
-class category {
+class Category {
     constructor(name, description, parent, image) {
         this.name = name;
         this.description = description;
@@ -39,4 +39,4 @@ class category {
     }
 }
 
-export { category };
+export { Category };

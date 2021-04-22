@@ -1,4 +1,4 @@
-class shop {
+class Shop {
     constructor(alias, description, share) {
         this.alias = alias;
         this.description = description;

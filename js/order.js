@@ -1,4 +1,4 @@
-class order {
+class Order {
     constructor(number, customer, orderrow) {
         this.number = number;
         this.customer = customer;
@@ -6,11 +6,11 @@ class order {
     }
 }
 
-class orderrow {
+class OrderRow {
     constructor(product, quantity) {
         this.product = product;
         this.quantity = quantity;
     }
 }
 
-export { order, orderrow };
+export { Order, OrderRow };

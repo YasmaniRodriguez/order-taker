@@ -1,4 +1,4 @@
-class product {
+class Product {
     constructor(name, description, category, image, price, stock, reserved) {
         this.name = name;
         this.description = description;
@@ -65,19 +65,19 @@ class product {
         this.reserved = newReserved;
     }
 
-    reserveStock(ReservedQty) {
-        this.stock -= ReservedQty;
-        this.reserved += ReservedQty;
+    reserveStock(reservedQty) {
+        this.stock -= reservedQty;
+        this.reserved += reservedQty;
     }
 
-    cancelReservation(ReservedQty) {
-        this.reserved -= ReservedQty;
-        this.stock += ReservedQty;
+    cancelReservation(reservedQty) {
+        this.reserved -= reservedQty;
+        this.stock += reservedQty;
     }
     
-    closeReservation(ReservedQty) {
-        this.reserved -= ReservedQty;
+    closeReservation(reservedQty) {
+        this.reserved -= reservedQty;
     }
 }
 
-export { product };
+export { Product };
