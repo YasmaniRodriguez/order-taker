@@ -6,13 +6,13 @@
     }
 
     .breadcrumb-container {
-        height: 10vh;
-        background-color: blueviolet;
+        height: 5vh;
+        background-color: $color2;
         box-shadow: 0px 6px 5px -6px black;
     }
 
     .content {
-        height: 70vh;
+        height: 75vh;
         width: 100%;
         position: absolute;
         display: none;
@@ -25,6 +25,11 @@
         justify-content:space-around;
         align-items: center;
         flex-wrap: wrap;
+        background-image: url(/images/horno1.jpg);
+        background-size: cover;
+        background-repeat: no-repeat;
+        animation: kenburns-bottom-lef-top-right 30s linear infinite alternate;
+        position: relative;
 
         .category {
             display: flex;
@@ -32,15 +37,41 @@
             align-items: center;
             width: 200px;
             height: 200px;
-            box-shadow: 0px 0px 50px -.5px white;
-            background-color: blanchedalmond;
+            box-shadow: 0px 0px 50px -.5px black;
+            background-color: white;
             cursor: pointer;
+            border-radius: 5px;
+            text-transform:uppercase;
+            color: white;
 
             &:hover {
                 transform: scale(1.10);
             }
         }
 
+        .ctg01 {
+            background-image: url(/images/ctg01/ctg01.jpg);
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+        
+        .ctg02 {
+            background-image: url(/images/ctg02/ctg02.jpg);
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+        
+        .ctg03 {
+            background-image: url(/images/ctg03/ctg03.jpg);
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+        
+        .ctg04 {
+            background-image: url(/images/ctg04/ctg04.jpg);
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
     }
 
     .product-catalog {
@@ -49,6 +80,11 @@
         justify-content:space-around;
         align-items: center;
         flex-wrap: wrap;
+        background-image: url(/images/horno2.jpg);
+        background-size: cover;
+        background-repeat: no-repeat;
+        animation: kenburns-bottom-lef-top-right 30s linear infinite alternate;
+        position: relative;
 
         .product {
             display: none;
@@ -56,9 +92,132 @@
             align-items: center;
             width: 200px;
             height: 200px;
-            box-shadow: 0px 0px 50px -.5px white;
-            background-color: blanchedalmond;
+            box-shadow: 0px 0px 50px -.5px black;
+            background-color: white;
             cursor: pointer;
+            border-radius: 5px;
+            text-transform:uppercase;
+            color: white;
+        }
+        
+        #pdt01 {
+            background-image: url(/images/ctg01/pdt01.jpg);
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+
+        #pdt02 {
+            background-image: url(/images/ctg01/pdt02.jpg);
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+
+        #pdt03 {
+            background-image: url(/images/ctg01/pdt03.jpg);
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+
+        #pdt04 {
+            background-image: url(/images/ctg01/pdt04.jpg);
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+
+        #pdt05 {
+            background-image: url(/images/ctg01/pdt05.jpg);
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+
+        #pdt06 {
+            background-image: url(/images/ctg02/pdt06.jpg);
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+
+        #pdt07 {
+            background-image: url(/images/ctg02/pdt07.jpg);
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+
+        #pdt08 {
+            background-image: url(/images/ctg02/pdt08.jpg);
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+
+        #pdt09 {
+            background-image: url(/images/ctg02/pdt09.jpg);
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+
+        #pdt10 {
+            background-image: url(/images/ctg02/pdt10.jpg);
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+
+        #pdt11 {
+            background-image: url(/images/ctg03/pdt11.jpg);
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+
+        #pdt12 {
+            background-image: url(/images/ctg03/pdt12.jpg);
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+
+        #pdt13 {
+            background-image: url(/images/ctg03/pdt13.jpg);
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+
+        #pdt14 {
+            background-image: url(/images/ctg03/pdt14.jpg);
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+
+        #pdt15 {
+            background-image: url(/images/ctg03/pdt15.jpg);
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+
+        #pdt16 {
+            background-image: url(/images/ctg04/pdt16.jpg);
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+
+        #pdt17 {
+            background-image: url(/images/ctg04/pdt17.jpg);
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+
+        #pdt18 {
+            background-image: url(/images/ctg04/pdt18.jpg);
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+
+        #pdt19 {
+            background-image: url(/images/ctg04/pdt19.jpg);
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+
+        #pdt20 {
+            background-image: url(/images/ctg04/pdt20.jpg);
+            background-size: cover;
+            background-repeat: no-repeat;
         }
     }
 }
@@ -71,12 +230,20 @@
     display: flex;
 }
 
+#ctg01:checked ~ .product-category {
+    display: none;
+}
+
 #ctg02:checked ~ .product-catalog {
     display: flex;
 }
 
 #ctg02:checked ~ * .ctg02 {
     display: flex;
+}
+
+#ctg02:checked ~ .product-category {
+    display: none;
 }
 
 #ctg03:checked ~ .product-catalog {
@@ -87,10 +254,18 @@
     display: flex;
 }
 
+#ctg03:checked ~ .product-category {
+    display: none;
+}
+
 #ctg04:checked ~ .product-catalog {
     display: flex;
 }
 
 #ctg04:checked ~ * .ctg04 {
     display: flex;
+}
+
+#ctg04:checked ~ .product-category {
+    display: none;
 }

@@ -1,25 +1,29 @@
 .page-header {
     height: 10vh;
-    background-color: darkturquoise;
+    background-color: $color1;
     display: flex;
     justify-content: space-around;
     align-items: center;
 
     .toggle {
-        height: 50px;
-        width: 10vw;
-        background-color: white;
+        
     }
 
-    .search {
-        height: 50px;
-        width: 60vw;
-        background-color: white;
+    .brand {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        font-family: 'Lovers Quarrel', cursive;
+        font-size: 1.5rem;
+        max-height: 10vh;
+
+        p {
+            margin: 0;
+        }
     }
 
-    .account {
-        height: 50px;
-        width: 10vw;
-        background-color: white;
+    .promotion {
+
     }
 }
