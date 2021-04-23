@@ -29,7 +29,7 @@
         cursor: pointer;
     }
 
-    .shopping-list {
+    .overlay {
         display: none;
         position:fixed;
         top: 0;
@@ -42,7 +42,7 @@
         justify-content: center;
         align-items: center;
 
-        .pop-up {
+        .shopping-list {
             background-color: white;
             box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.3);
             border-radius: 3px;
@@ -84,7 +84,7 @@
                 }
             }
 
-            .list-content {
+            .list-body {
                 display: block;
                 padding: 20px 0px;
                 overflow-y: scroll;

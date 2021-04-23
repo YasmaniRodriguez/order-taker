@@ -44,28 +44,22 @@
                 <i class="fas fa-shopping-cart fa-2x"></i>
             </div>
 
-            <div class="shopping-list" id="overlay">
-                <div class="pop-up" id="list">
-                    <div class="list-header">
+            <div class="overlay" id="overlay">
+                
+                <div class="shopping-list" id="list">
+
+                    <div class="list-header" id="lh">
                         <a href="#" id="btn-close-pop-up" class="btn-close-pop-up" onclick="document.getElementById('overlay').style.display='none'"><i class="fas fa-times fa-2x"></i></a>
                         <h3>pizzas y empanadas</h3>
                         <h4>orden de pedido</h4>
                     </div>
-                    <div class="list-content">
-                        <div class="orderrow"></div>
-                        <div class="orderrow"></div>
-                        <div class="orderrow"></div>
-                        <div class="orderrow"></div>
-                        <div class="orderrow"></div>
-                        <div class="orderrow"></div>
-                        <div class="orderrow"></div>
-                        <div class="orderrow"></div>
-                        <div class="orderrow"></div>
-                        <div class="orderrow"></div>
-                    </div>
-                    <div class="list-footer">
+
+                    <div class="list-body" id="lb"></div>
+
+                    <div class="list-footer" id="lf">
                         <div class="btn-submit">Enviar</div>
                     </div>
+
                 </div>
             </div>
         </div>

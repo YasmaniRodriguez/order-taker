@@ -646,7 +646,7 @@ template {
   animation: pulsate-fwd 5s ease-in-out infinite both;
   cursor: pointer;
 }
-.page-footer .shopping-list {
+.page-footer .overlay {
   display: none;
   position: fixed;
   top: 0;
@@ -659,7 +659,7 @@ template {
   justify-content: center;
   align-items: center;
 }
-.page-footer .shopping-list .pop-up {
+.page-footer .overlay .shopping-list {
   background-color: white;
   box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.3);
   border-radius: 3px;
@@ -668,55 +668,55 @@ template {
   width: 80vw;
   height: 90vh;
 }
-.page-footer .shopping-list .pop-up .list-header {
+.page-footer .overlay .shopping-list .list-header {
   display: flex;
   flex-direction: column;
   min-height: 10vh;
 }
-.page-footer .shopping-list .pop-up .list-header .btn-close-pop-up {
+.page-footer .overlay .shopping-list .list-header .btn-close-pop-up {
   transition: 0.3s ease all;
   color: rgba(0, 0, 0, 0.719);
   width: 2vw;
   align-self: flex-end;
   padding: 5px 5px;
 }
-.page-footer .shopping-list .pop-up .list-header .btn-close-pop-up:hover {
+.page-footer .overlay .shopping-list .list-header .btn-close-pop-up:hover {
   color: black;
 }
-.page-footer .shopping-list .pop-up .list-header h3 {
+.page-footer .overlay .shopping-list .list-header h3 {
   font-size: 1.5rem;
   text-transform: uppercase;
   margin: 0;
   padding: 10px;
 }
-.page-footer .shopping-list .pop-up .list-header h4 {
+.page-footer .overlay .shopping-list .list-header h4 {
   font-size: 1rem;
   text-transform: uppercase;
   margin-bottom: 10px;
   margin: 0;
   padding: 10px;
 }
-.page-footer .shopping-list .pop-up .list-content {
+.page-footer .overlay .shopping-list .list-body {
   display: block;
   padding: 20px 0px;
   overflow-y: scroll;
   overflow-x: hidden;
   max-height: 50vh;
 }
-.page-footer .shopping-list .pop-up .list-content .orderrow {
+.page-footer .overlay .shopping-list .list-body .orderrow {
   width: 100%;
   height: 5vh;
   background-color: #a4a2a5;
   margin: 10px 0px;
 }
-.page-footer .shopping-list .pop-up .list-footer {
+.page-footer .overlay .shopping-list .list-footer {
   min-height: 10vh;
   display: flex;
   justify-content: center;
   align-items: center;
   width: 100%;
 }
-.page-footer .shopping-list .pop-up .list-footer .btn-submit {
+.page-footer .overlay .shopping-list .list-footer .btn-submit {
   background-color: #ffce9d;
   width: 10%;
   height: 2vh;
@@ -727,7 +727,7 @@ template {
   text-align: center;
   cursor: pointer;
 }
-.page-footer .shopping-list .pop-up .list-footer .btn-submit:hover {
+.page-footer .overlay .shopping-list .list-footer .btn-submit:hover {
   color: honeydew;
 }
 

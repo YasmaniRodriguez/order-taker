@@ -1,13 +1,13 @@
 class Order {
-    constructor(number, customer, orderrow) {
+    constructor(number, customer) {
         this.number = number;
         this.customer = customer;
-        this.orderrow = orderrow;
     }
 }
 
 class OrderRow {
-    constructor(product, quantity) {
+    constructor(order, product, quantity) {
+        this.order = order;
         this.product = product;
         this.quantity = quantity;
     }
