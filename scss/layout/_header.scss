@@ -5,17 +5,15 @@
     justify-content: space-around;
     align-items: center;
 
-    .toggle {
-        
+    .store-info-btn {
+        cursor: pointer;
     }
 
-    .brand {
+    .brand-container {
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        font-family: 'Lovers Quarrel', cursive;
-        font-size: 1.5rem;
         max-height: 10vh;
 
         p {
@@ -23,7 +21,7 @@
         }
     }
 
-    .promotion {
-
+    .promotion-info-btn {
+        cursor: pointer;
     }
 }

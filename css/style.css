@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
 /* Document
    ========================================================================== */
@@ -365,18 +366,23 @@ template {
   justify-content: space-around;
   align-items: center;
 }
-.page-header .brand {
+.page-header .store-info-btn {
+  cursor: pointer;
+}
+.page-header .brand-container {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  font-family: "Lovers Quarrel", cursive;
-  font-size: 1.5rem;
   max-height: 10vh;
 }
-.page-header .brand p {
+.page-header .brand-container p {
   margin: 0;
 }
+.page-header .promotion-info-btn {
+  cursor: pointer;
+}
+
 .page-content {
   min-height: 80vh;
 }
@@ -387,6 +393,24 @@ template {
   height: 5vh;
   background-color: #fffcf7;
   box-shadow: 0px 6px 5px -6px black;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+.page-content .breadcrumb-container .breadcrumb-item {
+  cursor: pointer;
+}
+.page-content .breadcrumb-container .breadcrumb-item .breadcrumb-link {
+  font-size: 2rem;
+  margin: 0;
+}
+.page-content .breadcrumb-container .category-section {
+  display: none;
+}
+.page-content .breadcrumb-container .category-section ::before {
+  content: "⟩";
+  margin: 0px 10px;
 }
 .page-content .content {
   height: 75vh;
@@ -401,11 +425,6 @@ template {
   justify-content: space-around;
   align-items: center;
   flex-wrap: wrap;
-  background-image: url(/images/horno1.jpg);
-  background-size: cover;
-  background-repeat: no-repeat;
-  animation: kenburns-bottom-lef-top-right 30s linear infinite alternate;
-  position: relative;
 }
 .page-content .product-category .category {
   display: flex;
@@ -449,11 +468,6 @@ template {
   justify-content: space-around;
   align-items: center;
   flex-wrap: wrap;
-  background-image: url(/images/horno2.jpg);
-  background-size: cover;
-  background-repeat: no-repeat;
-  animation: kenburns-bottom-lef-top-right 30s linear infinite alternate;
-  position: relative;
 }
 .page-content .product-catalog .product {
   display: none;
@@ -623,6 +637,9 @@ template {
   display: flex;
   justify-content: center;
 }
+.page-footer input {
+  display: none;
+}
 .page-footer .shopping-cart-container {
   background-color: white;
   height: 95px;
@@ -634,7 +651,7 @@ template {
   position: relative;
   top: -40px;
 }
-.page-footer .cart-button {
+.page-footer .shopping-cart-container .shopping-cart-btn {
   position: absolute;
   display: flex;
   justify-content: center;
@@ -659,7 +676,18 @@ template {
   justify-content: center;
   align-items: center;
 }
-.page-footer .overlay .shopping-list {
+.page-footer .overlay .overlay-close-btn {
+  transition: 0.3s ease all;
+  color: rgba(129, 61, 124, 0.719);
+  width: 2vw;
+  align-self: flex-end;
+  padding: 5px 5px;
+}
+.page-footer .overlay .overlay-close-btn:hover {
+  color: black;
+}
+.page-footer .overlay .ovlystr {
+  display: none;
   background-color: white;
   box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.3);
   border-radius: 3px;
@@ -668,67 +696,112 @@ template {
   width: 80vw;
   height: 90vh;
 }
-.page-footer .overlay .shopping-list .list-header {
+.page-footer .overlay .ovlypmt {
+  display: none;
+  background-color: white;
+  box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.3);
+  border-radius: 3px;
+  padding: 20px;
+  text-align: center;
+  width: 80vw;
+  height: 90vh;
+}
+.page-footer .overlay .ovlyodr {
+  display: none;
+  background-color: white;
+  box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.3);
+  border-radius: 3px;
+  padding: 20px;
+  text-align: center;
+  width: 80vw;
+  height: 90vh;
+}
+.page-footer .overlay .ovlyodr .order-header {
   display: flex;
   flex-direction: column;
   min-height: 10vh;
 }
-.page-footer .overlay .shopping-list .list-header .btn-close-pop-up {
-  transition: 0.3s ease all;
-  color: rgba(0, 0, 0, 0.719);
-  width: 2vw;
-  align-self: flex-end;
-  padding: 5px 5px;
-}
-.page-footer .overlay .shopping-list .list-header .btn-close-pop-up:hover {
-  color: black;
-}
-.page-footer .overlay .shopping-list .list-header h3 {
+.page-footer .overlay .ovlyodr .order-header h3 {
   font-size: 1.5rem;
   text-transform: uppercase;
   margin: 0;
   padding: 10px;
 }
-.page-footer .overlay .shopping-list .list-header h4 {
+.page-footer .overlay .ovlyodr .order-header h4 {
   font-size: 1rem;
   text-transform: uppercase;
   margin-bottom: 10px;
   margin: 0;
   padding: 10px;
 }
-.page-footer .overlay .shopping-list .list-body {
+.page-footer .overlay .ovlyodr .order-body {
   display: block;
   padding: 20px 0px;
   overflow-y: scroll;
   overflow-x: hidden;
   max-height: 50vh;
+  min-height: 50vh;
 }
-.page-footer .overlay .shopping-list .list-body .orderrow {
+.page-footer .overlay .ovlyodr .order-body .orderrow {
   width: 100%;
   height: 5vh;
   background-color: #a4a2a5;
   margin: 10px 0px;
 }
-.page-footer .overlay .shopping-list .list-footer {
+.page-footer .overlay .ovlyodr .order-footer {
   min-height: 10vh;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   width: 100%;
 }
-.page-footer .overlay .shopping-list .list-footer .btn-submit {
+.page-footer .overlay .ovlyodr .order-footer .order-summary {
+  display: flex;
+  flex-direction: column;
+  padding: 15px 0px;
+  width: 15vw;
+}
+.page-footer .overlay .ovlyodr .order-footer .order-summary .summary {
+  display: flex;
+}
+.page-footer .overlay .ovlyodr .order-footer .order-summary .summary :nth-child(1) {
+  text-align: left;
+  width: 50%;
+}
+.page-footer .overlay .ovlyodr .order-footer .order-summary .summary :nth-child(2) {
+  text-align: right;
+  width: 50%;
+}
+.page-footer .overlay .ovlyodr .order-footer .order-summary .summary p {
+  margin: 0;
+  padding: 5px 0px;
+}
+.page-footer .overlay .ovlyodr .order-footer .submit-order-btn {
   background-color: #ffce9d;
-  width: 10%;
+  width: 15vw;
   height: 2vh;
-  padding: 10px;
+  padding: 10px 0px;
   border-radius: 5px;
   display: flex;
   justify-content: center;
   text-align: center;
   cursor: pointer;
 }
-.page-footer .overlay .shopping-list .list-footer .btn-submit:hover {
+.page-footer .overlay .ovlyodr .order-footer .submit-order-btn:hover {
   color: honeydew;
+}
+
+#ovlystr:checked ~ * .ovlystr {
+  display: block;
+}
+
+#ovlypmt:checked ~ * .ovlypmt {
+  display: block;
+}
+
+#ovlyodr:checked ~ * .ovlyodr {
+  display: block;
 }
 
 /*# sourceMappingURL=style.css.map */

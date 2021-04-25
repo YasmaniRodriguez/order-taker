@@ -4,6 +4,10 @@
     display: flex;
     justify-content: center;
 
+    input {
+        display: none;
+    }
+
     .shopping-cart-container {
         background-color: white;
         height: 95px;
@@ -14,20 +18,22 @@
         align-items: center;
         position: relative;
         top: -40px;
+
+        .shopping-cart-btn {
+            position: absolute;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 75px;
+            height: 75px;
+            border-radius: 50%;
+            box-shadow: 0px 0px 30px -6px $color7;
+            animation: pulsate-fwd 5s ease-in-out infinite both;
+            cursor: pointer;
+        }
     }
 
-    .cart-button {
-        position: absolute;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 75px;
-        height: 75px;
-        border-radius: 50%;
-        box-shadow: 0px 0px 30px -6px $color7;
-        animation: pulsate-fwd 5s ease-in-out infinite both;
-        cursor: pointer;
-    }
+
 
     .overlay {
         display: none;
@@ -42,7 +48,42 @@
         justify-content: center;
         align-items: center;
 
-        .shopping-list {
+        .overlay-close-btn {
+            transition: 0.3s ease all;
+            color: rgba(129, 61, 124, 0.719);
+            width: 2vw;
+            align-self: flex-end;
+            padding: 5px 5px;
+
+            &:hover {
+                color: black;
+            }
+        }
+
+        .ovlystr {
+            display: none;
+            background-color: white;
+            box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.3);
+            border-radius: 3px;
+            padding: 20px;
+            text-align: center;
+            width: 80vw;
+            height: 90vh;
+        }
+
+        .ovlypmt {
+            display: none;
+            background-color: white;
+            box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.3);
+            border-radius: 3px;
+            padding: 20px;
+            text-align: center;
+            width: 80vw;
+            height: 90vh;
+        }
+
+        .ovlyodr {
+            display: none;
             background-color: white;
             box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.3);
             border-radius: 3px;
@@ -51,22 +92,10 @@
             width: 80vw;
             height: 90vh;
 
-            .list-header {
+            .order-header {
                 display: flex;
                 flex-direction: column;
                 min-height: 10vh;
-
-                .btn-close-pop-up {
-                    transition: 0.3s ease all;
-                    color: rgba(0, 0, 0, 0.719);
-                    width: 2vw;
-                    align-self: flex-end;
-                    padding: 5px 5px;
-
-                    &:hover {
-                        color: black;
-                    }
-                }
 
                 h3 {
                     font-size: 1.5rem;
@@ -84,12 +113,13 @@
                 }
             }
 
-            .list-body {
+            .order-body {
                 display: block;
                 padding: 20px 0px;
                 overflow-y: scroll;
                 overflow-x: hidden;
                 max-height: 50vh;
+                min-height: 50vh;
 
                 .orderrow {
                     width: 100%;
@@ -99,18 +129,46 @@
                 }
             }
 
-            .list-footer {
+            .order-footer {
                 min-height: 10vh;
                 display: flex;
+                flex-direction: column;
                 justify-content: center;
                 align-items: center;
                 width: 100%;
 
-                .btn-submit {
+                .order-summary {
+                    display: flex;
+                    flex-direction: column;
+                    padding: 15px 0px;
+                    width: 15vw;
+                    
+                    .summary {
+                        display: flex;
+
+                        :nth-child(1) {
+                            text-align: left;
+                            width: 50%;
+                        }
+
+                        :nth-child(2) {
+                            text-align: right;
+                            width: 50%;
+                        }
+
+                        p {
+                            margin: 0;
+                            padding: 5px 0px;
+                        }
+                    }
+
+                }
+
+                .submit-order-btn {
                     background-color: $color4;
-                    width: 10%;
+                    width: 15vw;
                     height: 2vh;
-                    padding: 10px;
+                    padding: 10px 0px;
                     border-radius: 5px;
                     display: flex;
                     justify-content: center;
@@ -124,4 +182,16 @@
             }
         }
     }
+}
+
+#ovlystr:checked ~ * .ovlystr {
+    display: block;
+}
+
+#ovlypmt:checked ~ * .ovlypmt {
+    display: block;
+}
+
+#ovlyodr:checked ~ * .ovlyodr {
+    display: block;
 }

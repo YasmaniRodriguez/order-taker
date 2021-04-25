@@ -17,18 +17,25 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <header class="page-header" id="pgh">
-        <div class="toggle"><i class="fas fa-bars fa-2x"></i></div>
-        <div class="brand">
-            <p>En el Horno!</p>
-            <p>Casa de Pizzas y Empanadas</p>
+    <header class="page-header" id="pghdr">
+
+        <div class="action store-info-btn"><i class="fas fa-bars fa-2x"></i></div>
+
+        <div class="brand-container">
+            <p>Store Name</p>
+            <p>Store Slogan</p>
         </div>
-        <div class="promotion"><i class="fas fa-percentage fa-2x"></i></div>
+
+        <div class="action promotion-info-btn"><i class="fas fa-percentage fa-2x"></i></div>
+
     </header>
 
-    <div class="page-content" id="pgc">
+    <div class="page-content" id="pgbdy">
 
-        <div class="breadcrumb-container"></div>
+        <div class="breadcrumb-container">
+            <div id="hs" class="breadcrumb-item home-section"><p class="breadcrumb-link">Home</p></div>
+            <div id="cs" class="breadcrumb-item category-section"><p class="breadcrumb-link">Category</p></div>
+        </div>
 
         <div class="content product-category" id="ctg"></div>
 
@@ -36,32 +43,74 @@
 
     </div>
 
-    <footer class="page-footer" id="pgf">
+    <footer class="page-footer" id="pgftr">
+
+        <input type="radio" id="ovlystr" name="ovly">
+        <input type="radio" id="ovlypmt" name="ovly">
+        <input type="radio" id="ovlyodr" name="ovly">
 
         <div class="shopping-cart-container">
-            
-            <div class="cart-button" onclick="document.getElementById('overlay').style.display='flex'">
+
+            <div class="action shopping-cart-btn">
                 <i class="fas fa-shopping-cart fa-2x"></i>
             </div>
 
-            <div class="overlay" id="overlay">
-                
-                <div class="shopping-list" id="list">
+        </div>
 
-                    <div class="list-header" id="lh">
-                        <a href="#" id="btn-close-pop-up" class="btn-close-pop-up" onclick="document.getElementById('overlay').style.display='none'"><i class="fas fa-times fa-2x"></i></a>
-                        <h3>pizzas y empanadas</h3>
-                        <h4>orden de pedido</h4>
+        <div class="overlay" id="overlay">
+
+            <div class="ovlystr">
+                <a href="#" class="overlay-close-btn"><i class="fas fa-times fa-2x"></i></a>
+                <p>info d ela tienda</p>
+            </div>
+    
+            <div class="ovlypmt">
+                <a href="#" class="overlay-close-btn"><i class="fas fa-times fa-2x"></i></a>
+                <p>promociones</p>
+            </div>
+
+            <div class="ovlyodr">
+
+                <a href="#" class="overlay-close-btn"><i class="fas fa-times fa-2x"></i></a>
+
+                <div class="order-header" id="ohdr">
+                    <h3>Store Name</h3>
+                    <h4>Mi pedido</h4>
+                </div>
+    
+                <div class="order-body" id="obdy"></div>
+    
+                <div class="order-footer" id="oftr">
+
+                    <div class="order-summary">
+                        <div class="summary subtotal">
+                            <p>Sub Total:</p>
+                            <p>0.00</p>
+                        </div>
+                        <div class="summary discount">
+                            <p>Descuentos:</p>
+                            <p>0.00</p>
+                        </div>
+                        <div class="summary taxable">
+                            <p>Base Imponible:</p>
+                            <p>0.00</p>
+                        </div>
+                        <div class="summary taxes">
+                            <p>Impuestos:</p>
+                            <p>0.00</p>
+                        </div>
+                        <div class="summary total">
+                            <p>Total:</p>
+                            <p>0.00</p>
+                        </div>
                     </div>
 
-                    <div class="list-body" id="lb"></div>
-
-                    <div class="list-footer" id="lf">
-                        <div class="btn-submit">Enviar</div>
-                    </div>
+                    <div class="submit-order-btn">Enviar</div>
 
                 </div>
+    
             </div>
+
         </div>
 
     </footer>
