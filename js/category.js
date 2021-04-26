@@ -5,9 +5,6 @@ class Category {
         this.image = image;
     }
 
-    buildHtmlCategory() {
-        
-    }
 }
 
 export { Category };
