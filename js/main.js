@@ -237,9 +237,7 @@ ovlycls[2].onclick = function() {
 //BREADCRUMB//
 
 var home = document.getElementById('hs');
-console.log(home);
 var allcheckctg = document.getElementsByName('ctg');
-console.log(allcheckctg);
 
 home.onclick = function() {
     breadcrumbcs.style.display = 'none';

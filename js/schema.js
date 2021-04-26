@@ -6,10 +6,10 @@ var products = [];
 
 const saveLocal = (key, value) => {localStorage.setItem(key, value)};
 
-categories.push(new Category("ctg01", "pizzas", null, "./images/ctg01/ctg01.jpg"));
-categories.push(new Category("ctg02", "tartas", null, "./images/ctg02/ctg02.jpg"));
-categories.push(new Category("ctg03", "empanadas", null, "./images/ctg03/ctg03.jpg"));
-categories.push(new Category("ctg04", "bebidas", null, "./images/ctg04/ctg04.jpg"));
+categories.push(new Category("ctg01", "pizzas", "./images/ctg01/ctg01.jpg"));
+categories.push(new Category("ctg02", "tartas", "./images/ctg02/ctg02.jpg"));
+categories.push(new Category("ctg03", "empanadas", "./images/ctg03/ctg03.jpg"));
+categories.push(new Category("ctg04", "bebidas", "./images/ctg04/ctg04.jpg"));
 
 products.push(new Product("pdt01", "mozzarella", "ctg01", "./images/ctg01/pdt01.jpg", null, null, null));
 products.push(new Product("pdt02", "jamón y morrones", "ctg01", "./images/ctg01/pdt02.jpg", null, null, null));
