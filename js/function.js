@@ -1,6 +1,6 @@
 function buildHtmlCategory(categories) {
     return `
-    <div class="category ${categories.name}">
+    <div class="category" id="${categories.name}">
         <p>${categories.description}</p>
         <img src="${categories.image}" alt="category image">
     </div>

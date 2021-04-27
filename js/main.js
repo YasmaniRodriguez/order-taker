@@ -1,5 +1,54 @@
 import './schema.js'
+import { buildHtmlCategory, buildHtmlProduct } from './function.js'
 import { Order, OrderRow} from './order.js'
+
+//mostrar productos al hacer click en categoria:
+var productCategory = document.getElementById('product-category');
+var productCatalog = document.getElementById('product-catalog');
+var category = document.getElementsByClassName('category');
+var product = document.getElementsByClassName('product');
+var homeBreadcrumb = document.getElementById('home-breadcrumb');
+var categoryBreadcrumb = document.getElementById('category-breadcrumb');
+
+
+for(const ctg of category) {
+    ctg.addEventListener("click", showProduct);
+}
+
+function showProduct(e) {
+    productCategory.style.display="none";
+    productCatalog.style.display="flex";
+    categoryBreadcrumb.style.display = 'inline-block';
+
+    let category = e.path[1].id;
+
+    for(const pdt of product) {
+        let pdtctg = pdt.classList[1];
+        if(pdtctg == category) {
+            pdt.style.display="flex";
+        }
+    }
+}
+
+homeBreadcrumb.onclick = function() {
+    productCategory.style.display="flex";
+    productCatalog.style.display="none";
+    categoryBreadcrumb.style.display="none";
+}
+
+//BREADCRUMB//
+
+// var home = document.getElementById('home-breadcrumb');
+// var allcheckctg = document.getElementsByName('ctg');
+
+// home.onclick = function() {
+//     breadcrumbcs.style.display = 'none';
+//     document.getElementById('ctg01').checked = false;
+//     document.getElementById('ctg02').checked = false;
+//     document.getElementById('ctg03').checked = false;
+//     document.getElementById('ctg04').checked = false;
+
+// }
 
 // //GESTION DE LA ORDEN DE PEDIDO//
 // const saveSession = (key, value) => {sessionStorage.setItem(key, value)};
@@ -169,18 +218,4 @@ import { Order, OrderRow} from './order.js'
 
 // ovlycls[2].onclick = function() {
 //     overlay.style.display='none';
-// }
-
-//BREADCRUMB//
-
-// var home = document.getElementById('hs');
-// var allcheckctg = document.getElementsByName('ctg');
-
-// home.onclick = function() {
-//     breadcrumbcs.style.display = 'none';
-//     document.getElementById('ctg01').checked = false;
-//     document.getElementById('ctg02').checked = false;
-//     document.getElementById('ctg03').checked = false;
-//     document.getElementById('ctg04').checked = false;
-
 // }
