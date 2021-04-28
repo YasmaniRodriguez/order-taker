@@ -1,5 +1,4 @@
 import './schema.js'
-import { buildHtmlCategory, buildHtmlProduct } from './function.js'
 import { Order, OrderRow} from './order.js'
 
 //mostrar productos al hacer click en categoria:
@@ -9,18 +8,20 @@ var category = document.getElementsByClassName('category');
 var product = document.getElementsByClassName('product');
 var homeBreadcrumb = document.getElementById('home-breadcrumb');
 var categoryBreadcrumb = document.getElementById('category-breadcrumb');
-
+var categoryBreadcrumbText = document.getElementById('ctgy-bdc-text');
 
 for(const ctg of category) {
     ctg.addEventListener("click", showProduct);
 }
 
 function showProduct(e) {
+    let category = e.path[1].id;
+    let categoryname = e.path[1].children[0].innerText;
+
     productCategory.style.display="none";
     productCatalog.style.display="flex";
     categoryBreadcrumb.style.display = 'inline-block';
-
-    let category = e.path[1].id;
+    categoryBreadcrumbText.innerHTML = categoryname;
 
     for(const pdt of product) {
         let pdtctg = pdt.classList[1];
@@ -30,25 +31,72 @@ function showProduct(e) {
     }
 }
 
-homeBreadcrumb.onclick = function() {
-    productCategory.style.display="flex";
-    productCatalog.style.display="none";
+//cerrar la vista de productos y regresar a la vista de categorias:
+homeBreadcrumb.addEventListener("click", showCategory);
+
+function showCategory(e) {
     categoryBreadcrumb.style.display="none";
+    productCatalog.style.display="none";
+
+    for(const pdt of product) {
+        pdt.style.display="none";
+    }
+
+    productCategory.style.display="flex";
 }
 
-//BREADCRUMB//
+//abrir y cerrar el oberlay:
+var overlay = document.getElementById('overlay');
+var storePopUp = document.getElementById('store-pop-up');
+var promotionPopUp = document.getElementById('promotion-pop-up');
+var orderPopUp = document.getElementById('order-pop-up');
+var goBackBtn = document.getElementById('go-back-btn');
 
-// var home = document.getElementById('home-breadcrumb');
-// var allcheckctg = document.getElementsByName('ctg');
+//seleccionar los 3 call-to-action que abriran el overlay:
+var actions = document.getElementsByClassName('action');
 
-// home.onclick = function() {
-//     breadcrumbcs.style.display = 'none';
-//     document.getElementById('ctg01').checked = false;
-//     document.getElementById('ctg02').checked = false;
-//     document.getElementById('ctg03').checked = false;
-//     document.getElementById('ctg04').checked = false;
+for(const act of actions) {
+    let storeInfoBtn = document.getElementById('store-info-btn');
+    let promotionInfoBtn = document.getElementById('promotion-info-btn');
+    let shoppingCartBtn = document.getElementById('shopping-cart-btn');
+    act.addEventListener("click",openOverlay);
+}
 
-// }
+function openOverlay(e) {
+    let actionid = e.path[1].id;
+    overlay.style.display="flex";
+    goBackBtn.style.display="flex";
+    console.log(closeOverlay);
+
+    while(actionid != "ESC") {
+        switch(actionid) {
+            case "store-info-btn":
+                storePopUp.style.display="block";
+                break;
+            case "promotion-info-btn":
+                promotionPopUp.style.display="block";
+                break
+            case "shopping-cart-btn":
+                orderPopUp.style.display="block";
+                break;
+            default:
+                console.log("cómo diablos hiciste para llegar aca?")
+                break;
+        }
+        actionid = "ESC"
+    }
+}
+
+goBackBtn.addEventListener("click",closeOverlay);
+
+function closeOverlay(e) {
+    let allCTApopUp = document.getElementsByClassName('cta-pop-up');
+    for(const popup of allCTApopUp) {
+        popup.style.display="none";
+    }
+    overlay.style.display="none";
+    goBackBtn.style.display="none";
+}
 
 // //GESTION DE LA ORDEN DE PEDIDO//
 // const saveSession = (key, value) => {sessionStorage.setItem(key, value)};
@@ -184,38 +232,3 @@ homeBreadcrumb.onclick = function() {
 //     orderrow.classList.add("orderrow");
 // }
 
-// //OVERLAY//
-// var overlay = document.getElementById('overlay');
-// var ovlystr = document.getElementById('ovlystr');
-// var ovlypmt = document.getElementById('ovlypmt');
-// var ovlyodr = document.getElementById('ovlyodr');
-// var ovlycls = document.getElementsByClassName('overlay-close-btn');
-
-// var actions = document.getElementsByClassName('action');
-
-// actions[0].onclick = function() {
-//     overlay.style.display='flex';
-//     ovlystr.checked = true;
-// }
-
-// actions[1].onclick = function() {
-//     overlay.style.display='flex';
-//     ovlypmt.checked = true;
-// }
-
-// actions[2].onclick = function() {
-//     overlay.style.display='flex';
-//     ovlyodr.checked = true;
-// }
-
-// ovlycls[0].onclick = function() {
-//     overlay.style.display='none';
-// }
-
-// ovlycls[1].onclick = function() {
-//     overlay.style.display='none';
-// }
-
-// ovlycls[2].onclick = function() {
-//     overlay.style.display='none';
-// }

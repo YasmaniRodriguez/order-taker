@@ -19,22 +19,22 @@
 <body>
     <header class="page-header" id="page-header">
 
-        <div class="action store-info-btn"><i class="fas fa-bars fa-2x"></i></div>
+        <div class="action" id="store-info-btn"><i class="fas fa-bars fa-2x"></i></div>
 
         <div class="brand-container">
             <p>Store Name</p>
             <p>Store Slogan</p>
         </div>
 
-        <div class="action promotion-info-btn"><i class="fas fa-percentage fa-2x"></i></div>
+        <div class="action" id="promotion-info-btn"><i class="fas fa-percentage fa-2x"></i></div>
 
     </header>
 
     <div class="page-content" id="page-content">
 
         <div class="breadcrumb-container">
-            <div id="home-breadcrumb" class="breadcrumb-item"><p class="breadcrumb-link">Home</p></div>
-            <div id="category-breadcrumb" class="breadcrumb-item"><p class="breadcrumb-link">Category</p></div>
+            <div id="home-breadcrumb" class="breadcrumb-item"><p id="home-bdc-text" class="breadcrumb-link">Home</p></div>
+            <div id="category-breadcrumb" class="breadcrumb-item"><p id="ctgy-bdc-text" class="breadcrumb-link"></p></div>
         </div>
 
         <div class="content category-page-section" id="product-category"></div>
@@ -45,13 +45,9 @@
 
     <footer class="page-footer" id="page-footer">
 
-        <input type="radio" id="ovlystr" name="ovly">
-        <input type="radio" id="ovlypmt" name="ovly">
-        <input type="radio" id="ovlyodr" name="ovly">
-
         <div class="shopping-cart-container">
 
-            <div class="action shopping-cart-btn">
+            <div class="action" id="shopping-cart-btn">
                 <i class="fas fa-shopping-cart fa-2x"></i>
             </div>
 
@@ -59,19 +55,15 @@
 
         <div class="overlay" id="overlay">
 
-            <div class="ovlystr">
-                <a href="#" class="overlay-close-btn"><i class="fas fa-times fa-2x"></i></a>
-                <p>info d ela tienda</p>
+            <div class="cta-pop-up ovlystr" id="store-pop-up">
+                <p>info de la tienda</p>
             </div>
     
-            <div class="ovlypmt">
-                <a href="#" class="overlay-close-btn"><i class="fas fa-times fa-2x"></i></a>
+            <div class="cta-pop-up ovlypmt" id="promotion-pop-up">
                 <p>promociones</p>
             </div>
 
-            <div class="ovlyodr">
-
-                <a href="#" class="overlay-close-btn"><i class="fas fa-times fa-2x"></i></a>
+            <div class="cta-pop-up ovlyodr" id="order-pop-up">
 
                 <div class="order-header" id="ohdr">
                     <h3>Store Name</h3>
@@ -109,6 +101,10 @@
 
                 </div>
     
+            </div>
+
+            <div id="go-back-btn">
+                <a href="#" class="overlay-close-btn"><i class="fas fa-times fa-3x"></i></a>
             </div>
 
         </div>

@@ -366,7 +366,7 @@ template {
   justify-content: space-around;
   align-items: center;
 }
-.page-header .store-info-btn {
+.page-header #store-info-btn {
   cursor: pointer;
 }
 .page-header .brand-container {
@@ -379,7 +379,7 @@ template {
 .page-header .brand-container p {
   margin: 0;
 }
-.page-header .promotion-info-btn {
+.page-header #promotion-info-btn {
   cursor: pointer;
 }
 
@@ -542,7 +542,7 @@ template {
   position: relative;
   top: -40px;
 }
-.page-footer .shopping-cart-container .shopping-cart-btn {
+.page-footer .shopping-cart-container #shopping-cart-btn {
   position: absolute;
   display: flex;
   justify-content: center;
@@ -556,6 +556,7 @@ template {
 }
 .page-footer .overlay {
   display: none;
+  flex-direction: column;
   position: fixed;
   top: 0;
   bottom: 0;
@@ -567,16 +568,6 @@ template {
   justify-content: center;
   align-items: center;
 }
-.page-footer .overlay .overlay-close-btn {
-  transition: 0.3s ease all;
-  color: rgba(129, 61, 124, 0.719);
-  width: 2vw;
-  align-self: flex-end;
-  padding: 5px 5px;
-}
-.page-footer .overlay .overlay-close-btn:hover {
-  color: black;
-}
 .page-footer .overlay .ovlystr {
   display: none;
   background-color: white;
@@ -585,7 +576,7 @@ template {
   padding: 20px;
   text-align: center;
   width: 80vw;
-  height: 90vh;
+  height: 85vh;
 }
 .page-footer .overlay .ovlypmt {
   display: none;
@@ -595,7 +586,7 @@ template {
   padding: 20px;
   text-align: center;
   width: 80vw;
-  height: 90vh;
+  height: 85vh;
 }
 .page-footer .overlay .ovlyodr {
   display: none;
@@ -605,7 +596,7 @@ template {
   padding: 20px;
   text-align: center;
   width: 80vw;
-  height: 90vh;
+  height: 85vh;
 }
 .page-footer .overlay .ovlyodr .order-header {
   display: flex;
@@ -682,17 +673,25 @@ template {
 .page-footer .overlay .ovlyodr .order-footer .submit-order-btn:hover {
   color: honeydew;
 }
-
-#ovlystr:checked ~ * .ovlystr {
-  display: block;
+.page-footer .overlay #go-back-btn {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.3);
+  border-radius: 3px;
+  padding: 20px;
+  text-align: center;
+  width: 80vw;
+  height: 5vh;
 }
-
-#ovlypmt:checked ~ * .ovlypmt {
-  display: block;
+.page-footer .overlay #go-back-btn .overlay-close-btn {
+  text-decoration: none;
+  transition: 0.3s ease all;
+  color: rgba(129, 61, 124, 0.719);
 }
-
-#ovlyodr:checked ~ * .ovlyodr {
-  display: block;
+.page-footer .overlay #go-back-btn .overlay-close-btn:hover {
+  color: black;
 }
 
 /*# sourceMappingURL=style.css.map */
