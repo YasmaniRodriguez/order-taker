@@ -94,64 +94,68 @@
             cursor: pointer;
             border-radius: 5px;
             text-transform:uppercase;
-            color: white;
-        }
+            color: black;
 
-        img {
-            height: 100%;
-            width: 100%;
-        }
+            .product-text {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                position: absolute;
+            }
 
-        p {
-            position: absolute;
+            img {
+                height: 100%;
+                width: 100%;
+            }
         }
     }
 }
 
-#ctg01:checked ~ .product-catalog {
-    display: flex;
-}
+// #ctg01:checked ~ .product-catalog {
+//     display: flex;
+// }
 
-#ctg01:checked ~ * .ctg01 {
-    display: flex;
-}
+// #ctg01:checked ~ * .ctg01 {
+//     display: flex;
+// }
 
-#ctg01:checked ~ .product-category {
-    display: none;
-}
+// #ctg01:checked ~ .product-category {
+//     display: none;
+// }
 
-#ctg02:checked ~ .product-catalog {
-    display: flex;
-}
+// #ctg02:checked ~ .product-catalog {
+//     display: flex;
+// }
 
-#ctg02:checked ~ * .ctg02 {
-    display: flex;
-}
+// #ctg02:checked ~ * .ctg02 {
+//     display: flex;
+// }
 
-#ctg02:checked ~ .product-category {
-    display: none;
-}
+// #ctg02:checked ~ .product-category {
+//     display: none;
+// }
 
-#ctg03:checked ~ .product-catalog {
-    display: flex;
-}
+// #ctg03:checked ~ .product-catalog {
+//     display: flex;
+// }
 
-#ctg03:checked ~ * .ctg03 {
-    display: flex;
-}
+// #ctg03:checked ~ * .ctg03 {
+//     display: flex;
+// }
 
-#ctg03:checked ~ .product-category {
-    display: none;
-}
+// #ctg03:checked ~ .product-category {
+//     display: none;
+// }
 
-#ctg04:checked ~ .product-catalog {
-    display: flex;
-}
+// #ctg04:checked ~ .product-catalog {
+//     display: flex;
+// }
 
-#ctg04:checked ~ * .ctg04 {
-    display: flex;
-}
+// #ctg04:checked ~ * .ctg04 {
+//     display: flex;
+// }
 
-#ctg04:checked ~ .product-category {
-    display: none;
-}
+// #ctg04:checked ~ .product-category {
+//     display: none;
+// }

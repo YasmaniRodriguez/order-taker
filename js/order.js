@@ -1,16 +1,16 @@
-class Order {
-    constructor(number, customer) {
-        this.number = number;
+class CustomerOrder {
+    constructor(customer, orderid) {
+        this.orderid = orderid;
         this.customer = customer;
     }
 }
 
-class OrderRow {
-    constructor(order, product, quantity) {
-        this.order = order;
+class CustomerOrderRow {
+    constructor(orderid, product, quantity) {
+        this.orderid = orderid;
         this.product = product;
         this.quantity = quantity;
     }
 }
 
-export { Order, OrderRow };
+export { CustomerOrder, CustomerOrderRow };

@@ -1,5 +1,6 @@
 import './schema.js'
-import { Order, OrderRow} from './order.js'
+import { createOrderID, createCustomerID } from './function.js';
+import { CustomerOrder, CustomerOrderRow} from './order.js'
 
 //mostrar productos al hacer click en categoria:
 var productCategory = document.getElementById('product-category');
@@ -98,7 +99,22 @@ function closeOverlay(e) {
     goBackBtn.style.display="none";
 }
 
-// //GESTION DE LA ORDEN DE PEDIDO//
+//crear una orden para la session:
+
+var orderId;
+
+orderId = sessionStorage.getItem('currentorder');
+
+if(orderId === null) {
+    let orderId = createOrderID();
+    sessionStorage.setItem('currentorder', orderId); 
+}
+
+//
+
+var customer = localStorage.getItem('customer');
+var orderId = sessionStorage.getItem('currentorder');
+
 // const saveSession = (key, value) => {sessionStorage.setItem(key, value)};
 // var orders = [];
 // orders.push(new Order("20210423132518", "357951080498135")); 

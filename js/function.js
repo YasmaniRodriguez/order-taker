@@ -10,20 +10,28 @@ function buildHtmlCategory(categories) {
 function buildHtmlProduct(products) {
     return `
     <div class="product ${products.category}" id="${products.name}">
-        <p>${products.description}</p>
+        <div class="product-text">
+            <p>${products.description}</p>
+            <p>${products.price}</p>
+        </div>
         <img src="${products.image}" alt="product image">
     </div>
     `
 }
 
-function createOrderID(){
+function createOrderID() {
+    let ouid = Date.now();
+    return ouid;
+}
+
+function createCustomerID(){
     var dt = new Date().getTime();
-    var uuid = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+    var cuid = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
         var r = (dt + Math.random()*16)%16 | 0;
         dt = Math.floor(dt/16);
         return (c=='x' ? r :(r&0x3|0x8)).toString(16);
     });
-    return uuid;
+    return cuid;
 }
 
-export { buildHtmlCategory, buildHtmlProduct, createOrderID };
+export { buildHtmlCategory, buildHtmlProduct, createOrderID, createCustomerID };
