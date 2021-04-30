@@ -1,6 +1,6 @@
 import './schema.js'
-import { createOrderID, createCustomerID } from './function.js';
-import { CustomerOrder, CustomerOrderRow} from './order.js'
+import { createOrderID, createCustomerID, buildHtmlOrderRow } from './function.js';
+import { Order, OrderRow} from './order.js'
 
 //mostrar productos al hacer click en categoria:
 var productCategory = document.getElementById('product-category');
@@ -17,12 +17,12 @@ for(const ctg of category) {
 
 function showProduct(e) {
     let category = e.path[1].id;
-    let categoryname = e.path[1].children[0].innerText;
+    let categoryName = e.path[1].children[0].innerText;
 
     productCategory.style.display="none";
     productCatalog.style.display="flex";
     categoryBreadcrumb.style.display = 'inline-block';
-    categoryBreadcrumbText.innerHTML = categoryname;
+    categoryBreadcrumbText.innerHTML = categoryName;
 
     for(const pdt of product) {
         let pdtctg = pdt.classList[1];
@@ -31,6 +31,10 @@ function showProduct(e) {
         }
     }
 }
+
+//animacion al hacer click en producto:
+
+
 
 //cerrar la vista de productos y regresar a la vista de categorias:
 homeBreadcrumb.addEventListener("click", showCategory);
@@ -64,13 +68,12 @@ for(const act of actions) {
 }
 
 function openOverlay(e) {
-    let actionid = e.path[1].id;
+    let actionId = e.path[1].id;
     overlay.style.display="flex";
     goBackBtn.style.display="flex";
-    console.log(closeOverlay);
 
-    while(actionid != "ESC") {
-        switch(actionid) {
+    while(actionId != "ESC") {
+        switch(actionId) {
             case "store-info-btn":
                 storePopUp.style.display="block";
                 break;
@@ -84,7 +87,7 @@ function openOverlay(e) {
                 console.log("cómo diablos hiciste para llegar aca?")
                 break;
         }
-        actionid = "ESC"
+        actionId = "ESC"
     }
 }
 
@@ -110,10 +113,29 @@ if(orderId === null) {
     sessionStorage.setItem('currentorder', orderId); 
 }
 
-//
+//customer order:
+var orderHeader = document.getElementById('ohdr');
+var orderNr = document.createElement("h3");
+orderNr.innerHTML = "Nro de Pedido: " + orderId;
+orderHeader.appendChild(orderNr);
+var orderBody = document.getElementById('obdy');
 
 var customer = localStorage.getItem('customer');
 var orderId = sessionStorage.getItem('currentorder');
+
+for(const pdt of product) {
+    pdt.addEventListener("click",addOrderRow);
+}
+
+function addOrderRow(e) {
+    console.dir(e);
+    let orderRow = document.createElement('div'); 
+    orderRow.innerHTML = buildHtmlOrderRow(e); 
+    orderBody.appendChild(orderRow);
+}
+
+
+
 
 // const saveSession = (key, value) => {sessionStorage.setItem(key, value)};
 // var orders = [];

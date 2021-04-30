@@ -19,6 +19,13 @@ function buildHtmlProduct(products) {
     `
 }
 
+function buildHtmlOrderRow(e) {
+    return `
+    <p>${e.path[1].children[0].children[0].innerText}</p>
+    <p>${e.path[1].children[0].children[1].innerText}</p>
+    `
+}
+
 function createOrderID() {
     let ouid = Date.now();
     return ouid;
@@ -34,4 +41,4 @@ function createCustomerID(){
     return cuid;
 }
 
-export { buildHtmlCategory, buildHtmlProduct, createOrderID, createCustomerID };
+export { buildHtmlCategory, buildHtmlProduct, createOrderID, createCustomerID, buildHtmlOrderRow };
