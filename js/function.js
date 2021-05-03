@@ -1,3 +1,5 @@
+import { categories, products} from './schema.js'
+
 function buildHtmlCategory(categories) {
     return `
     <div class="category" id="${categories.name}">
@@ -10,19 +12,35 @@ function buildHtmlCategory(categories) {
 function buildHtmlProduct(products) {
     return `
     <div class="product ${products.category}" id="${products.name}">
-        <div class="product-text">
-            <p>${products.description}</p>
-            <p>${products.price}</p>
+        <div class="product-description">
+            <div class="product-film"></div>
+            <div class="product-text">
+                <p>${products.description}</p>
+                <p>$ ${products.price}</p>
+            </div>
+            <img src=${products.image}>
         </div>
-        <img src="${products.image}" alt="product image">
+        <div class="product-qty">
+            <div class="qty"><i class="fas fa-minus fa-2x"></i></div>
+            <input id=${products.name}Qty class="pdtQty" type="text">
+            <div class="qty"><i class="fas fa-plus fa-2x"></i></div>
+        </div>
     </div>
     `
 }
 
-function buildHtmlOrderRow(e) {
+function buildHtmlOrderHeader() {
+    let customer = localStorage.getItem('customer');
+    let order = sessionStorage.getItem('order');
     return `
-    <p>${e.path[1].children[0].children[0].innerText}</p>
-    <p>${e.path[1].children[0].children[1].innerText}</p>
+    <div class="order-header-title">
+        <p>Cliente:</p>
+        <p>Pedido:</p>
+    </div>
+    <div class="order-header-data">
+        <p>${customer}</p>
+        <p>${order}</p>
+    </div>
     `
 }
 
@@ -41,4 +59,35 @@ function createCustomerID(){
     return cuid;
 }
 
-export { buildHtmlCategory, buildHtmlProduct, createOrderID, createCustomerID, buildHtmlOrderRow };
+function buildHtmlOrderRow (e, qty) {
+    let orderBody = document.getElementById('obdy');
+    let ctgid = e.path[2].classList[1];
+    let pdtid = e.path[2].id;
+    let icon;
+    let product;
+    let orderRow = document.createElement("div");
+    orderRow.classList.add("orderrow");
+
+    for(const ctg of categories) {
+        if(ctg.name === ctgid) {
+            icon = ctg.icon;
+        }
+    }
+
+    for(const pdt of products) {
+        if(pdt.name === pdtid) {
+            product = pdt.description;
+        }
+    }
+
+    orderRow.innerHTML = `
+    <img src=${icon}>
+    <p>${product} </p>
+    <p>${qty}</p>
+    `
+    
+    orderBody.appendChild(orderRow);
+
+}
+
+export { buildHtmlCategory, buildHtmlProduct, createOrderID, createCustomerID, buildHtmlOrderHeader, buildHtmlOrderRow };

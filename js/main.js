@@ -1,12 +1,13 @@
 import './schema.js'
-import { createOrderID, createCustomerID, buildHtmlOrderRow } from './function.js';
+import { categories, products} from './schema.js'
+import { buildHtmlOrderHeader, buildHtmlOrderRow } from './function.js';
 import { Order, OrderRow} from './order.js'
 
 //mostrar productos al hacer click en categoria:
 var productCategory = document.getElementById('product-category');
 var productCatalog = document.getElementById('product-catalog');
 var category = document.getElementsByClassName('category');
-var product = document.getElementsByClassName('product');
+var productContainer = document.getElementsByClassName('product');
 var homeBreadcrumb = document.getElementById('home-breadcrumb');
 var categoryBreadcrumb = document.getElementById('category-breadcrumb');
 var categoryBreadcrumbText = document.getElementById('ctgy-bdc-text');
@@ -24,17 +25,13 @@ function showProduct(e) {
     categoryBreadcrumb.style.display = 'inline-block';
     categoryBreadcrumbText.innerHTML = categoryName;
 
-    for(const pdt of product) {
+    for(const pdt of productContainer) {
         let pdtctg = pdt.classList[1];
         if(pdtctg == category) {
             pdt.style.display="flex";
         }
     }
 }
-
-//animacion al hacer click en producto:
-
-
 
 //cerrar la vista de productos y regresar a la vista de categorias:
 homeBreadcrumb.addEventListener("click", showCategory);
@@ -43,14 +40,14 @@ function showCategory(e) {
     categoryBreadcrumb.style.display="none";
     productCatalog.style.display="none";
 
-    for(const pdt of product) {
+    for(const pdt of productContainer) {
         pdt.style.display="none";
     }
 
     productCategory.style.display="flex";
 }
 
-//abrir y cerrar el oberlay:
+//abrir y cerrar el overlay:
 var overlay = document.getElementById('overlay');
 var storePopUp = document.getElementById('store-pop-up');
 var promotionPopUp = document.getElementById('promotion-pop-up');
@@ -102,171 +99,19 @@ function closeOverlay(e) {
     goBackBtn.style.display="none";
 }
 
-//crear una orden para la session:
-
-var orderId;
-
-orderId = sessionStorage.getItem('currentorder');
-
-if(orderId === null) {
-    let orderId = createOrderID();
-    sessionStorage.setItem('currentorder', orderId); 
-}
-
-//customer order:
+//agregar nro de cliente y nro de orden a encabezado de la orden:
 var orderHeader = document.getElementById('ohdr');
-var orderNr = document.createElement("h3");
-orderNr.innerHTML = "Nro de Pedido: " + orderId;
-orderHeader.appendChild(orderNr);
-var orderBody = document.getElementById('obdy');
+orderHeader.innerHTML = buildHtmlOrderHeader();
 
-var customer = localStorage.getItem('customer');
-var orderId = sessionStorage.getItem('currentorder');
+//agregar productos al pedido:
+var pdtQty = document.getElementsByClassName('pdtQty');
 
-for(const pdt of product) {
-    pdt.addEventListener("click",addOrderRow);
+for(const pdt of pdtQty) {
+    pdt.addEventListener("click",addRow);
 }
 
-function addOrderRow(e) {
-    console.dir(e);
-    let orderRow = document.createElement('div'); 
-    orderRow.innerHTML = buildHtmlOrderRow(e); 
-    orderBody.appendChild(orderRow);
+function addRow(e) {
+    let pdtQty = e.path[0].id;
+    let qty = document.getElementById(pdtQty).value;
+    buildHtmlOrderRow(e, qty);
 }
-
-
-
-
-// const saveSession = (key, value) => {sessionStorage.setItem(key, value)};
-// var orders = [];
-// orders.push(new Order("20210423132518", "357951080498135")); 
-// saveSession('orders',JSON.stringify(orders));
-
-// const currentorder = JSON.parse(sessionStorage.getItem('orders'));
-
-// var orderheader = document.getElementsByClassName('ohdr'); 
-// var orderbody = document.getElementById('obdy');
-// var orderfooter = document.getElementsByClassName('oftr');
-// var pdtcards = document.getElementsByClassName('product');
-// var ordercontainer = document.getElementById('order');
-
-// pdtcards[0].onclick = function() {
-//     let orderrow = document.createElement('div');
-//     orderbody.appendChild(orderrow);
-//     orderrow.classList.add("orderrow");
-// }
-
-// pdtcards[1].onclick = function() {
-//     let orderrow = document.createElement('div');
-//     orderbody.appendChild(orderrow);
-//     orderrow.classList.add("orderrow");
-// }
-
-// pdtcards[2].onclick = function() {
-//     let orderrow = document.createElement('div');
-//     orderbody.appendChild(orderrow);
-//     orderrow.classList.add("orderrow");
-// }
-
-// pdtcards[3].onclick = function() {
-//     let orderrow = document.createElement('div');
-//     orderbody.appendChild(orderrow);
-//     orderrow.classList.add("orderrow");
-// }
-
-// pdtcards[4].onclick = function() {
-//     let orderrow = document.createElement('div');
-//     orderbody.appendChild(orderrow);
-//     orderrow.classList.add("orderrow");
-// }
-
-// pdtcards[5].onclick = function() {
-//     let orderrow = document.createElement('div');
-//     orderbody.appendChild(orderrow);
-//     orderrow.classList.add("orderrow");
-// }
-
-// pdtcards[6].onclick = function() {
-//     let orderrow = document.createElement('div');
-//     orderbody.appendChild(orderrow);
-//     orderrow.classList.add("orderrow");
-// }
-
-// pdtcards[7].onclick = function() {
-//     let orderrow = document.createElement('div');
-//     orderbody.appendChild(orderrow);
-//     orderrow.classList.add("orderrow");
-// }
-
-// pdtcards[8].onclick = function() {
-//     let orderrow = document.createElement('div');
-//     orderbody.appendChild(orderrow);
-//     orderrow.classList.add("orderrow");
-// }
-
-// pdtcards[9].onclick = function() {
-//     let orderrow = document.createElement('div');
-//     orderbody.appendChild(orderrow);
-//     orderrow.classList.add("orderrow");
-// }
-
-// pdtcards[10].onclick = function() {
-//     let orderrow = document.createElement('div');
-//     orderbody.appendChild(orderrow);
-//     orderrow.classList.add("orderrow");
-// }
-
-// pdtcards[11].onclick = function() {
-//     let orderrow = document.createElement('div');
-//     orderbody.appendChild(orderrow);
-//     orderrow.classList.add("orderrow");
-// }
-
-// pdtcards[12].onclick = function() {
-//     let orderrow = document.createElement('div');
-//     orderbody.appendChild(orderrow);
-//     orderrow.classList.add("orderrow");
-// }
-
-// pdtcards[13].onclick = function() {
-//     let orderrow = document.createElement('div');
-//     orderbody.appendChild(orderrow);
-//     orderrow.classList.add("orderrow");
-// }
-
-// pdtcards[14].onclick = function() {
-//     let orderrow = document.createElement('div');
-//     orderbody.appendChild(orderrow);
-//     orderrow.classList.add("orderrow");
-// }
-
-// pdtcards[15].onclick = function() {
-//     let orderrow = document.createElement('div');
-//     orderbody.appendChild(orderrow);
-//     orderrow.classList.add("orderrow");
-// }
-
-// pdtcards[16].onclick = function() {
-//     let orderrow = document.createElement('div');
-//     orderbody.appendChild(orderrow);
-//     orderrow.classList.add("orderrow");
-// }
-
-// pdtcards[17].onclick = function() {
-//     let orderrow = document.createElement('div');
-//     orderbody.appendChild(orderrow);
-//     orderrow.classList.add("orderrow");
-// }
-
-// pdtcards[18].onclick = function() {
-//     let orderrow = document.createElement('div');
-//     orderbody.appendChild(orderrow);
-//     orderrow.classList.add("orderrow");
-// }
-
-// pdtcards[19].onclick = function() {
-//     let orderrow = document.createElement('div');
-//     orderbody.appendChild(orderrow);
-//     orderrow.classList.add("orderrow");
-// }
-
