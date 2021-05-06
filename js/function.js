@@ -12,19 +12,15 @@ function buildHtmlCategory(categories) {
 function buildHtmlProduct(products) {
     return `
     <div class="product ${products.category}" id="${products.name}">
-        <div class="product-description">
-            <div class="product-film"></div>
-            <div class="product-text">
-                <p>${products.description}</p>
-                <p>$ ${products.price}</p>
-            </div>
+        <i class="fas fa-plus fa-2x product-add-btn"></i>
+        <div class="product-galery">
             <img src=${products.image}>
         </div>
-        <div class="product-qty">
-            <div class="qty"><i class="fas fa-minus fa-2x"></i></div>
-            <input id=${products.name}Qty class="pdtQty" type="text">
-            <div class="qty"><i class="fas fa-plus fa-2x"></i></div>
+        <div class="product-description">
+            <p>${products.description}</p>
+            <p>$${products.price}</p>
         </div>
+        <div class="product-film"></div>
     </div>
     `
 }

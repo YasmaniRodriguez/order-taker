@@ -23,6 +23,9 @@ body {
   overflow-x: auto;
   overflow-y: hidden;
 }
+body p {
+  margin: 0;
+}
 
 /**
  * Render the `main` element consistently in IE.
@@ -386,9 +389,6 @@ template {
   align-items: center;
   max-height: 10vh;
 }
-.page-header .brand-container p {
-  margin: 0;
-}
 .page-header #promotion-info-btn {
   cursor: pointer;
 }
@@ -410,7 +410,6 @@ template {
 }
 .page-content .breadcrumb-container .breadcrumb-item .breadcrumb-link {
   font-size: 2rem;
-  margin: 0;
 }
 .page-content .breadcrumb-container #category-breadcrumb {
   display: none;
@@ -464,71 +463,39 @@ template {
   flex-wrap: wrap;
 }
 .page-content .product-page-section .product {
+  max-width: 10vw;
+  height: 30vh;
   display: none;
   flex-direction: column;
   justify-content: space-between;
-  width: 10vw;
-  height: 20vh;
   box-shadow: 0px 0px 50px -0.5px black;
   background-color: white;
-  border-radius: 5px;
-  text-transform: uppercase;
-  color: black;
   position: relative;
-}
-.page-content .product-page-section .product .product-description {
-  max-height: 15vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-.page-content .product-page-section .product .product-description .product-film {
-  height: 100%;
-  width: 100%;
-  background-color: turquoise;
-  position: absolute;
-  top: 0;
-  opacity: 0.1;
-  z-index: 2;
-}
-.page-content .product-page-section .product .product-description .product-text {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  z-index: 1;
-  position: absolute;
-  top: 15%;
-}
-.page-content .product-page-section .product .product-description img {
-  position: absolute;
-  top: 0;
-  width: 100%;
-  height: 100%;
-}
-.page-content .product-page-section .product .product-qty {
-  height: 5vh;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background-color: whitesmoke;
-  z-index: 3;
-}
-.page-content .product-page-section .product .product-qty .qty {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 33%;
-  height: 100%;
   cursor: pointer;
 }
-.page-content .product-page-section .product .product-qty input {
-  width: 33%;
-  height: 60%;
-  border: none;
-  border-radius: 5px;
-  text-align: center;
+.page-content .product-page-section .product .product-galery {
+  max-height: 20vh;
+  min-height: 20vh;
+}
+.page-content .product-page-section .product .product-galery img {
+  width: 100%;
+  height: 100%;
+}
+.page-content .product-page-section .product .product-description {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-transform: uppercase;
+  color: black;
+}
+.page-content .product-page-section .product .product-film {
+  height: 100%;
+  width: 100%;
+  background-color: chartreuse;
+  position: absolute;
+  opacity: 0.25;
 }
 
 .page-footer {
@@ -536,9 +503,6 @@ template {
   background-color: #f7ebd5;
   display: flex;
   justify-content: center;
-}
-.page-footer input {
-  display: none;
 }
 .page-footer .shopping-cart-container {
   background-color: white;
@@ -562,139 +526,64 @@ template {
   box-shadow: 0px 0px 30px -6px #a4a2a5;
   animation: pulsate-fwd 5s ease-in-out infinite both;
   cursor: pointer;
+  opacity: 0.5;
 }
 .page-footer .overlay {
+  width: 100vw;
+  height: 100vh;
   display: none;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 99;
   position: fixed;
   top: 0;
   bottom: 0;
   left: 0;
   right: 0;
-  width: 100vw;
-  height: 100vh;
   background-color: rgba(0, 0, 0, 0.6);
-  justify-content: center;
-  align-items: center;
-  z-index: 99;
 }
-.page-footer .overlay .ovlystr {
+.page-footer .overlay .cta-pop-up {
+  width: 80vw;
+  height: 85vh;
   display: none;
   background-color: white;
   box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.3);
-  border-radius: 3px;
-  padding: 20px;
+  border-radius: 10px 10px 0px 0px;
   text-align: center;
-  width: 80vw;
-  height: 85vh;
 }
-.page-footer .overlay .ovlypmt {
-  display: none;
-  background-color: white;
-  box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.3);
-  border-radius: 3px;
-  padding: 20px;
-  text-align: center;
-  width: 80vw;
-  height: 85vh;
-}
-.page-footer .overlay .ovlyodr {
-  display: none;
-  background-color: white;
-  box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.3);
-  border-radius: 3px;
-  padding: 20px;
-  text-align: center;
-  width: 80vw;
-  height: 85vh;
-}
-.page-footer .overlay .ovlyodr .order-header {
+.page-footer .overlay .cta-pop-up .pop-up-header {
+  min-height: 10vh;
   display: flex;
   justify-content: space-around;
   align-items: center;
-  min-height: 10vh;
+  margin-bottom: 20px;
+  border-bottom: bisque solid 1px;
 }
-.page-footer .overlay .ovlyodr .order-header .order-header-title {
-  width: 10%;
-  display: flex;
-  flex-direction: column;
-  margin: 0;
-  align-items: flex-end;
-}
-.page-footer .overlay .ovlyodr .order-header .order-header-data {
-  width: 40%;
-  display: flex;
-  flex-direction: column;
-  margin: 0;
-  align-items: flex-end;
-}
-.page-footer .overlay .ovlyodr .order-body {
+.page-footer .overlay .cta-pop-up .pop-up-body {
+  max-height: 60vh;
+  min-height: 60vh;
   display: block;
   padding: 20px 0px;
   overflow-y: scroll;
   overflow-x: hidden;
-  max-height: 50vh;
-  min-height: 50vh;
 }
-.page-footer .overlay .ovlyodr .order-body .orderrow {
-  width: 100%;
-  height: 5vh;
-  background-color: #a4a2a5;
-  margin: 10px 0px;
-  display: flex;
-  justify-content: space-between;
-}
-.page-footer .overlay .ovlyodr .order-footer {
+.page-footer .overlay .cta-pop-up .pop-up-footer {
   min-height: 10vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 100%;
-}
-.page-footer .overlay .ovlyodr .order-footer .order-summary {
-  display: flex;
-  flex-direction: column;
-  padding: 15px 0px;
-  width: 15vw;
-}
-.page-footer .overlay .ovlyodr .order-footer .order-summary .summary {
-  display: flex;
-}
-.page-footer .overlay .ovlyodr .order-footer .order-summary .summary :nth-child(1) {
-  text-align: left;
-  width: 50%;
-}
-.page-footer .overlay .ovlyodr .order-footer .order-summary .summary :nth-child(2) {
-  text-align: right;
-  width: 50%;
-}
-.page-footer .overlay .ovlyodr .order-footer .order-summary .summary p {
-  margin: 0;
-  padding: 5px 0px;
-}
-.page-footer .overlay .ovlyodr .order-footer .submit-order-btn {
-  background-color: #ffce9d;
-  width: 15vw;
-  height: 2vh;
-  padding: 10px 0px;
-  border-radius: 5px;
-  display: flex;
-  justify-content: center;
-  text-align: center;
-  cursor: pointer;
-}
-.page-footer .overlay .ovlyodr .order-footer .submit-order-btn:hover {
-  color: honeydew;
+  margin-top: 20px;
+  border-top: bisque solid 1px;
 }
 .page-footer .overlay #go-back-btn {
   display: none;
   justify-content: center;
   align-items: center;
   background-color: white;
-  box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.3);
-  border-radius: 3px;
-  padding: 20px;
+  border-top: bisque solid 1px;
+  border-radius: 0px 0px 10px 10px;
   text-align: center;
   width: 80vw;
   height: 5vh;
@@ -706,6 +595,20 @@ template {
 }
 .page-footer .overlay #go-back-btn .overlay-close-btn:hover {
   color: black;
+}
+
+.product-add-btn {
+  width: 2.5vw;
+  height: 2.5vw;
+  background-color: #f7e8bd;
+  border-radius: 50px;
+  position: absolute;
+  bottom: 75px;
+  right: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
 }
 
 /*# sourceMappingURL=style.css.map */

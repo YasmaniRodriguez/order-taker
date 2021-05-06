@@ -100,7 +100,7 @@ function closeOverlay(e) {
 }
 
 //agregar nro de cliente y nro de orden a encabezado de la orden:
-var orderHeader = document.getElementById('ohdr');
+var orderHeader = document.getElementById('odr-hdr');
 orderHeader.innerHTML = buildHtmlOrderHeader();
 
 //agregar productos al pedido:
