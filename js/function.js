@@ -13,6 +13,7 @@ function buildHtmlProduct(products) {
     return `
     <div class="product ${products.category}" id="${products.name}">
         <i class="fas fa-plus fa-2x product-add-btn"></i>
+        <div class="action product-film"></div>
         <div class="product-galery">
             <img src=${products.image}>
         </div>
@@ -20,7 +21,6 @@ function buildHtmlProduct(products) {
             <p>${products.description}</p>
             <p>$${products.price}</p>
         </div>
-        <div class="product-film"></div>
     </div>
     `
 }

@@ -51,26 +51,31 @@ function showCategory(e) {
 var overlay = document.getElementById('overlay');
 var storePopUp = document.getElementById('store-pop-up');
 var promotionPopUp = document.getElementById('promotion-pop-up');
+var productPopUp = document.getElementById('product-pop-up');
 var orderPopUp = document.getElementById('order-pop-up');
 var goBackBtn = document.getElementById('go-back-btn');
 
-//seleccionar los 3 call-to-action que abriran el overlay:
+//seleccionar los call-to-action que abriran el overlay:
 var actions = document.getElementsByClassName('action');
 
 for(const act of actions) {
-    let storeInfoBtn = document.getElementById('store-info-btn');
-    let promotionInfoBtn = document.getElementById('promotion-info-btn');
-    let shoppingCartBtn = document.getElementById('shopping-cart-btn');
     act.addEventListener("click",openOverlay);
 }
 
 function openOverlay(e) {
-    let actionId = e.path[1].id;
+    let actionId = e.target.classList[1];
+    // let actionId = e.path[1].classList[1];
     overlay.style.display="flex";
     goBackBtn.style.display="flex";
+    console.log(e);
+    console.log(e.target.classList[1]);
 
     while(actionId != "ESC") {
+        console.log(actionId);
         switch(actionId) {
+            case "product-film":
+                productPopUp.style.display="block";
+                break;
             case "store-info-btn":
                 storePopUp.style.display="block";
                 break;
