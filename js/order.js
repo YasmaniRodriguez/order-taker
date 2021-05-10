@@ -10,6 +10,7 @@ class OrderRow {
         this.orderid = orderid;
         this.product = product;
         this.quantity = quantity;
+        this.amount = amount;
     }
 }
 

@@ -55,35 +55,33 @@ function createCustomerID(){
     return cuid;
 }
 
-function buildHtmlOrderRow (e, qty) {
-    let orderBody = document.getElementById('obdy');
-    let ctgid = e.path[2].classList[1];
-    let pdtid = e.path[2].id;
+//a revisar para implementar jquery:
+
+function buildHtmlOrderRow(e) {
+    let ctgid = e.target.parentNode.classList[1];
+    let pdtid = e.target.parentNode.id;
     let icon;
     let product;
-    let orderRow = document.createElement("div");
-    orderRow.classList.add("orderrow");
 
     for(const ctg of categories) {
-        if(ctg.name === ctgid) {
+        if(ctgid === ctg.name) {
             icon = ctg.icon;
         }
     }
 
     for(const pdt of products) {
-        if(pdt.name === pdtid) {
+        if(pdtid == pdt.name) {
             product = pdt.description;
         }
     }
 
-    orderRow.innerHTML = `
-    <img src=${icon}>
-    <p>${product} </p>
-    <p>${qty}</p>
+    return `
+    <div class="orderrow" id=${pdtid}>
+        <img src=${icon}>
+        <p>${product}</p>
+        <input type="number"> 
+    </div>
     `
-    
-    orderBody.appendChild(orderRow);
-
 }
 
 export { buildHtmlCategory, buildHtmlProduct, createOrderID, createCustomerID, buildHtmlOrderHeader, buildHtmlOrderRow };

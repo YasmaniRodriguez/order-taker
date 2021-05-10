@@ -611,4 +611,12 @@ template {
   z-index: 10;
 }
 
+#order-pop-up #odr-bdy .orderrow {
+  display: flex;
+}
+#order-pop-up #odr-bdy .orderrow img {
+  width: 40px;
+  height: 40px;
+}
+
 /*# sourceMappingURL=style.css.map */

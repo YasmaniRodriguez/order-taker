@@ -4,26 +4,23 @@ import { buildHtmlOrderHeader, buildHtmlOrderRow } from './function.js';
 import { Order, OrderRow} from './order.js'
 
 //mostrar productos al hacer click en categoria:
-var productCategory = document.getElementById('product-category');
-var productCatalog = document.getElementById('product-catalog');
-var category = document.getElementsByClassName('category');
-var productContainer = document.getElementsByClassName('product');
-var homeBreadcrumb = document.getElementById('home-breadcrumb');
-var categoryBreadcrumb = document.getElementById('category-breadcrumb');
-var categoryBreadcrumbText = document.getElementById('ctgy-bdc-text');
 
-for(const ctg of category) {
-    ctg.addEventListener("click", showProduct);
-}
+var productCategory = $("#product-category");
+var productCatalog = $("#product-catalog");
+var category = $(".category");
+var productContainer = $(".product");
+var homeBreadcrumb = $("#home-breadcrumb");
+var categoryBreadcrumb = $("#category-breadcrumb");
+var categoryBreadcrumbText = $("#ctgy-bdc-text");
 
-function showProduct(e) {
-    let category = e.path[1].id;
-    let categoryName = e.path[1].children[0].innerText;
+category.click(function(e) {
+    let category = e.currentTarget.id;
+    let categoryName = e.currentTarget.innerText;
 
-    productCategory.style.display="none";
-    productCatalog.style.display="flex";
-    categoryBreadcrumb.style.display = 'inline-block';
-    categoryBreadcrumbText.innerHTML = categoryName;
+    productCategory[0].style.display="none";
+    productCatalog[0].style.display="flex";
+    categoryBreadcrumb[0].style.display = 'inline-block';
+    categoryBreadcrumbText[0].innerHTML = categoryName;
 
     for(const pdt of productContainer) {
         let pdtctg = pdt.classList[1];
@@ -31,59 +28,49 @@ function showProduct(e) {
             pdt.style.display="flex";
         }
     }
-}
+});
 
 //cerrar la vista de productos y regresar a la vista de categorias:
-homeBreadcrumb.addEventListener("click", showCategory);
 
-function showCategory(e) {
-    categoryBreadcrumb.style.display="none";
-    productCatalog.style.display="none";
+homeBreadcrumb.click(function(e) {
+    categoryBreadcrumb[0].style.display="none";
+    productCatalog[0].style.display="none";
 
     for(const pdt of productContainer) {
         pdt.style.display="none";
     }
 
-    productCategory.style.display="flex";
-}
+    productCategory[0].style.display="flex";
+});
 
-//abrir y cerrar el overlay:
-var overlay = document.getElementById('overlay');
-var storePopUp = document.getElementById('store-pop-up');
-var promotionPopUp = document.getElementById('promotion-pop-up');
-var productPopUp = document.getElementById('product-pop-up');
-var orderPopUp = document.getElementById('order-pop-up');
-var goBackBtn = document.getElementById('go-back-btn');
+//abrir overlay:
 
-//seleccionar los call-to-action que abriran el overlay:
-var actions = document.getElementsByClassName('action');
+var overlay = $("#overlay");
+var storePopUp = $("#store-pop-up");
+var promotionPopUp = $("#promotion-pop-up");
+var productPopUp = $("#product-pop-up");
+var orderPopUp = $("#order-pop-up");
+var goBackBtn = $("#go-back-btn");
+var actions = $(".action");
 
-for(const act of actions) {
-    act.addEventListener("click",openOverlay);
-}
-
-function openOverlay(e) {
+actions.click(function(e) {
     let actionId = e.target.classList[1];
-    // let actionId = e.path[1].classList[1];
-    overlay.style.display="flex";
-    goBackBtn.style.display="flex";
-    console.log(e);
-    console.log(e.target.classList[1]);
-
+    overlay[0].style.display="flex";
+    goBackBtn[0].style.display="flex";
+    
     while(actionId != "ESC") {
-        console.log(actionId);
         switch(actionId) {
             case "product-film":
-                productPopUp.style.display="block";
+                productPopUp[0].style.display="block";
                 break;
             case "store-info-btn":
-                storePopUp.style.display="block";
+                storePopUp[0].style.display="block";
                 break;
             case "promotion-info-btn":
-                promotionPopUp.style.display="block";
+                promotionPopUp[0].style.display="block";
                 break
             case "shopping-cart-btn":
-                orderPopUp.style.display="block";
+                orderPopUp[0].style.display="block";
                 break;
             default:
                 console.log("cómo diablos hiciste para llegar aca?")
@@ -91,32 +78,29 @@ function openOverlay(e) {
         }
         actionId = "ESC"
     }
-}
+});
 
-goBackBtn.addEventListener("click",closeOverlay);
+//cerrar overlay:
 
-function closeOverlay(e) {
+goBackBtn.click(function(e) {
     let allCTApopUp = document.getElementsByClassName('cta-pop-up');
+
     for(const popup of allCTApopUp) {
         popup.style.display="none";
     }
-    overlay.style.display="none";
-    goBackBtn.style.display="none";
-}
+    overlay[0].style.display="none";
+    goBackBtn[0].style.display="none";
+});
+
 
 //agregar nro de cliente y nro de orden a encabezado de la orden:
-var orderHeader = document.getElementById('odr-hdr');
-orderHeader.innerHTML = buildHtmlOrderHeader();
+var orderHeader = $("#odr-hdr"); 
+orderHeader.append(buildHtmlOrderHeader());
 
 //agregar productos al pedido:
-var pdtQty = document.getElementsByClassName('pdtQty');
+var addPdt = $(".product-add-btn");
+var orderBody = $("#odr-bdy");
 
-for(const pdt of pdtQty) {
-    pdt.addEventListener("click",addRow);
-}
-
-function addRow(e) {
-    let pdtQty = e.path[0].id;
-    let qty = document.getElementById(pdtQty).value;
-    buildHtmlOrderRow(e, qty);
-}
+addPdt.click(function(e) {
+    orderBody.append(buildHtmlOrderRow(e));   
+});

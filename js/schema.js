@@ -42,28 +42,21 @@ var categories = JSON.parse(localStorage.getItem('categories'));
 var products = JSON.parse(localStorage.getItem('products'));
 
 //seleccionar los nodos:
-var productCategory = document.getElementById('product-category');
-var productCatalog = document.getElementById('product-catalog');
+var productCategory = $("#product-category");
+var productCatalog = $("#product-catalog"); 
 
 //insertar categorias de forma dinamica:
-productCategory.innerHTML = "";
-var html = '';
 categories.forEach(category => {
-    let categoryHtml = buildHtmlCategory(category);
-    return html = html + categoryHtml;
-});
+    let categoryHtml = '';
+    categoryHtml = categoryHtml + buildHtmlCategory(category);
+    productCategory.append(categoryHtml);
+})
 
-productCategory.innerHTML = html;
-
-//insertar productos de forma dinamica:
-productCatalog.innerHTML = "";
-html = '';
 products.forEach(product => {
-    let productHtml = buildHtmlProduct(product);
-    return html = html + productHtml;
-});
-
-productCatalog.innerHTML = html;
+    let productHtml = '';
+    productHtml = productHtml + buildHtmlProduct(product);
+    productCatalog.append(productHtml); 
+})
 
 //asignar identificador al cliente:
 
