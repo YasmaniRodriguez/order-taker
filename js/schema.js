@@ -80,28 +80,4 @@ if(order === null) {
     sessionStorage.setItem('order', order); 
 }
 
-//agregando productos de prueba a la orden:
-
-var orderBody = $("#odr-bdy");
-var test = products.filter(product => product.description.includes("carne"));
-
-test.forEach(pdt => {
-    let icon;
-
-    for(const ctg of categories) {
-        if(ctg.name === pdt.category) {
-            icon = ctg.icon;
-        }
-    }
-
-    orderBody.append(`<div class="orderrow ${pdt.name}">
-                        <img class="ctg-icon" src=${icon}>
-                        <p class="pdt-desc">${pdt.description}</p>
-                        <input class="pdt-qty" type="number">
-                        <i class="fas fa-times fa-2x"></i>
-                      </div>`)
-        
-});
-
-
 export { categories, products };
