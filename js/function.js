@@ -55,8 +55,6 @@ function createCustomerID(){
     return cuid;
 }
 
-//a revisar para implementar jquery:
-
 function buildHtmlOrderRow(e) {
     let ctgid = e.target.parentNode.classList[1];
     let pdtid = e.target.parentNode.id;
@@ -77,9 +75,11 @@ function buildHtmlOrderRow(e) {
 
     return `
     <div class="orderrow" id=${pdtid}>
-        <img src=${icon}>
-        <p>${product}</p>
-        <input type="number"> 
+        <img class="ctg-icon" src=${icon}>
+        <p class="pdt-name">${pdtid}</p>
+        <p class="pdt-desc">${product}</p>
+        <input class="pdt-qty" type="number">
+        <i class="fas fa-times fa-2x"></i>
     </div>
     `
 }

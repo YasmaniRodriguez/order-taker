@@ -97,10 +97,23 @@ goBackBtn.click(function(e) {
 var orderHeader = $("#odr-hdr"); 
 orderHeader.append(buildHtmlOrderHeader());
 
-//agregar productos al pedido:
+//agregar productos al pedido (no se permiten productos repetidos):
 var addPdt = $(".product-add-btn");
 var orderBody = $("#odr-bdy");
+var orderRow = $("#odr-bdy .orderrow");
+var mylist = [];
+
+for(const row of orderRow) {
+    let pdt = row.classList[1];
+    mylist.push(pdt);
+}
 
 addPdt.click(function(e) {
-    orderBody.append(buildHtmlOrderRow(e));   
+    let pdtid = e.target.parentNode.id;
+    let exist = mylist.find(pdt => pdt === pdtid);
+
+    if(typeof exist === 'undefined') {
+        orderBody.append(buildHtmlOrderRow(e));
+        mylist.push(pdtid);
+    }
 });
