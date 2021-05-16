@@ -581,20 +581,18 @@ template {
   display: none;
   justify-content: center;
   align-items: center;
-  background-color: white;
+  background-color: #813d7c;
   border-top: bisque solid 1px;
   border-radius: 0px 0px 10px 10px;
   text-align: center;
   width: 80vw;
   height: 5vh;
+  cursor: pointer;
 }
 .page-footer .overlay #go-back-btn .overlay-close-btn {
   text-decoration: none;
   transition: 0.3s ease all;
-  color: rgba(129, 61, 124, 0.719);
-}
-.page-footer .overlay #go-back-btn .overlay-close-btn:hover {
-  color: black;
+  color: white;
 }
 
 .product-add-btn {
@@ -619,15 +617,15 @@ template {
   align-items: center;
   justify-content: space-between;
 }
-#order-pop-up #odr-bdy .orderrow .ctg-icon {
-  width: 10vw;
+#order-pop-up #odr-bdy .orderrow .icon {
+  width: 5vw;
   height: 100%;
 }
-#order-pop-up #odr-bdy .orderrow .pdt-name {
+#order-pop-up #odr-bdy .orderrow .name {
   display: none;
 }
-#order-pop-up #odr-bdy .orderrow .pdt-desc {
-  width: 45vw;
+#order-pop-up #odr-bdy .orderrow .description {
+  width: 40vw;
   height: 100%;
   font-size: 1rem;
   text-transform: uppercase;
@@ -637,15 +635,40 @@ template {
   text-align: left;
   padding-left: 2vw;
 }
-#order-pop-up #odr-bdy .orderrow .pdt-qty {
-  width: 10vw;
+#order-pop-up #odr-bdy .orderrow .price {
+  width: 8vw;
   height: 100%;
-  border: none;
-  background-color: whitesmoke;
-  text-align: center;
+  font-size: 1rem;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  text-align: left;
+  padding-left: 2vw;
+  background-color: yellow;
 }
-#order-pop-up #odr-bdy .orderrow i {
-  width: 10vw;
+#order-pop-up #odr-bdy .orderrow .quantity {
+  width: 8vw;
+  height: 5vh;
+  border: none;
+  background-color: green;
+  text-align: center;
+  padding: 0px;
+}
+#order-pop-up #odr-bdy .orderrow .amount {
+  width: 8vw;
+  height: 100%;
+  font-size: 1rem;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  text-align: left;
+  padding-left: 2vw;
+  background-color: red;
+}
+#order-pop-up #odr-bdy .orderrow .remove {
+  width: 5vw;
   cursor: pointer;
 }
 

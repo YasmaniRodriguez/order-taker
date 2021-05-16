@@ -12,17 +12,17 @@
             align-items: center;
             justify-content: space-between;
 
-            .ctg-icon {
-                width: 10vw;
+            .icon {
+                width: 5vw;
                 height: 100%;
             }
 
-            .pdt-name {
+            .name {
                 display: none;
             }
 
-            .pdt-desc {
-                width: 45vw;
+            .description {
+                width: 40vw;
                 height: 100%;
                 font-size: 1rem;
                 text-transform: uppercase;
@@ -33,16 +33,43 @@
                 padding-left: 2vw;
             }
 
-            .pdt-qty {
-                width: 10vw;
+            .price {
+                width: 8vw;
                 height: 100%;
+                font-size: 1rem;
+                text-transform: uppercase;
+                display: flex;
+                align-items: center;
+                flex-wrap: wrap;
+                text-align: left;
+                padding-left: 2vw;
+                background-color: yellow;
+            }            
+
+            .quantity {
+                width: 8vw;
+                height: 5vh;
                 border: none;
-                background-color: whitesmoke;
+                background-color: green;
                 text-align: center;
+                padding: 0px;
             }
 
-            i {
-                width: 10vw;
+            .amount {
+                width: 8vw;
+                height: 100%;
+                font-size: 1rem;
+                text-transform: uppercase;
+                display: flex;
+                align-items: center;
+                flex-wrap: wrap;
+                text-align: left;
+                padding-left: 2vw;
+                background-color: red;
+            } 
+
+            .remove {
+                width: 5vw;
                 cursor: pointer;
             }
         }

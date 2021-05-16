@@ -1,7 +1,7 @@
 import './schema.js'
 import { categories, products} from './schema.js'
 import { buildHtmlOrderHeader, buildHtmlOrderRow } from './function.js';
-import { Order, OrderRow} from './order.js'
+import { Order } from './order.js'
 
 //mostrar productos al hacer click en categoria:
 
@@ -16,7 +16,7 @@ var categoryBreadcrumbText = $("#ctgy-bdc-text");
 category.click(function(e) {
     let category = e.currentTarget.id;
     let categoryName = e.currentTarget.innerText;
-
+    
     productCategory.hide();
     productCatalog.show() 
                   .css("display", "flex");
@@ -29,8 +29,6 @@ category.click(function(e) {
 
         if(pdtctg == category) {
             pdt.style.display="flex";
-            // pdt.show()
-            //    .css("display","flex");
         }
     }
 });
@@ -77,7 +75,9 @@ actions.click(function(e) {
                               .css("display","block");
                 break
             case "shopping-cart-btn":
-                let removePdt = $(".orderrow i");
+                let removePdt = $(".orderrow .remove");
+                let quantity = $(".orderrow .quantity");
+                
                 orderPopUp.show()
                           .css("display","block");
 
@@ -88,7 +88,17 @@ actions.click(function(e) {
                     orderRowHtml.remove(); //borra el div de la orderrow
                     var idx = mylist.indexOf(pdtid); //encuentra el indice del producto en la lista
                     mylist.splice(idx, 1); //elimina el producto de la lista a partir de su indice
+                });
+
+                //calcular monto:
+                quantity.change((e) => {
+                    let price = parseFloat(e.target.parentNode.children[3].innerHTML);
+                    let quantity = parseInt(e.target.value);
+                    let amount = e.target.parentNode.children[5];
+                    let calcRowAmount = quantity * price;
+                    amount.innerHTML = "$" + calcRowAmount;
                 })
+
                 break;
             default:
                 break;

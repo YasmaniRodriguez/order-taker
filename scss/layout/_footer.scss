@@ -99,21 +99,18 @@
             display: none;
             justify-content: center;
             align-items: center;
-            background-color: white;
+            background-color: rgba(129, 61, 124, 1);
             border-top: bisque solid 1px;
             border-radius: 0px 0px 10px 10px;
             text-align: center;
             width: 80vw;
             height: 5vh;
+            cursor: pointer;
 
             .overlay-close-btn {
                 text-decoration: none;
                 transition: 0.3s ease all;
-                color: rgba(129, 61, 124, 0.719);
-
-                &:hover {
-                    color: black;
-                }
+                color: white;
             }
         }
     }

@@ -60,6 +60,7 @@ function buildHtmlOrderRow(e) {
     let pdtid = e.target.parentNode.id;
     let icon;
     let product;
+    let price;
 
     for(const ctg of categories) {
         if(ctgid === ctg.name) {
@@ -70,16 +71,19 @@ function buildHtmlOrderRow(e) {
     for(const pdt of products) {
         if(pdtid == pdt.name) {
             product = pdt.description;
+            price = pdt.price;
         }
     }
 
     return `
     <div class="orderrow ${pdtid}">
-        <img class="ctg-icon" src=${icon}>
-        <p class="pdt-name">${pdtid}</p>
-        <p class="pdt-desc">${product}</p>
-        <input class="pdt-qty" type="number">
-        <i class="fas fa-times fa-2x"></i>
+        <img class="icon" src=${icon}>
+        <p class="name">${pdtid}</p>
+        <p class="description">${product}</p>
+        <p class="price">${price}</p>
+        <input class="quantity" type="number">
+        <p class="amount"></p>
+        <i class="remove fas fa-times fa-2x"></i>
     </div>
     `
 }
