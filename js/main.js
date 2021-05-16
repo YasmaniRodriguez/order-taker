@@ -117,7 +117,7 @@ orderHeader.append(buildHtmlOrderHeader());
 //agregar productos al pedido (no se permiten productos repetidos):
 var addPdt = $(".product-add-btn");
 var orderBody = $("#odr-bdy");
-var mylist = [];
+var mylist = []; //crea una lista con los productos que se agregan a la lista
 
 addPdt.click(function(e) {
     let pdtid = e.target.parentNode.id;
