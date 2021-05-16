@@ -74,7 +74,7 @@ function buildHtmlOrderRow(e) {
     }
 
     return `
-    <div class="orderrow" id=${pdtid}>
+    <div class="orderrow ${pdtid}">
         <img class="ctg-icon" src=${icon}>
         <p class="pdt-name">${pdtid}</p>
         <p class="pdt-desc">${product}</p>

@@ -17,15 +17,20 @@ category.click(function(e) {
     let category = e.currentTarget.id;
     let categoryName = e.currentTarget.innerText;
 
-    productCategory[0].style.display="none";
-    productCatalog[0].style.display="flex";
-    categoryBreadcrumb[0].style.display = 'inline-block';
+    productCategory.hide();
+    productCatalog.show() 
+                  .css("display", "flex");
+
+    categoryBreadcrumb.show();
     categoryBreadcrumbText[0].innerHTML = categoryName;
 
     for(const pdt of productContainer) {
         let pdtctg = pdt.classList[1];
+
         if(pdtctg == category) {
             pdt.style.display="flex";
+            // pdt.show()
+            //    .css("display","flex");
         }
     }
 });
@@ -33,14 +38,11 @@ category.click(function(e) {
 //cerrar la vista de productos y regresar a la vista de categorias:
 
 homeBreadcrumb.click(function(e) {
-    categoryBreadcrumb[0].style.display="none";
-    productCatalog[0].style.display="none";
-
-    for(const pdt of productContainer) {
-        pdt.style.display="none";
-    }
-
-    productCategory[0].style.display="flex";
+    categoryBreadcrumb.hide();
+    productCatalog.hide();
+    productContainer.hide();
+    productCategory.show() 
+                   .css("display", "flex");
 });
 
 //abrir overlay:
@@ -55,25 +57,40 @@ var actions = $(".action");
 
 actions.click(function(e) {
     let actionId = e.target.classList[1];
-    overlay[0].style.display="flex";
-    goBackBtn[0].style.display="flex";
+    overlay.show()
+           .css("display", "flex");
+    goBackBtn.show()
+             .css("display", "flex");
     
     while(actionId != "ESC") {
         switch(actionId) {
             case "product-film":
-                productPopUp[0].style.display="block";
+                productPopUp.show()
+                            .css("display","block");
                 break;
             case "store-info-btn":
-                storePopUp[0].style.display="block";
+                storePopUp.show()
+                          .css("display","block");
                 break;
             case "promotion-info-btn":
-                promotionPopUp[0].style.display="block";
+                promotionPopUp.show()
+                              .css("display","block");
                 break
             case "shopping-cart-btn":
-                orderPopUp[0].style.display="block";
+                let removePdt = $(".orderrow i");
+                orderPopUp.show()
+                          .css("display","block");
+
+                //eliminar productos de la orden:          
+                removePdt.click(function(e){
+                    let orderRowHtml = e.target.parentNode;
+                    let pdtid = e.target.parentNode.classList[1];
+                    orderRowHtml.remove(); //borra el div de la orderrow
+                    var idx = mylist.indexOf(pdtid); //encuentra el indice del producto en la lista
+                    mylist.splice(idx, 1); //elimina el producto de la lista a partir de su indice
+                })
                 break;
             default:
-                console.log("cómo diablos hiciste para llegar aca?")
                 break;
         }
         actionId = "ESC"
@@ -83,7 +100,7 @@ actions.click(function(e) {
 //cerrar overlay:
 
 goBackBtn.click(function(e) {
-    let allCTApopUp = document.getElementsByClassName('cta-pop-up');
+    let allCTApopUp = $(".cta-pop-up");
 
     for(const popup of allCTApopUp) {
         popup.style.display="none";
@@ -100,13 +117,7 @@ orderHeader.append(buildHtmlOrderHeader());
 //agregar productos al pedido (no se permiten productos repetidos):
 var addPdt = $(".product-add-btn");
 var orderBody = $("#odr-bdy");
-var orderRow = $("#odr-bdy .orderrow");
 var mylist = [];
-
-for(const row of orderRow) {
-    let pdt = row.classList[1];
-    mylist.push(pdt);
-}
 
 addPdt.click(function(e) {
     let pdtid = e.target.parentNode.id;

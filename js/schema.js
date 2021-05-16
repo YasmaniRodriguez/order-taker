@@ -1,5 +1,6 @@
 import { Category } from './category.js'
 import { Product } from './product.js'
+import { Store } from './store.js'
 import { buildHtmlCategory, buildHtmlProduct, createOrderID, createCustomerID } from './function.js'
 
 //crear los objetos:
@@ -32,20 +33,26 @@ products.push(new Product("pdt18", "cerveza", "ctg04", "images/ctg04/pdt18.jpg",
 products.push(new Product("pdt19", "jugo", "ctg04", "images/ctg04/pdt19.jpg", 45, 1000, 0));
 products.push(new Product("pdt20", "agua sin gas", "ctg04", "images/ctg04/pdt20.jpg", 45, 1000, 0));
 
-//guardar los objetos en el localstorage:
+var store = new Store("La Mazona", "Pizzas y Empanadas", "la-mazona", "", "https://api.whatsapp.com/send?phone=5491112345678", "info@mia-nonna.com.ar", "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d273.97894706163845!2d-58.507368001414186!3d-34.60323132101054!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bcb632a3084ab9%3A0x500566ebdf11ee9!2sLa%20Mazona%20Pizzer%C3%ADa!5e0!3m2!1ses!2sar!4v1620960313938!5m2!1ses!2sar");
+store.setShare();
 
+//guardar los objetos en el localstorage:
 localStorage.setItem('categories', JSON.stringify(categories));
 localStorage.setItem('products', JSON.stringify(products));
+localStorage.setItem('store', JSON.stringify(store));
 
 //sacar los objetos del localstorage:
-var categories = JSON.parse(localStorage.getItem('categories'));
-var products = JSON.parse(localStorage.getItem('products'));
+categories = JSON.parse(localStorage.getItem('categories'));
+products = JSON.parse(localStorage.getItem('products'));
+store = JSON.parse(localStorage.getItem('store'));
 
-//seleccionar los nodos:
+//info de la tienda:
+
+
+//insertar categorias de forma dinamica:
 var productCategory = $("#product-category");
 var productCatalog = $("#product-catalog"); 
 
-//insertar categorias de forma dinamica:
 categories.forEach(category => {
     let categoryHtml = '';
     categoryHtml = categoryHtml + buildHtmlCategory(category);
@@ -59,7 +66,6 @@ products.forEach(product => {
 })
 
 //asignar identificador al cliente:
-
 var customer;
 
 customer = localStorage.getItem('customer');
@@ -70,7 +76,6 @@ if(customer === null) {
 }
 
 //crear una orden para la session:
-
 var order;
 
 order = sessionStorage.getItem('order');
@@ -79,5 +84,29 @@ if(order === null) {
     let order = createOrderID();
     sessionStorage.setItem('order', order); 
 }
+
+//para agregar promosiones:
+
+// var orderBody = $("#odr-bdy");
+// var test = products.filter(product => product.description.includes("carne"));
+
+// test.forEach(pdt => {
+//     let icon;
+
+//     for(const ctg of categories) {
+//         if(ctg.name === pdt.category) {
+//             icon = ctg.icon;
+//         }
+//     }
+
+//     orderBody.append(`<div class="orderrow ${pdt.name}">
+//                         <img class="ctg-icon" src=${icon}>
+//                         <p class="pdt-desc">${pdt.description}</p>
+//                         <input class="pdt-qty" type="number">
+//                         <i class="fas fa-times fa-2x"></i>
+//                       </div>`)
+
+// });
+
 
 export { categories, products };
