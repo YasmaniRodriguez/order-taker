@@ -5,14 +5,23 @@ class Order {
     }
 }
 
-// class OrderRow {
-//     constructor(orderid, product, quantity, price, amount) {
-//         this.orderid = orderid;
-//         this.product = product;
-//         this.quantity = quantity;
-//         this.price = price;
-//         this.amount = amount;
-//     }
-// }
+class OrderRow {
+    constructor(orderid, category, product, quantity, price, amount) {
+        this.orderid = orderid;
+        this.category = category;
+        this.product = product;
+        this.quantity = quantity;
+        this.price = price;
+        this.amount = amount;
+    }
 
-export { Order };
+    calcAmount(){
+        this.amount = this.quantity * this.price;
+    }
+
+    setQty(qty){
+        this.quantity = qty;
+    }
+}
+
+export { Order, OrderRow };

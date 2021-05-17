@@ -109,4 +109,4 @@ if(order === null) {
 // });
 
 
-export { categories, products };
+export { categories, products, order };

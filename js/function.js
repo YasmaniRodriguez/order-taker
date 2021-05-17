@@ -1,4 +1,5 @@
 import { categories, products} from './schema.js'
+import { rows } from './main.js'
 
 function buildHtmlCategory(categories) {
     return `
@@ -19,7 +20,7 @@ function buildHtmlProduct(products) {
         </div>
         <div class="product-description">
             <p>${products.description}</p>
-            <p>$${products.price}</p>
+            <p>${products.price}</p>
         </div>
     </div>
     `
@@ -40,6 +41,47 @@ function buildHtmlOrderHeader() {
     `
 }
 
+function buildHtmlOrderRow(e) {
+    let category = e.target.parentNode.classList[1];
+    let name = e.target.parentNode.id;
+    let icon;
+    let description;
+    let price;
+
+    for(const ctg of categories) {
+        if(category === ctg.name) {
+            icon = ctg.icon;
+        }
+    }
+
+    for(const pdt of products) {
+        if(name == pdt.name) {
+            description = pdt.description;
+            price = pdt.price;
+        }
+    }
+
+    return `
+    <div class="orderrow ${name}">
+        <img class="icon" src=${icon}>
+        <p class="name">${name}</p>
+        <p class="description">${description}</p>
+        <p class="price">${price}</p>
+        <input class="quantity" type="number">
+        <p class="amount"></p>
+        <i class="remove fas fa-times fa-2x"></i>
+    </div>
+    `
+}
+
+function buildHtmlOrderFooter(){
+    return `
+    <div class="order-footer">
+        <p class="total-amount"></p>
+    </div>
+    `
+};
+
 function createOrderID() {
     let ouid = Date.now();
     return ouid;
@@ -55,37 +97,4 @@ function createCustomerID(){
     return cuid;
 }
 
-function buildHtmlOrderRow(e) {
-    let ctgid = e.target.parentNode.classList[1];
-    let pdtid = e.target.parentNode.id;
-    let icon;
-    let product;
-    let price;
-
-    for(const ctg of categories) {
-        if(ctgid === ctg.name) {
-            icon = ctg.icon;
-        }
-    }
-
-    for(const pdt of products) {
-        if(pdtid == pdt.name) {
-            product = pdt.description;
-            price = pdt.price;
-        }
-    }
-
-    return `
-    <div class="orderrow ${pdtid}">
-        <img class="icon" src=${icon}>
-        <p class="name">${pdtid}</p>
-        <p class="description">${product}</p>
-        <p class="price">${price}</p>
-        <input class="quantity" type="number">
-        <p class="amount"></p>
-        <i class="remove fas fa-times fa-2x"></i>
-    </div>
-    `
-}
-
-export { buildHtmlCategory, buildHtmlProduct, createOrderID, createCustomerID, buildHtmlOrderHeader, buildHtmlOrderRow };
+export { buildHtmlCategory, buildHtmlProduct, buildHtmlOrderHeader, buildHtmlOrderRow, buildHtmlOrderFooter, createOrderID, createCustomerID };

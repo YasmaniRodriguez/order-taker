@@ -1,7 +1,7 @@
 import './schema.js'
-import { categories, products} from './schema.js'
-import { buildHtmlOrderHeader, buildHtmlOrderRow } from './function.js';
-import { Order } from './order.js'
+import { categories, products, order } from './schema.js'
+import { buildHtmlOrderHeader, buildHtmlOrderRow, buildHtmlOrderFooter } from './function.js';
+import { Order, OrderRow } from './order.js'
 
 //mostrar productos al hacer click en categoria:
 
@@ -80,25 +80,47 @@ actions.click(function(e) {
                 
                 orderPopUp.show()
                           .css("display","block");
-
                 //eliminar productos de la orden:          
                 removePdt.click(function(e){
                     let orderRowHtml = e.target.parentNode;
-                    let pdtid = e.target.parentNode.classList[1];
-                    orderRowHtml.remove(); //borra el div de la orderrow
-                    var idx = mylist.indexOf(pdtid); //encuentra el indice del producto en la lista
-                    mylist.splice(idx, 1); //elimina el producto de la lista a partir de su indice
+                    let product = e.target.parentNode.classList[1];
+                    let idx; 
+                    //borra el div de la orderrow correspondiente:
+                    orderRowHtml.remove();
+                    //busca el indice del producto en la lista:
+                    for(var i = 0; i < rows.length; i++) {
+                        if(rows[i].product === product){
+                            idx = i
+                        }
+                    }
+                    //elimina el producto de la lista a partir de su indice:
+                    rows.splice(idx, 1); 
                 });
 
                 //calcular monto:
                 quantity.change((e) => {
-                    let price = parseFloat(e.target.parentNode.children[3].innerHTML);
+                    let product = e.target.parentNode.children[1].innerHTML;
                     let quantity = parseInt(e.target.value);
                     let amount = e.target.parentNode.children[5];
-                    let calcRowAmount = quantity * price;
-                    amount.innerHTML = "$" + calcRowAmount;
-                })
+                    let total = e.target.parentNode.parentNode.nextElementSibling.children[0].children[0];
+                    let rowAmount = 0;
+                    let totalAmount = 0;
 
+                    rows.forEach(row => {
+                        if(row.product === product){
+                            row.setQty(quantity);
+                            row.calcAmount();
+                            rowAmount = row.amount;
+                        }
+                    });
+
+                    //monto total:
+                    rows.forEach(row => {
+                        totalAmount = totalAmount + row.amount;
+                    });
+                    amount.innerHTML = "$" + rowAmount;
+                    total.innerHTML = totalAmount;
+                });
                 break;
             default:
                 break;
@@ -122,19 +144,30 @@ goBackBtn.click(function(e) {
 
 //agregar nro de cliente y nro de orden a encabezado de la orden:
 var orderHeader = $("#odr-hdr"); 
+var orderFooter = $("#odr-ftr");
 orderHeader.append(buildHtmlOrderHeader());
+orderFooter.append(buildHtmlOrderFooter());
 
 //agregar productos al pedido (no se permiten productos repetidos):
 var addPdt = $(".product-add-btn");
 var orderBody = $("#odr-bdy");
-var mylist = []; //crea una lista con los productos que se agregan a la lista
+var rows = [];
 
 addPdt.click(function(e) {
-    let pdtid = e.target.parentNode.id;
-    let exist = mylist.find(pdt => pdt === pdtid);
+    let category = e.target.parentNode.classList[1];
+    let product = e.target.parentNode.id;
+    let price = e.target.parentNode.children[3].children[1].innerText;
+    let exist = rows.find(pdt => pdt.product === product);
 
     if(typeof exist === 'undefined') {
+        rows.push(new OrderRow(order, category, product,"", price,""));
+        
+        rows.forEach(row => {
+            row.calcAmount();
+        });
+
         orderBody.append(buildHtmlOrderRow(e));
-        mylist.push(pdtid);
     }
 });
+
+export { rows };
