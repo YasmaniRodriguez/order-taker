@@ -1,6 +1,6 @@
 import './schema.js'
 import { categories, products, order } from './schema.js'
-import { buildHtmlOrderHeader, buildHtmlOrderRow, buildHtmlOrderFooter } from './function.js';
+import { buildHtmlOrderHeader, buildHtmlOrderRow, buildHtmlOrderFooter, getPromotions } from './function.js';
 import { Order, OrderRow } from './order.js'
 
 //mostrar productos al hacer click en categoria:
@@ -105,7 +105,7 @@ actions.click(function(e) {
                     let total = e.target.parentNode.parentNode.nextElementSibling.children[0].children[0];
                     let rowAmount = 0;
                     let totalAmount = 0;
-
+                    //monto x fila:
                     rows.forEach(row => {
                         if(row.product === product){
                             row.setQty(quantity);
@@ -113,11 +113,11 @@ actions.click(function(e) {
                             rowAmount = row.amount;
                         }
                     });
-
                     //monto total:
                     rows.forEach(row => {
                         totalAmount = totalAmount + row.amount;
                     });
+
                     amount.innerHTML = "$" + rowAmount;
                     total.innerHTML = totalAmount;
                 });

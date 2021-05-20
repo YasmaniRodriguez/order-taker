@@ -1,0 +1,102 @@
+[
+  {
+    "weekday": 1,
+    "product": "pdt16",
+    "quantity": 1
+  },
+  {
+    "weekday": 1,
+    "product": "pdt17",
+    "quantity": 1
+  },
+  {
+    "weekday": 1,
+    "product": "pdt18",
+    "quantity": 1
+  },
+  {
+    "weekday": 1,
+    "product": "pdt19",
+    "quantity": 1
+  },
+  {
+    "weekday": 1,
+    "product": "pdt20",
+    "quantity": 1
+  },
+  {
+    "weekday": 2,
+    "product": "pdt06",
+    "quantity": 1
+  },
+  {
+    "weekday": 2,
+    "product": "pdt07",
+    "quantity": 1
+  },
+  {
+    "weekday": 2,
+    "product": "pdt08",
+    "quantity": 1
+  },
+  {
+    "weekday": 2,
+    "product": "pdt09",
+    "quantity": 1
+  },
+  {
+    "weekday": 2,
+    "product": "pdt10",
+    "quantity": 1
+  },   
+  {
+    "weekday": 3,
+    "product": "pdt11",
+    "quantity": 2
+  },
+  {
+    "weekday": 3,
+    "product": "pdt12",
+    "quantity": 2
+  },
+  {
+    "weekday": 3,
+    "product": "pdt13",
+    "quantity": 2
+  },
+  {
+    "weekday": 3,
+    "product": "pdt14",
+    "quantity": 2
+  },
+  {
+    "weekday": 3,
+    "product": "pdt15",
+    "quantity": 2
+  },
+  {
+    "weekday": 4,
+    "product": "pdt01",
+    "quantity": 1
+  },
+  {
+    "weekday": 4,
+    "product": "pdt02",
+    "quantity": 1
+  },
+  {
+    "weekday": 4,
+    "product": "pdt03",
+    "quantity": 1
+  },
+  {
+    "weekday": 4,
+    "product": "pdt04",
+    "quantity": 1
+  },
+  {
+    "weekday": 4,
+    "product": "pdt05",
+    "quantity": 1
+  }
+]

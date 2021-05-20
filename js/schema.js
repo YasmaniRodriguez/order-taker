@@ -86,7 +86,6 @@ if(order === null) {
 }
 
 //para agregar promosiones:
-
 // var orderBody = $("#odr-bdy");
 // var test = products.filter(product => product.description.includes("carne"));
 

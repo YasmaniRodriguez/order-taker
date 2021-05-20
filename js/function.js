@@ -97,4 +97,22 @@ function createCustomerID(){
     return cuid;
 }
 
-export { buildHtmlCategory, buildHtmlProduct, buildHtmlOrderHeader, buildHtmlOrderRow, buildHtmlOrderFooter, createOrderID, createCustomerID };
+function getPromotions(){
+    let date = new Date();
+    let weekday = date.getDay();
+    let file = 'data/promotions.json';
+
+    $.getJSON(file, function(response, status){
+        if(status === "success"){
+            let promotions = response;
+           
+            promotions.forEach(promotion => {
+                if(promotion.weekday === weekday){
+                    console.log(promotion);
+                }
+            });
+        }
+    });
+}
+
+export { buildHtmlCategory, buildHtmlProduct, buildHtmlOrderHeader, buildHtmlOrderRow, buildHtmlOrderFooter, createOrderID, createCustomerID, getPromotions };
