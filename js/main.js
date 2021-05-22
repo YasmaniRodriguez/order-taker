@@ -55,6 +55,8 @@ var actions = $(".action");
 
 actions.click(function(e) {
     let actionId = e.target.classList[1];
+    let total = $("#order-amount");
+
     overlay.show()
            .css("display", "flex");
     goBackBtn.show()
@@ -94,7 +96,8 @@ actions.click(function(e) {
                         }
                     }
                     //elimina el producto de la lista a partir de su indice:
-                    rows.splice(idx, 1); 
+                    rows.splice(idx, 1);
+                    quantity.trigger("change"); 
                 });
 
                 //calcular monto:
@@ -102,7 +105,6 @@ actions.click(function(e) {
                     let product = e.target.parentNode.children[1].innerHTML;
                     let quantity = parseInt(e.target.value);
                     let amount = e.target.parentNode.children[5];
-                    let total = e.target.parentNode.parentNode.nextElementSibling.children[0].children[0];
                     let rowAmount = 0;
                     let totalAmount = 0;
                     //monto x fila:
@@ -119,7 +121,7 @@ actions.click(function(e) {
                     });
 
                     amount.innerHTML = "$" + rowAmount;
-                    total.innerHTML = totalAmount;
+                    total[0].children[0].innerHTML = totalAmount;
                     myOrderAmount = totalAmount;
                 });
                 break;
@@ -144,7 +146,7 @@ goBackBtn.click(function(e) {
 
 
 //agregar nro de cliente y nro de orden a encabezado de la orden:
-var orderHeader = $("#odr-hdr"); 
+var orderHeader = $("#odr-hdr");
 var orderFooter = $("#odr-ftr");
 orderHeader.append(buildHtmlOrderHeader());
 orderFooter.append(buildHtmlOrderFooter());
@@ -175,7 +177,9 @@ addPdt.click(function(e) {
 //enviar orden:
 
 var submitOrder = $("#submit-order-btn");
+
 submitOrder.click((e)=> {
+    e.preventDefault();
     postOrder();
 });
 

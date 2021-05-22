@@ -1,6 +1,9 @@
 import { categories, order, products} from './schema.js'
 import { rows, myOrderAmount } from './main.js'
 
+var notificationContainer = $("#system-notification");
+var notificationText = $("#system-notification > p");
+
 function buildHtmlCategory(categories) {
     return `
     <div class="category" id="${categories.name}">
@@ -121,12 +124,18 @@ function postOrder(){
     let order = sessionStorage.getItem('order'); //sustituir por variable global
     const myOrderInfo = { customer: customer, order: order, amount: myOrderAmount};
 
-    $.post(url, myOrderInfo, function(response, status){
-        if(status === "success"){
-            let mypost = response;
-            console.log(mypost);
-        }
-    });
+    if(myOrderAmount > 1){
+        $.post(url, myOrderInfo, function(response, status){
+            if(status === "success"){
+                notificationContainer.css("display", "flex");
+                notificationText[0].innerHTML = "La Orden fue enviada al Proveedor";
+            }
+        });
+    } else {notificationContainer.fadeIn()
+                                 .css("display", "flex");
+            notificationText[0].innerHTML = "No hay productos en la Orden";
+            notificationContainer.fadeOut(4000);
+    }
 }
 
 export { buildHtmlCategory, 
