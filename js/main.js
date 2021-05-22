@@ -1,6 +1,6 @@
 import './schema.js'
 import { categories, products, order } from './schema.js'
-import { buildHtmlOrderHeader, buildHtmlOrderRow, buildHtmlOrderFooter, getPromotions } from './function.js';
+import { buildHtmlOrderHeader, buildHtmlOrderRow, buildHtmlOrderFooter, getPromotions, postOrder } from './function.js';
 import { Order, OrderRow } from './order.js'
 
 //mostrar productos al hacer click en categoria:
@@ -77,7 +77,7 @@ actions.click(function(e) {
             case "shopping-cart-btn":
                 let removePdt = $(".orderrow .remove");
                 let quantity = $(".orderrow .quantity");
-                
+              
                 orderPopUp.show()
                           .css("display","block");
                 //eliminar productos de la orden:          
@@ -120,6 +120,7 @@ actions.click(function(e) {
 
                     amount.innerHTML = "$" + rowAmount;
                     total.innerHTML = totalAmount;
+                    myOrderAmount = totalAmount;
                 });
                 break;
             default:
@@ -152,6 +153,7 @@ orderFooter.append(buildHtmlOrderFooter());
 var addPdt = $(".product-add-btn");
 var orderBody = $("#odr-bdy");
 var rows = [];
+var myOrderAmount;
 
 addPdt.click(function(e) {
     let category = e.target.parentNode.classList[1];
@@ -170,4 +172,11 @@ addPdt.click(function(e) {
     }
 });
 
-export { rows };
+//enviar orden:
+
+var submitOrder = $("#submit-order-btn");
+submitOrder.click((e)=> {
+    postOrder();
+});
+
+export { rows, myOrderAmount };

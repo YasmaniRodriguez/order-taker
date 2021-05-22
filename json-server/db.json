@@ -1,0 +1,168 @@
+{
+  "categories": [
+    {
+      "name": "ctg01",
+      "description": "pizza",
+      "id": 1
+    },
+    {
+      "name": "ctg02",
+      "description": "tartas",
+      "id": 2
+    },
+    {
+      "name": "ctg03",
+      "description": "empanadas",
+      "id": 3
+    },
+    {
+      "name": "ctg03",
+      "description": "bebidas",
+      "id": 4
+    }
+  ],
+  "products": [
+    {
+      "name": "pdt01",
+      "description": "mozzarella",
+      "category": "ctg01",
+      "price": "475",
+      "id": 1
+    },
+    {
+      "name": "pdt02",
+      "description": "jamón y morrones",
+      "category": "ctg01",
+      "price": "450",
+      "id": 2
+    },
+    {
+      "name": "pdt03",
+      "description": "napolitana",
+      "category": "ctg01",
+      "price": "435",
+      "id": 3
+    },
+    {
+      "name": "pdt04",
+      "description": "cuatro quesos",
+      "category": "ctg01",
+      "price": "690",
+      "id": 4
+    },
+    {
+      "name": "pdt05",
+      "description": "fugazzetta",
+      "category": "ctg01",
+      "price": "570",
+      "id": 5
+    },
+    {
+      "name": "pdt06",
+      "description": "jamón y queso",
+      "category": "ctg02",
+      "price": "230",
+      "id": 6
+    },
+    {
+      "name": "pdt07",
+      "description": "atún",
+      "category": "ctg02",
+      "price": "270",
+      "id": 7
+    },
+    {
+      "name": "pdt08",
+      "description": "pollo",
+      "category": "ctg02",
+      "price": "245",
+      "id": 8
+    },
+    {
+      "name": "pdt09",
+      "description": "verduras",
+      "category": "ctg02",
+      "price": "215",
+      "id": 9
+    },
+    {
+      "name": "pdt10",
+      "description": "carne y huevo",
+      "category": "ctg02",
+      "price": "295",
+      "id": 10
+    },
+    {
+      "name": "pdt11",
+      "description": "carne suave",
+      "category": "ctg03",
+      "price": "75",
+      "id": 11
+    },
+    {
+      "name": "pdt12",
+      "description": "atún",
+      "category": "ctg03",
+      "price": "80",
+      "id": 12
+    },
+    {
+      "name": "pdt13",
+      "description": "humita",
+      "category": "ctg03",
+      "price": "60",
+      "id": 13
+    },
+    {
+      "name": "pdt14",
+      "description": "pollo",
+      "category": "ctg03",
+      "price": "70",
+      "id": 14
+    },
+    {
+      "name": "pdt15",
+      "description": "jamón y queso",
+      "category": "ctg03",
+      "price": "65",
+      "id": 15
+    },
+    {
+      "name": "pdt16",
+      "description": "gaseosa",
+      "category": "ctg04",
+      "price": "110",
+      "id": 16
+    },
+    {
+      "name": "pdt17",
+      "description": "agua saborizada",
+      "category": "ctg04",
+      "price": "120",
+      "id": 17
+    },
+    {
+      "name": "pdt18",
+      "description": "cerveza",
+      "category": "ctg04",
+      "price": "145",
+      "id": 18
+    },
+    {
+      "name": "pdt19",
+      "description": "jugo",
+      "category": "ctg04",
+      "price": "115",
+      "id": 19
+    },
+    {
+      "name": "pdt20",
+      "description": "agua sin gas",
+      "category": "ctg04",
+      "price": "90",
+      "id": 20
+    }
+  ],
+  "promotions": [],
+  "orders": []
+}

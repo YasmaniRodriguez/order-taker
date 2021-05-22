@@ -1,5 +1,5 @@
-import { categories, products} from './schema.js'
-import { rows } from './main.js'
+import { categories, order, products} from './schema.js'
+import { rows, myOrderAmount } from './main.js'
 
 function buildHtmlCategory(categories) {
     return `
@@ -77,7 +77,7 @@ function buildHtmlOrderRow(e) {
 function buildHtmlOrderFooter(){
     return `
     <div class="order-footer">
-        <p class="total-amount"></p>
+        <p id="total-amount"></p>
     </div>
     `
 };
@@ -115,4 +115,26 @@ function getPromotions(){
     });
 }
 
-export { buildHtmlCategory, buildHtmlProduct, buildHtmlOrderHeader, buildHtmlOrderRow, buildHtmlOrderFooter, createOrderID, createCustomerID, getPromotions };
+function postOrder(){
+    let url = "http://localhost:3000/orders";
+    let customer = localStorage.getItem('customer'); //sustituir por variable global
+    let order = sessionStorage.getItem('order'); //sustituir por variable global
+    const myOrderInfo = { customer: customer, order: order, amount: myOrderAmount};
+
+    $.post(url, myOrderInfo, function(response, status){
+        if(status === "success"){
+            let mypost = response;
+            console.log(mypost);
+        }
+    });
+}
+
+export { buildHtmlCategory, 
+         buildHtmlProduct, 
+         buildHtmlOrderHeader, 
+         buildHtmlOrderRow, 
+         buildHtmlOrderFooter, 
+         createOrderID, 
+         createCustomerID, 
+         getPromotions, 
+         postOrder };

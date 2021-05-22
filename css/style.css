@@ -671,5 +671,17 @@ template {
   width: 5vw;
   cursor: pointer;
 }
+#order-pop-up #odr-ftr {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  margin: 0;
+}
+#order-pop-up #odr-ftr #submit-order-btn {
+  cursor: pointer;
+  background-color: aquamarine;
+  padding: 10px 10px;
+  border-radius: 5px;
+}
 
 /*# sourceMappingURL=style.css.map */

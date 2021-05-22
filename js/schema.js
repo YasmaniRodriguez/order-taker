@@ -17,16 +17,19 @@ products.push(new Product("pdt02", "jamón y morrones", "ctg01", "images/ctg01/p
 products.push(new Product("pdt03", "napolitana", "ctg01", "images/ctg01/pdt03.jpg", 550, 1000, 0));
 products.push(new Product("pdt04", "4 quesos", "ctg01", "images/ctg01/pdt04.jpg", 550, 1000, 0));
 products.push(new Product("pdt05", "fugazzetta", "ctg01", "images/ctg01/pdt05.jpg", 550, 1000, 0));
+
 products.push(new Product("pdt06", "jamón y queso", "ctg02", "images/ctg02/pdt06.jpg", 250, 1000, 0));
 products.push(new Product("pdt07", "atún", "ctg02", "images/ctg02/pdt07.jpg", 250, 1000, 0));
 products.push(new Product("pdt08", "pollo", "ctg02", "images/ctg02/pdt08.jpg", 250, 1000, 0));
 products.push(new Product("pdt09", "verduras", "ctg02", "images/ctg02/pdt09.jpg", 250, 1000, 0));
 products.push(new Product("pdt10", "carne y huevo", "ctg02", "images/ctg02/pdt10.jpg", 250, 1000, 0));
+
 products.push(new Product("pdt11", "carne suave", "ctg03", "images/ctg03/pdt11.jpg", 75, 1000, 0));
 products.push(new Product("pdt12", "atún", "ctg03", "images/ctg03/pdt12.jpg", 75, 1000, 0));
 products.push(new Product("pdt13", "humita", "ctg03", "images/ctg03/pdt13.jpg", 75, 1000, 0));
 products.push(new Product("pdt14", "pollo", "ctg03", "images/ctg03/pdt14.jpg", 75, 1000, 0));
 products.push(new Product("pdt15", "jamón y queso", "ctg03", "images/ctg03/pdt15.jpg", 75, 1000, 0));
+
 products.push(new Product("pdt16", "gaseosa", "ctg04", "images/ctg04/pdt16.jpg", 45, 1000, 0));
 products.push(new Product("pdt17", "agua saborizada", "ctg04", "images/ctg04/pdt17.jpg", 45, 1000, 0));
 products.push(new Product("pdt18", "cerveza", "ctg04", "images/ctg04/pdt18.jpg", 45, 1000, 0));
