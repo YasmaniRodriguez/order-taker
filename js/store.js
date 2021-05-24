@@ -1,6 +1,6 @@
 class Store {
-    constructor(nombre, description, alias, link, whatsapp, mail, address, logo, background) {
-        this.nombre = nombre;
+    constructor(name, description, alias, link, whatsapp, mail, address, logo, background) {
+        this.name = name;
         this.description = description;
         this.alias = alias;
         this.link = link;

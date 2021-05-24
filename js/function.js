@@ -1,8 +1,31 @@
-import { categories, order, products} from './schema.js'
-import { rows, myOrderAmount } from './main.js'
+import { categories, products, store } from './schema.js'
+import { myOrderAmount } from './main.js'
 
 var notificationContainer = $("#system-notification");
 var notificationText = $("#system-notification > p");
+var order = sessionStorage.getItem('order');
+var customer = localStorage.getItem('customer');
+
+function buildHtmlStoreHeader(store){
+    return `
+    <img id="store-background-profile" src=${store.background}>
+    <img id="store-logo" src=${store.logo}>
+    `
+}
+
+function buildHtmlStoreBody(store){
+    return `
+    <div>
+        <p>Info. de Contacto</p>
+        <a id="store-mail" href="mailto:${store.mail}"><i class="far fa-envelope fa-2x"></i></i></a>
+        <a id="store-phone" href=${store.whatsapp}&text=Hola,%20soy%20el%20Cliente%20${customer}%20y%20mi%20Nro.%20de%20Orden%20es%20${order}><i class="fab fa-whatsapp fa-2x"></i></a>
+    </div>
+    <div>
+        <p>Dónde encontrarnos</p>
+        <iframe id="store-address" src=${store.address} allowfullscreen="" loading="lazy"></iframe>
+    </div>
+    `
+}
 
 function buildHtmlCategory(categories) {
     return `
@@ -120,8 +143,6 @@ function getPromotions(){
 
 function postOrder(){
     let url = "http://localhost:3000/orders";
-    let customer = localStorage.getItem('customer'); //sustituir por variable global
-    let order = sessionStorage.getItem('order'); //sustituir por variable global
     const myOrderInfo = { customer: customer, order: order, amount: myOrderAmount};
 
     if(myOrderAmount > 1){
@@ -138,7 +159,9 @@ function postOrder(){
     }
 }
 
-export { buildHtmlCategory, 
+export { buildHtmlStoreHeader,
+         buildHtmlStoreBody,
+         buildHtmlCategory, 
          buildHtmlProduct, 
          buildHtmlOrderHeader, 
          buildHtmlOrderRow, 

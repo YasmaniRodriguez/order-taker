@@ -558,7 +558,6 @@ template {
   justify-content: space-around;
   align-items: center;
   margin-bottom: 20px;
-  border-bottom: bisque solid 1px;
 }
 .page-footer .overlay .cta-pop-up .pop-up-body {
   max-height: 60vh;
@@ -575,7 +574,6 @@ template {
   justify-content: center;
   align-items: center;
   margin-top: 20px;
-  border-top: bisque solid 1px;
 }
 .page-footer .overlay #go-back-btn {
   display: none;
@@ -684,6 +682,32 @@ template {
   border-radius: 5px;
 }
 
+#store-pop-up #str-hdr {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+#store-pop-up #str-hdr #store-background-profile {
+  width: 100%;
+  height: 20vh;
+  border-radius: 10px 10px 0px 0px;
+}
+#store-pop-up #str-hdr #store-logo {
+  width: 90px;
+  height: 90px;
+  position: absolute;
+  top: 13vh;
+  left: 2vw;
+}
+#store-pop-up #str-bdy {
+  display: flex;
+  flex-direction: column;
+}
+#store-pop-up #str-bdy #store-address {
+  width: 50%;
+  height: 50%;
+  border: 0;
+}
 #system-notification {
   z-index: 100;
   height: 20vh;

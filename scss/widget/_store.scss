@@ -1,0 +1,35 @@
+#store-pop-up {
+    #str-hdr {
+        display: flex;
+        flex-direction: column;
+        position: relative;
+
+        #store-background-profile {
+            width: 100%;
+            height: 20vh;
+            border-radius: 10px 10px 0px 0px;
+        }
+
+        #store-logo {
+            width: 90px;
+            height: 90px;
+            position: absolute;
+            top: 13vh;
+            left: 2vw;
+        }
+    }
+    #str-bdy {
+        display: flex;
+        flex-direction: column;
+        
+        #store-address {
+            width: 50%; 
+            height: 50%;
+            border: 0; 
+        }
+
+    }
+    #str-ftr {
+
+    }
+}

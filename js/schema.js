@@ -1,7 +1,22 @@
 import { Category } from './category.js'
 import { Product } from './product.js'
 import { Store } from './store.js'
-import { buildHtmlCategory, buildHtmlProduct, createOrderID, createCustomerID } from './function.js'
+import { buildHtmlStoreHeader, buildHtmlStoreBody, buildHtmlCategory, buildHtmlProduct, createOrderID, createCustomerID } from './function.js'
+
+//crear tienda:
+const store = new Store("Legends", "Pizzas & Empanadas", "legends","", "https://api.whatsapp.com/send?phone=5491112345678", "info@legends.com.ar", "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d821.2189774006084!2d-58.43452587074024!3d-34.58200629462786!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bcb591fa76fe45%3A0xf22f9443eb6276f2!2sFitz%20Roy%201964%2C%20C1414%20CID%2C%20Buenos%20Aires!5e0!3m2!1ses!2sar!4v1621806946123!5m2!1ses!2sar", "images/store/logo.png", "images/store/background.jpeg")
+store.setShare();
+
+var storeHeader = $("#str-hdr");
+var storeBody = $("#str-bdy");
+var brandContainer = $("#brand-container");
+
+storeHeader.append(buildHtmlStoreHeader(store));
+storeBody.append(buildHtmlStoreBody(store));
+
+brandContainer.append(`<h2>${store.name}</h2>
+                       <h3>${store.description}</h3>`);
+
 
 //crear los objetos:
 var categories = [];
@@ -36,21 +51,13 @@ products.push(new Product("pdt18", "cerveza", "ctg04", "images/ctg04/pdt18.jpg",
 products.push(new Product("pdt19", "jugo", "ctg04", "images/ctg04/pdt19.jpg", 45, 1000, 0));
 products.push(new Product("pdt20", "agua sin gas", "ctg04", "images/ctg04/pdt20.jpg", 45, 1000, 0));
 
-var store = new Store("La Mazona", "Pizzas y Empanadas", "la-mazona", "", "https://api.whatsapp.com/send?phone=5491112345678", "info@mia-nonna.com.ar", "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d273.97894706163845!2d-58.507368001414186!3d-34.60323132101054!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bcb632a3084ab9%3A0x500566ebdf11ee9!2sLa%20Mazona%20Pizzer%C3%ADa!5e0!3m2!1ses!2sar!4v1620960313938!5m2!1ses!2sar");
-store.setShare();
-
 //guardar los objetos en el localstorage:
 localStorage.setItem('categories', JSON.stringify(categories));
 localStorage.setItem('products', JSON.stringify(products));
-localStorage.setItem('store', JSON.stringify(store));
 
 //sacar los objetos del localstorage:
 categories = JSON.parse(localStorage.getItem('categories'));
 products = JSON.parse(localStorage.getItem('products'));
-store = JSON.parse(localStorage.getItem('store'));
-
-//info de la tienda:
-
 
 //insertar categorias de forma dinamica:
 var productCategory = $("#product-category");
@@ -111,4 +118,4 @@ if(order === null) {
 // });
 
 
-export { categories, products, order };
+export { store, categories, products, order };

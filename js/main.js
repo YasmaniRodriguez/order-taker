@@ -1,7 +1,7 @@
 import './schema.js'
-import { categories, products, order } from './schema.js'
-import { buildHtmlOrderHeader, buildHtmlOrderRow, buildHtmlOrderFooter, getPromotions, postOrder } from './function.js';
-import { Order, OrderRow } from './order.js'
+import { order } from './schema.js'
+import { buildHtmlOrderHeader, buildHtmlOrderRow, buildHtmlOrderFooter, postOrder } from './function.js';
+import { OrderRow } from './order.js'
 
 //mostrar productos al hacer click en categoria:
 
@@ -174,8 +174,7 @@ addPdt.click(function(e) {
     }
 });
 
-//enviar orden:
-
+//enviar la orden al proveedor:
 var submitOrder = $("#submit-order-btn");
 
 submitOrder.click((e)=> {

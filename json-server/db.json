@@ -164,5 +164,12 @@
     }
   ],
   "promotions": [],
-  "orders": []
+  "orders": [
+    {
+      "customer": "8cb971c4-cd95-44d6-b0d4-fa612cd01e20",
+      "order": "1621689757181",
+      "amount": "2750",
+      "id": 1
+    }
+  ]
 }
