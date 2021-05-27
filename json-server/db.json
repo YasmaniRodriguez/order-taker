@@ -163,13 +163,147 @@
       "id": 20
     }
   ],
-  "promotions": [],
-  "orders": [
+  "promotions": [
     {
-      "customer": "8cb971c4-cd95-44d6-b0d4-fa612cd01e20",
-      "order": "1621689757181",
-      "amount": "2750",
-      "id": 1
+      "type": 0,
+      "weekday": 0,
+      "description": "Llevate Una Pizza de Regalo",
+      "from": "09:00:00",
+      "to": "23:59:59",
+      "condition": 2000,
+      "maxselect": 1,
+      "award": [
+        {
+          "pdt": "pdt04",
+          "qty": 1
+        },
+        {
+          "pdt": "pdt05",
+          "qty": 1
+        }
+      ],
+      "id": "p-wd-sun"
+    },
+    {
+      "type": 0,
+      "weekday": 1,
+      "description": "Llevate Dos Empanadas de Regalo",
+      "from": "09:00:00",
+      "to": "23:59:59",
+      "condition": 2000,
+      "maxselect": 1,
+      "award": [
+        {
+          "pdt": "pdt11",
+          "qty": 2
+        },
+        {
+          "pdt": "pdt12",
+          "qty": 2
+        }
+      ],
+      "id": "p-wd-mon"
+    },
+    {
+      "type": 0,
+      "weekday": 2,
+      "description": "Llevate Una Bebida de Regalo",
+      "from": "09:00:00",
+      "to": "23:59:59",
+      "condition": 2000,
+      "maxselect": 1,
+      "award": [
+        {
+          "pdt": "pdt17",
+          "qty": 1
+        },
+        {
+          "pdt": "pdt19",
+          "qty": 1
+        }
+      ],
+      "id": "p-wd-tue"
+    },
+    {
+      "type": 0,
+      "weekday": 3,
+      "description": "Llevate Una Pizza de Regalo",
+      "from": "09:00:00",
+      "to": "18:00:00",
+      "condition": 2000,
+      "maxselect": 1,
+      "award": [
+        {
+          "pdt": "pdt01",
+          "qty": 1
+        },
+        {
+          "pdt": "pdt03",
+          "qty": 1
+        }
+      ],
+      "id": "p-wd-wed"
+    },
+    {
+      "type": 0,
+      "weekday": 4,
+      "description": "Llevate Una Tarta de Regalo",
+      "from": "09:00:00",
+      "to": "23:59:59",
+      "condition": 2000,
+      "maxselect": 1,
+      "award": [
+        {
+          "pdt": "pdt06",
+          "qty": 1
+        },
+        {
+          "pdt": "pdt09",
+          "qty": 1
+        }
+      ],
+      "id": "p-wd-thu"
+    },
+    {
+      "type": 0,
+      "weekday": 5,
+      "description": "Llevate Dos Empanadas de Regalo",
+      "from": "09:00:00",
+      "to": "18:00:00",
+      "condition": 2000,
+      "maxselect": 1,
+      "award": [
+        {
+          "pdt": "pdt14",
+          "qty": 2
+        },
+        {
+          "pdt": "pdt15",
+          "qty": 2
+        }
+      ],
+      "id": "p-wd-fri"
+    },
+    {
+      "type": 0,
+      "weekday": 6,
+      "description": "Llevate Una Bebida de Regalo",
+      "from": "09:00:00",
+      "to": "18:00:00",
+      "condition": 2000,
+      "maxselect": 1,
+      "award": [
+        {
+          "pdt": "pdt16",
+          "qty": 1
+        },
+        {
+          "pdt": "pdt18",
+          "qty": 1
+        }
+      ],
+      "id": "p-wd-sat"
     }
-  ]
+  ],
+  "orders": []
 }

@@ -67,7 +67,7 @@ function buildHtmlOrderHeader() {
     `
 }
 
-function buildHtmlOrderRow(e) {
+function buildHtmlOrderRow(e, qty, amount) {
     let category = e.target.parentNode.classList[1];
     let name = e.target.parentNode.id;
     let icon;
@@ -93,8 +93,8 @@ function buildHtmlOrderRow(e) {
         <p class="name">${name}</p>
         <p class="description">${description}</p>
         <p class="price">${price}</p>
-        <input class="quantity" type="number">
-        <p class="amount"></p>
+        <input class="quantity" type="number" value=${qty}>
+        <p class="amount">${amount}</p>
         <i class="remove fas fa-times fa-2x"></i>
     </div>
     `
@@ -123,24 +123,6 @@ function createCustomerID(){
     return cuid;
 }
 
-function getPromotions(){
-    let date = new Date();
-    let weekday = date.getDay();
-    let file = 'data/promotions.json';
-
-    $.getJSON(file, function(response, status){
-        if(status === "success"){
-            let promotions = response;
-           
-            promotions.forEach(promotion => {
-                if(promotion.weekday === weekday){
-                    console.log(promotion);
-                }
-            });
-        }
-    });
-}
-
 function postOrder(){
     let url = "http://localhost:3000/orders";
     const myOrderInfo = { customer: customer, order: order, amount: myOrderAmount};
@@ -159,6 +141,87 @@ function postOrder(){
     }
 }
 
+function buildHtmlPromotionBody() {
+    let endpoint = "http://localhost:3000/promotions";
+    let date = new Date();
+    let day = date.getDay();
+    let t0 = date.toLocaleTimeString('es-ES'); //saca la hora del date
+
+    $.ajax({
+        method: "GET",
+        url: endpoint,
+        success: (response) => {
+            let promotions = response;
+            let promotionBody = $("#prm-bdy");
+            let promotionDetail = $("#prm-bdy div");
+
+            promotions.forEach(promotion => {
+                let t1 = promotion.from;
+                let t2 = promotion.to;
+                let pid = promotion.id;
+
+                if(day == promotion.weekday && t0 >= t1 && t0 <= t2) {
+
+                    let awards = promotion.award;
+                    
+                    awards.forEach(award => {
+                        //se agregan dos nuevas propiedades a award
+                        Object.defineProperty(award, 'description', {value: null, writable: true});
+                        Object.defineProperty(award, 'icon', {value: null, writable: true});
+                        Object.defineProperty(award, 'pid', {value: null, writable: true});
+
+                        award.pid = pid; 
+
+                        for(const pdt of products) {
+                            //se consigue el nombre de cada producto
+                            if(award.pdt === pdt.name) {
+                                award.description = pdt.description;
+                                //se consigue el icono de la categoria d ecada producto
+                                for(const ctg of categories){
+                                    if(pdt.category === ctg.name) {
+                                        award.icon = ctg.icon
+                                    }
+                                }
+
+                            }
+                        }
+                        
+                    });
+                                        
+                    promotionDetail.remove(); //garantiza que no queden las promos desactualizadas
+                    promotionBody.append(`
+                    <div class="prm-card" id="${pid}">
+                        <p>${promotion.description}</p>
+                        <div class="prm-condition">
+                            <p>condiciones</p>
+                            <p>Si el valor del ticket, supera los ${promotion.condition}</p>
+                            <p>Podés llevar hasta ${promotion.maxselect} de las siguientes</p>
+                            <p>combinaciones</p>
+                            <div class="prm-award-container"></div>
+                        </div>
+                    </div>
+                    `);
+
+                    awards.forEach(award => {
+                        let promotion = $("#prm-bdy")[0].lastElementChild.lastElementChild.lastElementChild; //me aseguro que sea el ultimo prm-card agregado
+                        //utilizo el modo vanilla porque con jquery, para promotion.append() me agrega un string y no una estructura html
+                        let awardDiv = document.createElement("div");
+                        awardDiv.className = "prm-award";
+                        awardDiv.innerHTML = `
+                        <input type="radio" name="${award.pid}">
+                        <p>${award.qty}</p>
+                        <img class="icon" src=${award.icon}>
+                        <p>${award.description}</p>
+                        `
+                        promotion.appendChild(awardDiv);
+                    });
+                }
+            });
+        }
+    });
+
+}
+
 export { buildHtmlStoreHeader,
          buildHtmlStoreBody,
          buildHtmlCategory, 
@@ -167,6 +230,6 @@ export { buildHtmlStoreHeader,
          buildHtmlOrderRow, 
          buildHtmlOrderFooter, 
          createOrderID, 
-         createCustomerID, 
-         getPromotions, 
-         postOrder };
+         createCustomerID,
+         postOrder,
+         buildHtmlPromotionBody};

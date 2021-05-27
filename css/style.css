@@ -723,4 +723,28 @@ template {
   padding: 10px 10px;
 }
 
+#promotion-pop-up #prm-bdy {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+#promotion-pop-up #prm-bdy .prm-card {
+  background-color: beige;
+  width: 50vw;
+}
+#promotion-pop-up #prm-bdy .prm-card .prm-condition .prm-award-container {
+  display: flex;
+  flex-direction: column;
+  background-color: cadetblue;
+}
+#promotion-pop-up #prm-bdy .prm-card .prm-condition .prm-award-container .prm-award {
+  display: flex;
+  padding: 10px 0px;
+}
+#promotion-pop-up #prm-bdy .prm-card .prm-condition .prm-award-container .prm-award img {
+  width: 20px;
+  height: 20px;
+}
+
 /*# sourceMappingURL=style.css.map */

@@ -1,9 +1,8 @@
 import './schema.js'
 import { order } from './schema.js'
-import { buildHtmlOrderHeader, buildHtmlOrderRow, buildHtmlOrderFooter, postOrder } from './function.js';
+import { buildHtmlOrderHeader, buildHtmlOrderRow, buildHtmlOrderFooter, postOrder, buildHtmlPromotionBody } from './function.js';
 import { OrderRow } from './order.js'
 
-//mostrar productos al hacer click en categoria:
 
 var productCategory = $("#product-category");
 var productCatalog = $("#product-catalog");
@@ -75,6 +74,7 @@ actions.click(function(e) {
             case "promotion-info-btn":
                 promotionPopUp.show()
                               .css("display","block");
+                buildHtmlPromotionBody();
                 break
             case "shopping-cart-btn":
                 let removePdt = $(".orderrow .remove");
@@ -162,16 +162,29 @@ addPdt.click(function(e) {
     let product = e.target.parentNode.id;
     let price = e.target.parentNode.children[3].children[1].innerText;
     let exist = rows.find(pdt => pdt.product === product);
+    let defaultQty = 1;
+    let defaultAmount;
+    let totalAmount = 0;
+    let orderAmount = $("#order-amount");
 
     if(typeof exist === 'undefined') {
-        rows.push(new OrderRow(order, category, product,"", price,""));
+        rows.push(new OrderRow(order, category, product,defaultQty, price,""));
         
         rows.forEach(row => {
             row.calcAmount();
+            defaultAmount = row.amount;
         });
 
-        orderBody.append(buildHtmlOrderRow(e));
+        orderBody.append(buildHtmlOrderRow(e,defaultQty, defaultAmount));
     }
+
+    rows.forEach(row => {
+        totalAmount = totalAmount + row.amount;
+    });
+
+    myOrderAmount = totalAmount;
+
+    orderAmount[0].children[0].innerHTML = totalAmount;
 });
 
 //enviar la orden al proveedor:

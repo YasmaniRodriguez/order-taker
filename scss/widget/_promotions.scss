@@ -1,0 +1,38 @@
+#promotion-pop-up {
+    #prm-hdr {
+
+    }
+    #prm-bdy {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+
+        .prm-card {
+            background-color: beige;
+            width: 50vw;
+
+            .prm-condition {
+
+                .prm-award-container {
+                    display: flex;
+                    flex-direction: column;
+                    background-color: cadetblue;
+
+                    .prm-award {
+                        display: flex;
+                        padding: 10px 0px;
+
+                        img {
+                            width: 20px;
+                            height: 20px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    #prm-ftr {
+
+    }
+}
