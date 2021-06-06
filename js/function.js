@@ -39,7 +39,9 @@ function buildHtmlCategory(categories) {
 function buildHtmlProduct(products) {
     return `
     <div class="product ${products.category}" id="${products.name}">
-        <i class="fas fa-plus fa-2x product-add-btn"></i>
+        <div class="product-add-btn">
+            <i class="fas fa-cart-plus fa-2x"></i>
+        </div>
         <div class="action product-film"></div>
         <div class="product-galery">
             <img src=${products.image}>

@@ -3,25 +3,30 @@
     background-color: $color1;
     display: flex;
     justify-content: center;
+    align-self: flex-end;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    z-index: 100;
 
     .shopping-cart-container {
         background-color: white;
-        height: 95px;
-        width: 95px;
+        height: 70px;
+        width: 70px;
         border-radius: 50%;
         display: flex;
         justify-content: center;
         align-items: center;
         position: relative;
-        top: -40px;
+        top: -20px;
 
         .shopping-cart-btn {
             position: absolute;
             display: flex;
             justify-content: center;
             align-items: center;
-            width: 75px;
-            height: 75px;
+            width: 60px;
+            height: 60px;
             border-radius: 50%;
             box-shadow: 0px 0px 30px -6px $color7;
             animation: pulsate-fwd 5s ease-in-out infinite both;

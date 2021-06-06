@@ -16,18 +16,18 @@ category.click(function(e) {
     let category = e.currentTarget.id;
     let categoryName = e.currentTarget.innerText;
     
-    productCategory.hide();
-    productCatalog.show() 
+    productCategory.fadeOut();
+    productCatalog.fadeIn() 
                   .css("display", "flex");
 
-    categoryBreadcrumb.show();
+    categoryBreadcrumb.fadeIn();
     categoryBreadcrumbText[0].innerHTML = categoryName;
 
     for(const pdt of productContainer) {
         let pdtctg = pdt.classList[1];
 
         if(pdtctg == category) {
-            pdt.style.display="flex";
+            pdt.style.display="grid";
         }
     }
 });
@@ -35,11 +35,11 @@ category.click(function(e) {
 //cerrar la vista de productos y regresar a la vista de categorias:
 
 homeBreadcrumb.click(function(e) {
-    categoryBreadcrumb.hide();
-    productCatalog.hide();
-    productContainer.hide();
-    productCategory.show() 
-                   .css("display", "flex");
+    categoryBreadcrumb.fadeOut();
+    productCatalog.fadeOut();
+    productContainer.fadeOut();
+    productCategory.fadeIn() 
+                   .css("display", "grid");
 });
 
 //abrir overlay:
@@ -56,7 +56,7 @@ actions.click(function(e) {
     let actionId = e.target.classList[1];
     let total = $("#order-amount");
 
-    overlay.show()
+    overlay.fadeIn()
            .css("display", "flex");
     goBackBtn.show()
              .css("display", "flex");
@@ -140,8 +140,8 @@ goBackBtn.click(function(e) {
     for(const popup of allCTApopUp) {
         popup.style.display="none";
     }
-    overlay[0].style.display="none";
-    goBackBtn[0].style.display="none";
+    overlay.fadeOut();
+    goBackBtn.hide();
 });
 
 

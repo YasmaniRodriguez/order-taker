@@ -41,26 +41,28 @@
     }
 
     .category-page-section {
-        background-color:rgba(0, 0, 0, 0.247);
+        background-image: url("../images/store/background.jpg");
+        background-size: cover;
         display: grid;
-        justify-items: center;
-        align-content: center;
         grid-template-columns: auto auto;
         grid-template-rows: auto auto;
         gap: 20px;
-
+        justify-items: center;
+        align-content: center;
+        
         .category {
             display: flex;
             justify-content: center;
             align-items: center;
-            width: 100%;
-            height: 100%;
+            width: 80%;
+            height: 80%;
             box-shadow: 0px 0px 50px -.5px black;
             background-color: white;
             cursor: pointer;
             border-radius: 5px;
             text-transform:uppercase;
             color: white;
+            padding: 5px;
 
             &:hover {
                 transform: scale(1.10);
@@ -79,15 +81,21 @@
     }
 
     .product-page-section {
+        max-height: 65vh;
         background-color: ghostwhite;
         display: none;
-        justify-content:space-around;
+        grid-template-columns: auto;
+        gap: 20px;
+        flex-direction: column;
         align-items: center;
-        flex-wrap: wrap;
+        padding-top: 20px;
+        padding-bottom: 100px;
 
         .product {
-            max-width: 10vw;
+
             height: 30vh;
+            width: 30vh;
+            padding: 10px;
             display: none;
             flex-direction: column;
             justify-content: space-between;
@@ -95,6 +103,7 @@
             background-color: white;
             position: relative;
             cursor: pointer;
+            border-radius: 10px;
 
             .product-galery {
                 max-height: 20vh;
@@ -119,9 +128,10 @@
             .product-film {
                 height: 100%;
                 width: 100%;
-                background-color: chartreuse;
+                background-color: rgb(224, 248, 200);
                 position: absolute;
                 opacity: 0.25;
+                border-radius: 10px;
                 // z-index: 5;
             }
         }
