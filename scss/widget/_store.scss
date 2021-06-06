@@ -1,4 +1,6 @@
 #store-pop-up {
+    background-color: black;
+
     #str-hdr {
         display: flex;
         flex-direction: column;
@@ -6,30 +8,37 @@
 
         #store-background-profile {
             width: 100%;
-            height: 20vh;
             border-radius: 10px 10px 0px 0px;
+            height: 40vh;
         }
 
         #store-logo {
-            width: 90px;
-            height: 90px;
+            width: 125px;
+            height: 125px;
             position: absolute;
-            top: 13vh;
+            top: 28vh;
             left: 2vw;
         }
     }
+
     #str-bdy {
         display: flex;
         flex-direction: column;
-        
-        #store-address {
-            width: 50%; 
-            height: 50%;
-            border: 0; 
+        height: 50%;
+
+        p {
+            color: white;
         }
 
-    }
-    #str-ftr {
+        #store-contact {
+            
+        }
+        
+        #store-address {
+            width: 80%; 
+            height: 80%;
+            border: 0; 
+        }
 
     }
 }

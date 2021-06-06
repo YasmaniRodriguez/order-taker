@@ -4,7 +4,7 @@ import { Store } from './store.js'
 import { buildHtmlStoreHeader, buildHtmlStoreBody, buildHtmlCategory, buildHtmlProduct, createOrderID, createCustomerID } from './function.js'
 
 //crear tienda:
-const store = new Store("Legends", "Pizzas & Empanadas", "legends","", "https://api.whatsapp.com/send?phone=5491112345678", "info@legends.com.ar", "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d821.2189774006084!2d-58.43452587074024!3d-34.58200629462786!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bcb591fa76fe45%3A0xf22f9443eb6276f2!2sFitz%20Roy%201964%2C%20C1414%20CID%2C%20Buenos%20Aires!5e0!3m2!1ses!2sar!4v1621806946123!5m2!1ses!2sar", "images/store/logo.png", "images/store/background.jpeg")
+const store = new Store("Yeah!", "Pizzas, Tartas & Empanadas", "yeah","", "https://api.whatsapp.com/send?phone=5491112345678", "info@yeah.com.ar", "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d821.2189774006084!2d-58.43452587074024!3d-34.58200629462786!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bcb591fa76fe45%3A0xf22f9443eb6276f2!2sFitz%20Roy%201964%2C%20C1414%20CID%2C%20Buenos%20Aires!5e0!3m2!1ses!2sar!4v1621806946123!5m2!1ses!2sar", "images/store/logo.png", "images/store/background.jpg")
 store.setShare();
 
 var storeHeader = $("#str-hdr");
@@ -94,28 +94,5 @@ if(order === null) {
     let order = createOrderID();
     sessionStorage.setItem('order', order); 
 }
-
-//para agregar promosiones:
-// var orderBody = $("#odr-bdy");
-// var test = products.filter(product => product.description.includes("carne"));
-
-// test.forEach(pdt => {
-//     let icon;
-
-//     for(const ctg of categories) {
-//         if(ctg.name === pdt.category) {
-//             icon = ctg.icon;
-//         }
-//     }
-
-//     orderBody.append(`<div class="orderrow ${pdt.name}">
-//                         <img class="ctg-icon" src=${icon}>
-//                         <p class="pdt-desc">${pdt.description}</p>
-//                         <input class="pdt-qty" type="number">
-//                         <i class="fas fa-times fa-2x"></i>
-//                       </div>`)
-
-// });
-
 
 export { store, categories, products, order };

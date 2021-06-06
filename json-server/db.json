@@ -269,7 +269,7 @@
       "weekday": 5,
       "description": "Llevate Dos Empanadas de Regalo",
       "from": "09:00:00",
-      "to": "18:00:00",
+      "to": "23:59:59",
       "condition": 2000,
       "maxselect": 1,
       "award": [
@@ -289,7 +289,7 @@
       "weekday": 6,
       "description": "Llevate Una Bebida de Regalo",
       "from": "09:00:00",
-      "to": "18:00:00",
+      "to": "23:59:59",
       "condition": 2000,
       "maxselect": 1,
       "award": [

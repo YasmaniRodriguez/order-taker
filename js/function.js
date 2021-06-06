@@ -15,7 +15,7 @@ function buildHtmlStoreHeader(store){
 
 function buildHtmlStoreBody(store){
     return `
-    <div>
+    <div id="store-contact">
         <p>Info. de Contacto</p>
         <a id="store-mail" href="mailto:${store.mail}"><i class="far fa-envelope fa-2x"></i></i></a>
         <a id="store-phone" href=${store.whatsapp}&text=Hola,%20soy%20el%20Cliente%20${customer}%20y%20mi%20Nro.%20de%20Orden%20es%20${order}><i class="fab fa-whatsapp fa-2x"></i></a>
