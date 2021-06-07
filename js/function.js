@@ -53,17 +53,10 @@ function buildHtmlProduct(products) {
 }
 
 function buildHtmlOrderHeader() {
-    let customer = localStorage.getItem('customer');
     let order = sessionStorage.getItem('order');
     return `
-    <div class="order-header-title">
-        <p>Cliente:</p>
-        <p>Pedido:</p>
-    </div>
-    <div class="order-header-data">
-        <p>${customer}</p>
-        <p>${order}</p>
-    </div>
+    <p>Nro. de Pedido:</p>
+    <p>${order}</p>
     `
 }
 
@@ -93,7 +86,7 @@ function buildHtmlOrderRow(e, category, name, qty, amount) {
         <p class="price">${price}</p>
         <input class="quantity" type="number" value=${qty}>
         <p class="amount">${amount}</p>
-        <i class="remove fas fa-times fa-2x"></i>
+        <i class="fas fa-trash-alt remove"></i>
     </div>
     `
 }
@@ -106,19 +99,14 @@ function buildHtmlOrderFooter(){
     `
 };
 
-function createOrderID() {
-    let ouid = Date.now();
-    return ouid;
-}
-
-function createCustomerID(){
+function createOrderID(){
     var dt = new Date().getTime();
-    var cuid = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+    var ouid = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
         var r = (dt + Math.random()*16)%16 | 0;
         dt = Math.floor(dt/16);
         return (c=='x' ? r :(r&0x3|0x8)).toString(16);
     });
-    return cuid;
+    return ouid;
 }
 
 function postOrder(){
@@ -241,7 +229,6 @@ export { buildHtmlStoreHeader,
          buildHtmlOrderRow, 
          buildHtmlOrderFooter, 
          createOrderID, 
-         createCustomerID,
          postOrder,
          buildHtmlPromotionBody,
          getPrice};

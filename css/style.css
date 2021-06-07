@@ -422,14 +422,14 @@ template {
 .page-header .brand-container h2 {
   margin: 0;
   font-size: 1.7em;
-  color: #fffcf7;
-  text-shadow: 2px 2px 2px #a4a2a5;
+  color: #a4a2a5;
+  text-shadow: 2px 2px 2px #fffcf7;
 }
 .page-header .brand-container h3 {
   margin: 0;
   font-size: 1.1em;
-  color: #fffcf7;
-  text-shadow: 2px 2px 2px #a4a2a5;
+  color: #a4a2a5;
+  text-shadow: 2px 2px 2px #fffcf7;
 }
 .page-header #promotion-info-btn {
   cursor: pointer;
@@ -532,7 +532,7 @@ template {
 .page-content .product-page-section .product .product-add-btn {
   width: 8vw;
   height: 8vw;
-  border: #ffce9d solid 3px;
+  border: #813d7c solid 3px;
   border-radius: 50px;
   background-color: #fffcf7;
   position: absolute;
@@ -603,7 +603,7 @@ template {
   width: 60px;
   height: 60px;
   border-radius: 50%;
-  box-shadow: 0px 0px 30px -6px #a4a2a5;
+  box-shadow: 0px 0px 20px 0px #813d7c;
   animation: pulsate-fwd 5s ease-in-out infinite both;
   cursor: pointer;
   opacity: 0.5;
@@ -621,34 +621,29 @@ template {
   bottom: 0;
   left: 0;
   right: 0;
-  background-color: rgba(0, 0, 0, 0.6);
+  background-color: rgba(0, 0, 0, 0.74);
 }
 .page-footer .overlay .cta-pop-up {
   width: 80vw;
   height: 85vh;
   display: none;
-  background-color: white;
-  box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.3);
+  background-color: rgba(245, 245, 245, 0.733);
   border-radius: 10px 10px 0px 0px;
   text-align: center;
 }
 .page-footer .overlay .cta-pop-up .pop-up-header {
-  min-height: 10vh;
   display: flex;
   justify-content: space-around;
   align-items: center;
   margin-bottom: 20px;
 }
 .page-footer .overlay .cta-pop-up .pop-up-body {
-  max-height: 60vh;
-  min-height: 60vh;
   display: block;
   padding: 20px 0px;
   overflow-y: scroll;
   overflow-x: hidden;
 }
 .page-footer .overlay .cta-pop-up .pop-up-footer {
-  min-height: 10vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -660,7 +655,6 @@ template {
   justify-content: center;
   align-items: center;
   background-color: #813d7c;
-  border-top: bisque solid 1px;
   border-radius: 0px 0px 10px 10px;
   text-align: center;
   width: 80vw;
@@ -670,10 +664,28 @@ template {
 .page-footer .overlay #go-back-btn .overlay-close-btn {
   text-decoration: none;
   transition: 0.3s ease all;
-  color: white;
+  color: #fffcf7;
 }
 
+#order-pop-up #odr-hdr {
+  display: flex;
+  flex-direction: column;
+  background-color: #813d7c;
+  border-radius: 10px 10px 0px 0px;
+  margin: 0;
+  padding: 5px;
+}
+#order-pop-up #odr-hdr p {
+  color: #fffcf7;
+}
+#order-pop-up #odr-bdy {
+  min-height: 57vh;
+  max-height: 57vh;
+}
 #order-pop-up #odr-bdy .orderrow {
+  font-size: 0.9em;
+  color: #fffcf7;
+  text-shadow: 1px 1px 2px #a4a2a5;
   height: 5vh;
   max-width: 75vw;
   padding: 10px;
@@ -682,16 +694,15 @@ template {
   justify-content: space-between;
 }
 #order-pop-up #odr-bdy .orderrow .icon {
-  width: 5vw;
+  width: 6vw;
   height: 100%;
 }
 #order-pop-up #odr-bdy .orderrow .name {
   display: none;
 }
 #order-pop-up #odr-bdy .orderrow .description {
-  width: 40vw;
+  width: 30vw;
   height: 100%;
-  font-size: 1rem;
   text-transform: uppercase;
   display: flex;
   align-items: center;
@@ -702,54 +713,63 @@ template {
 #order-pop-up #odr-bdy .orderrow .price {
   width: 8vw;
   height: 100%;
-  font-size: 1rem;
   text-transform: uppercase;
   display: flex;
   align-items: center;
   flex-wrap: wrap;
   text-align: left;
   padding-left: 2vw;
-  background-color: yellow;
 }
 #order-pop-up #odr-bdy .orderrow .quantity {
   width: 8vw;
   height: 5vh;
   border: none;
-  background-color: green;
+  border-bottom: 1px solid #ffce9d;
   text-align: center;
-  padding: 0px;
+  padding-left: 0px;
+  background-color: transparent;
+  color: #fffcf7;
+  text-shadow: 1px 1px 2px #a4a2a5;
 }
 #order-pop-up #odr-bdy .orderrow .amount {
   width: 8vw;
   height: 100%;
-  font-size: 1rem;
   text-transform: uppercase;
   display: flex;
   align-items: center;
   flex-wrap: wrap;
   text-align: left;
   padding-left: 2vw;
-  background-color: red;
 }
 #order-pop-up #odr-bdy .orderrow .remove {
   width: 5vw;
   cursor: pointer;
+  padding-left: 5vw;
+  color: #813d7c;
 }
 #order-pop-up #odr-ftr {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   margin: 0;
+  background-color: #fffcf7;
+  padding: 10px;
+}
+#order-pop-up #odr-ftr #order-amount {
+  padding: 5px;
 }
 #order-pop-up #odr-ftr #submit-order-btn {
   cursor: pointer;
-  background-color: aquamarine;
-  padding: 10px 10px;
+  background-color: #f7e7d7;
+  padding: 5px 10px;
   border-radius: 5px;
+}
+#order-pop-up #odr-ftr #submit-order-btn p {
+  color: #ffce9d;
 }
 
 #store-pop-up {
-  background-color: black;
+  background-color: rgba(0, 0, 0, 0.432);
 }
 #store-pop-up #str-hdr {
   display: flex;
@@ -774,9 +794,17 @@ template {
   height: 50%;
 }
 #store-pop-up #str-bdy p {
-  color: white;
+  color: #fffcf7;
+}
+#store-pop-up #str-bdy #store-contact p {
+  padding-top: 5px;
+}
+#store-pop-up #str-bdy #store-contact i {
+  color: #fffcf7;
+  padding: 5px 10px;
 }
 #store-pop-up #str-bdy #store-address {
+  padding-top: 5px;
   width: 80%;
   height: 80%;
   border: 0;

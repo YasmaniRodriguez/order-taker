@@ -1,7 +1,7 @@
 import { Category } from './category.js'
 import { Product } from './product.js'
 import { Store } from './store.js'
-import { buildHtmlStoreHeader, buildHtmlStoreBody, buildHtmlCategory, buildHtmlProduct, createOrderID, createCustomerID } from './function.js'
+import { buildHtmlStoreHeader, buildHtmlStoreBody, buildHtmlCategory, buildHtmlProduct, createOrderID } from './function.js'
 
 //crear tienda:
 const store = new Store("Yeah!", "Pizzas, Tartas & Empanadas", "yeah","", "https://api.whatsapp.com/send?phone=5491112345678", "info@yeah.com.ar", "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d821.2189774006084!2d-58.43452587074024!3d-34.58200629462786!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bcb591fa76fe45%3A0xf22f9443eb6276f2!2sFitz%20Roy%201964%2C%20C1414%20CID%2C%20Buenos%20Aires!5e0!3m2!1ses!2sar!4v1621806946123!5m2!1ses!2sar", "images/store/logo.png", "images/store/background.jpg")
@@ -74,16 +74,6 @@ products.forEach(product => {
     productHtml = productHtml + buildHtmlProduct(product);
     productCatalog.append(productHtml); 
 })
-
-//asignar identificador al cliente:
-var customer;
-
-customer = localStorage.getItem('customer');
-
-if(customer === null) {
-    let customer = createCustomerID();
-    localStorage.setItem('customer', customer);
-}
 
 //crear una orden para la session:
 var order;

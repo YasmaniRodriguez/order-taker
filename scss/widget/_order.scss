@@ -1,10 +1,27 @@
 #order-pop-up {
-    #odr-hdr {
 
+    #odr-hdr {
+        display: flex;
+        flex-direction: column;
+        background-color: $color8;
+        border-radius: 10px 10px 0px 0px;
+        margin: 0;
+        padding: 5px;
+
+        p {
+            color: $color2;
+        }
     }
+
     #odr-bdy {
-        
+
+        min-height: 57vh;
+        max-height: 57vh;
+
         .orderrow {
+            font-size: 0.9em;
+            color: $color2;
+            text-shadow: 1px 1px 2px $color7;
             height: 5vh;
             max-width: 75vw;
             padding: 10px;
@@ -13,7 +30,7 @@
             justify-content: space-between;
 
             .icon {
-                width: 5vw;
+                width: 6vw;
                 height: 100%;
             }
 
@@ -22,9 +39,8 @@
             }
 
             .description {
-                width: 40vw;
+                width: 30vw;
                 height: 100%;
-                font-size: 1rem;
                 text-transform: uppercase;
                 display: flex;
                 align-items: center;
@@ -36,41 +52,42 @@
             .price {
                 width: 8vw;
                 height: 100%;
-                font-size: 1rem;
                 text-transform: uppercase;
                 display: flex;
                 align-items: center;
                 flex-wrap: wrap;
                 text-align: left;
                 padding-left: 2vw;
-                background-color: yellow;
             }            
 
             .quantity {
                 width: 8vw;
                 height: 5vh;
                 border: none;
-                background-color: green;
+                border-bottom: 1px solid $color4;
                 text-align: center;
-                padding: 0px;
+                padding-left: 0px;
+                background-color:transparent;
+                color: $color2;
+                text-shadow: 1px 1px 2px $color7;
             }
 
             .amount {
                 width: 8vw;
                 height: 100%;
-                font-size: 1rem;
                 text-transform: uppercase;
                 display: flex;
                 align-items: center;
                 flex-wrap: wrap;
                 text-align: left;
                 padding-left: 2vw;
-                background-color: red;
             } 
 
             .remove {
                 width: 5vw;
                 cursor: pointer;
+                padding-left: 5vw;
+                color: $color8;
             }
         }
     }
@@ -79,16 +96,23 @@
         flex-direction: column;
         justify-content: space-around;
         margin: 0;
+        background-color: $color2;
+        padding: 10px;
 
         #order-amount {
-            
+            padding: 5px;
+        
         }
 
         #submit-order-btn {
             cursor: pointer;
-            background-color: aquamarine;
-            padding: 10px 10px;
+            background-color: $color3;
+            padding: 5px 10px;
             border-radius: 5px;
+
+            p {
+                color: $color4;
+            }
         }
     }
 }

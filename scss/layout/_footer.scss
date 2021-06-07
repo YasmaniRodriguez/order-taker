@@ -33,11 +33,10 @@
             width: 60px;
             height: 60px;
             border-radius: 50%;
-            box-shadow: 0px 0px 30px -6px $color7;
+            box-shadow: 0px 0px 20px 0px $color8;
             animation: pulsate-fwd 5s ease-in-out infinite both;
             cursor: pointer;
             opacity: 0.5;
-
         }
     }
 
@@ -59,21 +58,17 @@
         left: 0;
         right: 0;
 
-        background-color: rgba(0, 0, 0, 0.6);
+        background-color: rgba(0, 0, 0, 0.74);
 
         .cta-pop-up {
             width: 80vw;
             height: 85vh;
-
             display: none;
-
-            background-color: white;
-            box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.3);
+            background-color: rgba(245, 245, 245, 0.733);
             border-radius: 10px 10px 0px 0px;
             text-align: center;
 
             .pop-up-header {
-                min-height: 10vh;
 
                 display: flex;
                 justify-content: space-around;
@@ -82,9 +77,6 @@
             }
 
             .pop-up-body {
-                max-height: 60vh;
-                min-height: 60vh;
-
                 display: block;
                 padding: 20px 0px;
                 overflow-y: scroll;
@@ -92,8 +84,6 @@
             }
 
             .pop-up-footer {
-                min-height: 10vh;
-
                 display: flex;
                 flex-direction: column;
                 justify-content: center;
@@ -107,8 +97,7 @@
             display: none;
             justify-content: center;
             align-items: center;
-            background-color: rgba(129, 61, 124, 1);
-            border-top: bisque solid 1px;
+            background-color: $color8;
             border-radius: 0px 0px 10px 10px;
             text-align: center;
             width: 80vw;
@@ -118,7 +107,7 @@
             .overlay-close-btn {
                 text-decoration: none;
                 transition: 0.3s ease all;
-                color: white;
+                color: $color2;
             }
         }
     }
