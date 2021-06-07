@@ -165,10 +165,15 @@ addPdt.click(function(e) {
     let defaultAmount;
     let totalAmount = 0;
     let orderAmount = $("#order-amount");
+    let cart = $("#cart-icon");
+
+    cart.css("animation", "wobble-hor-top 0.8s both")
+        .css("color","rgba(129, 61, 124, 1)");
 
     if(typeof exist === 'undefined') {
+
         rows.push(new OrderRow(order, category, product,defaultQty, getPrice(product),""));
-        
+       
         rows.forEach(row => {
             row.calcAmount();
             defaultAmount = row.amount;

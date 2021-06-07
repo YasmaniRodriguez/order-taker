@@ -111,13 +111,15 @@ function createOrderID(){
 
 function postOrder(){
     let url = "http://localhost:3000/orders";
-    const myOrderInfo = { customer: customer, order: order, amount: myOrderAmount};
+    const myOrderInfo = { order: order, amount: myOrderAmount};
 
     if(myOrderAmount > 1){
         $.post(url, myOrderInfo, function(response, status){
             if(status === "success"){
-                notificationContainer.css("display", "flex");
+                notificationContainer.fadeIn()
+                                     .css("display", "flex");
                 notificationText[0].innerHTML = "La Orden fue enviada al Proveedor";
+                notificationContainer.fadeOut(4000);
             }
         });
     } else {notificationContainer.fadeIn()
