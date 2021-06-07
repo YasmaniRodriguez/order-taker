@@ -31,6 +31,10 @@ body {
 body p {
   margin: 0;
 }
+body .action {
+  color: #a4a2a5;
+  text-shadow: 2px 2px 2px #fffcf7;
+}
 
 /**
  * Render the `main` element consistently in IE.
@@ -377,6 +381,27 @@ template {
     box-shadow: 0 0 20px 0px rgba(0, 0, 0, 0.35);
   }
 }
+@keyframes wobble-hor-top {
+  0%, 100% {
+    transform: translateX(0%);
+    transform-origin: 50% 50%;
+  }
+  15% {
+    transform: translateX(-30px) rotate(6deg);
+  }
+  30% {
+    transform: translateX(15px) rotate(-6deg);
+  }
+  45% {
+    transform: translateX(-15px) rotate(3.6deg);
+  }
+  60% {
+    transform: translateX(9px) rotate(-2.4deg);
+  }
+  75% {
+    transform: translateX(-6px) rotate(1.2deg);
+  }
+}
 .page-header {
   height: 10vh;
   background-color: #f7ebd5;
@@ -396,11 +421,15 @@ template {
 }
 .page-header .brand-container h2 {
   margin: 0;
-  font-size: 1.5em;
+  font-size: 1.7em;
+  color: #fffcf7;
+  text-shadow: 2px 2px 2px #a4a2a5;
 }
 .page-header .brand-container h3 {
   margin: 0;
-  font-size: 1em;
+  font-size: 1.1em;
+  color: #fffcf7;
+  text-shadow: 2px 2px 2px #a4a2a5;
 }
 .page-header #promotion-info-btn {
   cursor: pointer;
@@ -412,8 +441,9 @@ template {
 }
 .page-content .breadcrumb-container {
   height: 5vh;
-  background-color: #fffcf7;
-  box-shadow: 0px 6px 5px -6px black;
+  padding-top: 5px;
+  color: #fffcf7;
+  background-color: #f7ebd5;
   margin: 0;
   display: flex;
   justify-content: center;
@@ -423,7 +453,8 @@ template {
   cursor: pointer;
 }
 .page-content .breadcrumb-container .breadcrumb-item .breadcrumb-link {
-  font-size: 2rem;
+  font-size: 1.2rem;
+  text-shadow: 1px 1px 2px #a4a2a5;
 }
 .page-content .breadcrumb-container #category-breadcrumb {
   display: none;
@@ -455,12 +486,9 @@ template {
   align-items: center;
   width: 80%;
   height: 80%;
-  box-shadow: 0px 0px 50px -0.5px black;
-  background-color: white;
+  background-color: #fffcf7;
   cursor: pointer;
   border-radius: 5px;
-  text-transform: uppercase;
-  color: white;
   padding: 5px;
 }
 .page-content .category-page-section .category:hover {
@@ -472,10 +500,14 @@ template {
 }
 .page-content .category-page-section .category p {
   position: absolute;
+  text-transform: uppercase;
+  color: #f7ebd5;
+  text-shadow: 2px 2px 2px #a4a2a5;
 }
 .page-content .product-page-section {
   max-height: 65vh;
-  background-color: ghostwhite;
+  background-image: url("../images/store/doddle.jpg");
+  background-size: contain;
   display: none;
   grid-template-columns: auto;
   gap: 20px;
@@ -496,6 +528,20 @@ template {
   position: relative;
   cursor: pointer;
   border-radius: 10px;
+}
+.page-content .product-page-section .product .product-add-btn {
+  width: 8vw;
+  height: 8vw;
+  border: #ffce9d solid 3px;
+  border-radius: 50px;
+  background-color: #fffcf7;
+  position: absolute;
+  bottom: 60px;
+  right: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
 }
 .page-content .product-page-section .product .product-galery {
   max-height: 20vh;
@@ -544,6 +590,10 @@ template {
   align-items: center;
   position: relative;
   top: -20px;
+}
+.page-footer .shopping-cart-container i {
+  color: #a4a2a5;
+  text-shadow: 2px 2px 2px #fffcf7;
 }
 .page-footer .shopping-cart-container .shopping-cart-btn {
   position: absolute;
@@ -621,20 +671,6 @@ template {
   text-decoration: none;
   transition: 0.3s ease all;
   color: white;
-}
-
-.product-add-btn {
-  width: 2.5vw;
-  height: 2.5vw;
-  background-color: #f7e8bd;
-  border-radius: 50px;
-  position: absolute;
-  bottom: 75px;
-  right: 10px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 10;
 }
 
 #order-pop-up #odr-bdy .orderrow {

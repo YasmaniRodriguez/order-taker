@@ -4,8 +4,9 @@
 
     .breadcrumb-container {
         height: 5vh;
-        background-color: $color2;
-        box-shadow: 0px 6px 5px -6px black;
+        padding-top: 5px;
+        color: $color2;
+        background-color: $color1;
         margin: 0;
         display: flex;
         justify-content: center;
@@ -16,7 +17,8 @@
             cursor: pointer;
 
             .breadcrumb-link {
-                font-size: 2rem;
+                font-size: 1.2rem;
+                text-shadow: 1px 1px 2px $color7;
             }
 
         }
@@ -56,12 +58,9 @@
             align-items: center;
             width: 80%;
             height: 80%;
-            box-shadow: 0px 0px 50px -.5px black;
-            background-color: white;
+            background-color: $color2;
             cursor: pointer;
             border-radius: 5px;
-            text-transform:uppercase;
-            color: white;
             padding: 5px;
 
             &:hover {
@@ -75,6 +74,9 @@
 
             p {
                 position: absolute;
+                text-transform:uppercase;
+                color: $color1;
+                text-shadow: 2px 2px 2px $color7;
             }
         }
 
@@ -82,7 +84,8 @@
 
     .product-page-section {
         max-height: 65vh;
-        background-color: ghostwhite;
+        background-image:  url("../images/store/doddle.jpg");
+        background-size:contain;
         display: none;
         grid-template-columns: auto;
         gap: 20px;
@@ -104,6 +107,21 @@
             position: relative;
             cursor: pointer;
             border-radius: 10px;
+
+            .product-add-btn {
+                width: 8vw;
+                height: 8vw;
+                border: $color4 solid 3px;
+                border-radius: 50px;
+                background-color: $color2;
+                position: absolute;
+                bottom: 60px;
+                right: 20px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                z-index: 10;
+            }
 
             .product-galery {
                 max-height: 20vh;

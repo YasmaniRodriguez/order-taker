@@ -1,6 +1,6 @@
 import './schema.js'
-import { order } from './schema.js'
-import { buildHtmlOrderHeader, buildHtmlOrderRow, buildHtmlOrderFooter, postOrder, buildHtmlPromotionBody } from './function.js';
+import { order, products } from './schema.js'
+import { buildHtmlOrderHeader, buildHtmlOrderRow, buildHtmlOrderFooter, postOrder, buildHtmlPromotionBody, getPrice } from './function.js';
 import { OrderRow } from './order.js'
 
 
@@ -160,7 +160,6 @@ var myOrderAmount;
 addPdt.click(function(e) {
     let category = e.target.parentNode.classList[1];
     let product = e.target.parentNode.id;
-    let price = e.target.parentNode.children[3].children[1].innerText;
     let exist = rows.find(pdt => pdt.product === product);
     let defaultQty = 1;
     let defaultAmount;
@@ -168,14 +167,14 @@ addPdt.click(function(e) {
     let orderAmount = $("#order-amount");
 
     if(typeof exist === 'undefined') {
-        rows.push(new OrderRow(order, category, product,defaultQty, price,""));
+        rows.push(new OrderRow(order, category, product,defaultQty, getPrice(product),""));
         
         rows.forEach(row => {
             row.calcAmount();
             defaultAmount = row.amount;
         });
 
-        orderBody.append(buildHtmlOrderRow(e,defaultQty, defaultAmount));
+        orderBody.append(buildHtmlOrderRow(e,category, product, defaultQty, defaultAmount));
     }
 
     rows.forEach(row => {

@@ -39,9 +39,7 @@ function buildHtmlCategory(categories) {
 function buildHtmlProduct(products) {
     return `
     <div class="product ${products.category}" id="${products.name}">
-        <div class="product-add-btn">
-            <i class="fas fa-cart-plus fa-2x"></i>
-        </div>
+        <i class="fas fa-cart-plus product-add-btn"></i>
         <div class="action product-film"></div>
         <div class="product-galery">
             <img src=${products.image}>
@@ -69,9 +67,7 @@ function buildHtmlOrderHeader() {
     `
 }
 
-function buildHtmlOrderRow(e, qty, amount) {
-    let category = e.target.parentNode.classList[1];
-    let name = e.target.parentNode.id;
+function buildHtmlOrderRow(e, category, name, qty, amount) {
     let icon;
     let description;
     let price;
@@ -224,6 +220,19 @@ function buildHtmlPromotionBody() {
 
 }
 
+function getPrice(product) {
+
+    let price;
+
+    for(const pdt of products) {
+        if(product == pdt.name) {
+            price = pdt.price;
+        }
+    }
+
+    return price;
+}
+
 export { buildHtmlStoreHeader,
          buildHtmlStoreBody,
          buildHtmlCategory, 
@@ -234,4 +243,5 @@ export { buildHtmlStoreHeader,
          createOrderID, 
          createCustomerID,
          postOrder,
-         buildHtmlPromotionBody};
+         buildHtmlPromotionBody,
+         getPrice};

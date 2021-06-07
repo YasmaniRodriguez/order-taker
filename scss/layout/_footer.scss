@@ -20,6 +20,11 @@
         position: relative;
         top: -20px;
 
+        i {
+            color: $color7;
+            text-shadow: 2px 2px 2px $color2;
+        }
+
         .shopping-cart-btn {
             position: absolute;
             display: flex;
@@ -32,6 +37,7 @@
             animation: pulsate-fwd 5s ease-in-out infinite both;
             cursor: pointer;
             opacity: 0.5;
+
         }
     }
 
