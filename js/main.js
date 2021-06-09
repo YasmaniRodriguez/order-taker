@@ -51,10 +51,11 @@ var productPopUp = $("#product-pop-up");
 var orderPopUp = $("#order-pop-up");
 var goBackBtn = $("#go-back-btn");
 var actions = $(".action");
+var total = $("#total-amount");
+total[0].innerHTML = "$0.00";
 
 actions.click(function(e) {
     let actionId = e.target.classList[1];
-    let total = $("#order-amount");
 
     overlay.fadeIn()
            .css("display", "flex");
@@ -82,6 +83,7 @@ actions.click(function(e) {
               
                 orderPopUp.show()
                           .css("display","block");
+                          
                 //eliminar productos de la orden:          
                 removePdt.click(function(e){
                     let orderRowHtml = e.target.parentNode;
@@ -121,7 +123,7 @@ actions.click(function(e) {
                     });
 
                     amount.innerHTML = "$" + rowAmount;
-                    total[0].children[0].innerHTML = totalAmount;
+                    total[0].innerHTML = "$" + totalAmount;
                     myOrderAmount = totalAmount;
                 });
                 break;
@@ -167,8 +169,12 @@ addPdt.click(function(e) {
     let orderAmount = $("#order-amount");
     let cart = $("#cart-icon");
 
-    cart.css("animation", "wobble-hor-top 0.8s both")
-        .css("color","rgba(129, 61, 124, 1)");
+    cart.css("animation-name", "wobble-hor-top, heartbeat")
+        .css("animation-duration", "0.8s, 1.5s")
+        .css("animation-timing-function", ", ease-in-out")
+        .css("animation-iteration-count", "1, infinite")
+        .css("animation-direction", "both, both")
+        .css("animation-delay", "0s, 3s");
 
     if(typeof exist === 'undefined') {
 
@@ -188,7 +194,8 @@ addPdt.click(function(e) {
 
     myOrderAmount = totalAmount;
 
-    orderAmount[0].children[0].innerHTML = totalAmount;
+    total[0].innerHTML = "$" + totalAmount;
+    console.dir(total);
 });
 
 //enviar la orden al proveedor:

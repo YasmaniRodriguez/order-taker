@@ -32,7 +32,7 @@ body p {
   margin: 0;
 }
 body .action {
-  color: #a4a2a5;
+  color: #813d7c;
   text-shadow: 2px 2px 2px #fffcf7;
 }
 
@@ -402,6 +402,29 @@ template {
     transform: translateX(-6px) rotate(1.2deg);
   }
 }
+@keyframes heartbeat {
+  from {
+    transform: scale(1);
+    transform-origin: center center;
+    animation-timing-function: ease-out;
+  }
+  10% {
+    transform: scale(0.91);
+    animation-timing-function: ease-in;
+  }
+  17% {
+    transform: scale(0.98);
+    animation-timing-function: ease-out;
+  }
+  33% {
+    transform: scale(0.87);
+    animation-timing-function: ease-in;
+  }
+  45% {
+    transform: scale(1);
+    animation-timing-function: ease-out;
+  }
+}
 .page-header {
   height: 10vh;
   background-color: #f7ebd5;
@@ -422,13 +445,13 @@ template {
 .page-header .brand-container h2 {
   margin: 0;
   font-size: 1.7em;
-  color: #a4a2a5;
+  color: #813d7c;
   text-shadow: 2px 2px 2px #fffcf7;
 }
 .page-header .brand-container h3 {
   margin: 0;
   font-size: 1.1em;
-  color: #a4a2a5;
+  color: #813d7c;
   text-shadow: 2px 2px 2px #fffcf7;
 }
 .page-header #promotion-info-btn {
@@ -592,7 +615,7 @@ template {
   top: -20px;
 }
 .page-footer .shopping-cart-container i {
-  color: #a4a2a5;
+  color: #813d7c;
   text-shadow: 2px 2px 2px #fffcf7;
 }
 .page-footer .shopping-cart-container .shopping-cart-btn {
@@ -603,7 +626,7 @@ template {
   width: 60px;
   height: 60px;
   border-radius: 50%;
-  box-shadow: 0px 0px 10px 0px #813d7c;
+  box-shadow: 0px 0px 10px 0px #a4a2a5;
   animation: pulsate-fwd 5s ease-in-out infinite both;
   cursor: pointer;
   opacity: 0.5;
@@ -752,7 +775,7 @@ template {
   flex-direction: column;
   justify-content: space-around;
   margin: 0;
-  background-color: #fffcf7;
+  box-shadow: 0px 0px 1px 0px #fffcf7;
   padding: 10px;
   min-height: 10vh;
 }
@@ -761,7 +784,7 @@ template {
 }
 #order-pop-up #odr-ftr #submit-order-btn {
   cursor: pointer;
-  background-color: #f7e7d7;
+  background-color: #813d7c;
   padding: 5px 10px;
   border-radius: 5px;
 }

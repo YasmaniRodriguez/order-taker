@@ -86,7 +86,7 @@ function buildHtmlOrderRow(e, category, name, qty, amount) {
         <p class="description">${description}</p>
         <p class="price">${price}</p>
         <input class="quantity" type="number" value=${qty}>
-        <p class="amount">${amount}</p>
+        <p class="amount">$${amount}</p>
         <i class="fas fa-trash-alt remove"></i>
     </div>
     `
