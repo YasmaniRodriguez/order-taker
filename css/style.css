@@ -827,6 +827,17 @@ template {
   padding: 10px 10px;
 }
 
+#promotion-pop-up #prm-hdr {
+  display: flex;
+  flex-direction: column;
+  background-color: #813d7c;
+  border-radius: 10px 10px 0px 0px;
+  margin: 0;
+  padding: 5px;
+}
+#promotion-pop-up #prm-hdr h2 {
+  color: #fffcf7;
+}
 #promotion-pop-up #prm-bdy {
   display: flex;
   flex-direction: column;
@@ -834,13 +845,35 @@ template {
   align-items: center;
 }
 #promotion-pop-up #prm-bdy .prm-card {
-  background-color: beige;
-  width: 50vw;
+  padding: 10px;
+  background-color: #ffce9d;
+  border-radius: 10px;
+  width: 60vw;
+}
+#promotion-pop-up #prm-bdy .prm-card p {
+  padding: 5px;
+  color: #813d7c;
+}
+#promotion-pop-up #prm-bdy .prm-card .prm-condition {
+  background-color: #fffcf7;
+  padding: 10px;
+  border-radius: 5px;
+}
+#promotion-pop-up #prm-bdy .prm-card .prm-condition h3 {
+  text-transform: uppercase;
+  margin: 0;
+  color: #ffce9d;
 }
 #promotion-pop-up #prm-bdy .prm-card .prm-condition .prm-award-container {
+  margin-top: 5px;
+  padding: 10px;
+  border-radius: 5px;
   display: flex;
   flex-direction: column;
-  background-color: cadetblue;
+  border: solid 1px #a4a2a5;
+}
+#promotion-pop-up #prm-bdy .prm-card .prm-condition .prm-award-container p {
+  text-transform: uppercase;
 }
 #promotion-pop-up #prm-bdy .prm-card .prm-condition .prm-award-container .prm-award {
   display: flex;
@@ -849,6 +882,16 @@ template {
 #promotion-pop-up #prm-bdy .prm-card .prm-condition .prm-award-container .prm-award img {
   width: 20px;
   height: 20px;
+}
+#promotion-pop-up #prm-bdy .prm-card #take-prm-btn {
+  margin: 10px 0px;
+  cursor: pointer;
+  background-color: #813d7c;
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+#promotion-pop-up #prm-bdy .prm-card #take-prm-btn p {
+  color: #ffce9d;
 }
 
 /*# sourceMappingURL=style.css.map */

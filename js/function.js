@@ -48,6 +48,7 @@ function buildHtmlProduct(products) {
             <p>${products.description}</p>
             <p>${products.price}</p>
         </div>
+        <div
     </div>
     `
 }
@@ -181,17 +182,20 @@ function buildHtmlPromotionBody() {
                     <div class="prm-card" id="${pid}">
                         <p>${promotion.description}</p>
                         <div class="prm-condition">
-                            <p>condiciones</p>
-                            <p>Si el valor del ticket, supera los ${promotion.condition}</p>
-                            <p>Podés llevar hasta ${promotion.maxselect} de las siguientes</p>
-                            <p>combinaciones</p>
-                            <div class="prm-award-container"></div>
+                            <h3>condiciones</h3>
+                            <p>Si el valor del ticket, supera los ${promotion.condition}, podés llevar hasta ${promotion.maxselect} de las siguientes</p>
+                            <h3>combinaciones</h3>
+                            <div class="prm-award-container">
+                            </div>
+                        </div>
+                        <div id="take-prm-btn">
+                            <p>Aplicar</p>
                         </div>
                     </div>
                     `);
 
                     awards.forEach(award => {
-                        let promotion = $("#prm-bdy")[0].lastElementChild.lastElementChild.lastElementChild; //me aseguro que sea el ultimo prm-card agregado
+                        let promotion = $("#prm-bdy")[0].lastElementChild.children[1].lastElementChild; //me aseguro que sea el ultimo prm-card agregado
                         //utilizo el modo vanilla porque con jquery, para promotion.append() me agrega un string y no una estructura html
                         let awardDiv = document.createElement("div");
                         awardDiv.className = "prm-award";
