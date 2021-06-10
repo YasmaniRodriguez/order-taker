@@ -235,13 +235,25 @@ function buildHtmlPromotionBody() {
                             }
 
                             if(awrProductChecked === null) {
-                                console.log("seleccione un producto por favor");
+                                notificationContainer.fadeIn()
+                                .css("display", "flex");
+                                notificationText[0].innerHTML = "Seleccione un combo por favor";
+                                notificationContainer.fadeOut(4000);
                             }else{
                                 sessionStorage.setItem('myaward', JSON.stringify(awrProductChecked));
-                                console.log("el combo seleccionado sera enviado con la orden")
+                                notificationContainer.fadeIn()
+                                .css("display", "flex");
+                                notificationText[0].innerHTML = "El combo seleccionado será enviado con la orden";
+                                notificationContainer.fadeOut(4000);                                
                             };
 
-                        }else{console.log("ya se asigno una promo para esta orden")}
+                        }else{
+                            sessionStorage.setItem('myaward', JSON.stringify(awrProductChecked));
+                            notificationContainer.fadeIn()
+                            .css("display", "flex");
+                            notificationText[0].innerHTML = "Esta Orden ya tiene asignada su promo";
+                            notificationContainer.fadeOut(4000);   
+                        }
                     })
                 }
             });
