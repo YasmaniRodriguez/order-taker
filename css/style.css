@@ -873,6 +873,9 @@ template {
   border-radius: 10px;
   width: 60vw;
 }
+#promotion-pop-up #prm-bdy .prm-card .prm-apply-flag {
+  display: none;
+}
 #promotion-pop-up #prm-bdy .prm-card p {
   padding: 5px;
   color: #813d7c;
@@ -906,15 +909,26 @@ template {
   width: 20px;
   height: 20px;
 }
-#promotion-pop-up #prm-bdy .prm-card #take-prm-btn {
+#promotion-pop-up #prm-bdy .prm-card .prm-condition .prm-award-container .prm-award .award-pdt-id {
+  display: none;
+}
+#promotion-pop-up #prm-bdy .prm-card .take-prm-btn {
   margin: 10px 0px;
-  cursor: pointer;
   background-color: #813d7c;
   padding: 5px 10px;
   border-radius: 5px;
+  position: relative;
 }
-#promotion-pop-up #prm-bdy .prm-card #take-prm-btn p {
-  color: #ffce9d;
+#promotion-pop-up #prm-bdy .prm-card .take-prm-btn .apply-btn-film {
+  height: 100%;
+  width: 100%;
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+#promotion-pop-up #prm-bdy .prm-card .take-prm-btn p {
+  color: #fffcf7;
 }
 
 /*# sourceMappingURL=style.css.map */

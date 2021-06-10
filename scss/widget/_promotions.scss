@@ -24,6 +24,10 @@
             border-radius: 10px;
             width: 60vw;
 
+            .prm-apply-flag {
+                display: none;
+            }
+
             p {
                 padding: 5px;
                 color: $color8;
@@ -60,19 +64,32 @@
                             width: 20px;
                             height: 20px;
                         }
+
+                        .award-pdt-id {
+                            display: none;
+                        }
                     }
                 }
             }
 
-            #take-prm-btn {
+            .take-prm-btn {
                 margin: 10px 0px;
-                cursor: pointer;
                 background-color: $color8;
                 padding: 5px 10px;
                 border-radius: 5px;
+                position: relative;
+
+                .apply-btn-film {
+                    height: 100%;
+                    width: 100%;
+                    cursor: pointer;
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                }
     
                 p {
-                    color: $color4;
+                    color: $color2;
                 }
             }
         }

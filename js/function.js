@@ -180,6 +180,7 @@ function buildHtmlPromotionBody() {
                     promotionDetail.remove(); //garantiza que no queden las promos desactualizadas
                     promotionBody.append(`
                     <div class="prm-card" id="${pid}">
+                        <input class="prm-apply-flag" type="radio" name="apply">
                         <p>${promotion.description}</p>
                         <div class="prm-condition">
                             <h3>condiciones</h3>
@@ -188,14 +189,15 @@ function buildHtmlPromotionBody() {
                             <div class="prm-award-container">
                             </div>
                         </div>
-                        <div id="take-prm-btn">
+                        <div class="take-prm-btn">
+                            <div class="apply-btn-film"></div>
                             <p>Aplicar</p>
                         </div>
                     </div>
                     `);
 
                     awards.forEach(award => {
-                        let promotion = $("#prm-bdy")[0].lastElementChild.children[1].lastElementChild; //me aseguro que sea el ultimo prm-card agregado
+                        let promotion = $("#prm-bdy")[0].lastElementChild.children[2].lastElementChild; //me aseguro que sea el ultimo prm-card agregado
                         //utilizo el modo vanilla porque con jquery, para promotion.append() me agrega un string y no una estructura html
                         let awardDiv = document.createElement("div");
                         awardDiv.className = "prm-award";
@@ -204,14 +206,46 @@ function buildHtmlPromotionBody() {
                         <p>${award.qty}</p>
                         <img class="icon" src=${award.icon}>
                         <p>${award.description}</p>
+                        <p class="award-pdt-id">${award.pdt}</p>
                         `
                         promotion.appendChild(awardDiv);
                     });
+                    //aplicar promocion: no logre hacerlo de forma asincrona por eso lo agrego aca
+                    var applyPromoBtn = $(".apply-btn-film");
+
+                    applyPromoBtn.click(function(e) {
+                        let applyFlag = e.target.parentNode.parentNode.children[0];
+                        let myAwards = e.target.parentNode.parentNode.children[2].children[3].children;
+                        let awrProductChecked = {};
+                        awrProductChecked = JSON.parse(sessionStorage.getItem('myaward'));
+
+                        if(awrProductChecked === null) {
+
+                            for(let awr of myAwards) {
+                                let awrCheck = awr.children[0];
+    
+                                if(awrCheck.checked === true) {
+                                    let awrPdt = awrCheck.parentNode.children[4].innerHTML;
+                                    let awrQty = awrCheck.parentNode.children[1].innerHTML;
+                                    awrProductChecked = {product: awrPdt, quantity: awrQty};
+                                    applyFlag.checked = true;
+                                };
+
+                            }
+
+                            if(awrProductChecked === null) {
+                                console.log("seleccione un producto por favor");
+                            }else{
+                                sessionStorage.setItem('myaward', JSON.stringify(awrProductChecked));
+                                console.log("el combo seleccionado sera enviado con la orden")
+                            };
+
+                        }else{console.log("ya se asigno una promo para esta orden")}
+                    })
                 }
             });
         }
     });
-
 }
 
 function getPrice(product) {
