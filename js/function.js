@@ -4,6 +4,7 @@ import { myOrderAmount } from './main.js'
 var notificationContainer = $("#system-notification");
 var notificationText = $("#system-notification > p");
 var order = sessionStorage.getItem('order');
+var myProductAward = JSON.parse(sessionStorage.getItem('myaward'));
 var customer = localStorage.getItem('customer');
 
 function buildHtmlStoreHeader(store){
@@ -112,7 +113,7 @@ function createOrderID(){
 
 function postOrder(){
     let url = "http://localhost:3000/orders";
-    const myOrderInfo = { order: order, amount: myOrderAmount};
+    const myOrderInfo = { order: order, amount: myOrderAmount, award: myProductAward};
 
     if(myOrderAmount > 1){
         $.post(url, myOrderInfo, function(response, status){
